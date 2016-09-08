@@ -3,7 +3,7 @@
     <?php require('partials/header.php');?>
 </head>
 <body>
-    Hey!
+    Hey Tommy!
     <?php require('partials/footer.php');?>
 </body>
 </html>

@@ -1,1 +1,1 @@
-MusicManager
+School Planner

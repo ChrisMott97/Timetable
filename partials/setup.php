@@ -1,8 +1,10 @@
 <?php
 session_start();
 
+require('models/query.class.php');
+Flight::set('query', new Query());
 
-require './models/connection.class.php';
-$cnnct = new Connection();
-$db = $cnnct->create();//connection class used for connection to database
+require('controllers/index.controller.php');
+require('controllers/login.controller.php');
+
 

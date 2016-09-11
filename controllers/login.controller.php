@@ -19,10 +19,11 @@ class LoginController
         
         if($username && password_verify($_POST['password'], $hashedpass)){
             $_SESSION['id'] = $id;
-            Flight::render('home.view.php', array('username', $username));
+            $_SESSION['loggedin'] = true;
+            Flight::redirect('/home');
             exit;
         }
         
-        Flight::render('login.view.php');
+        Flight::redirect('/login');
     }
 }

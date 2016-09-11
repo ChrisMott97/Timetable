@@ -1,5 +1,5 @@
 <?php
-class LogoutController
+class LogoutController extends Controller
 {
     /*
     GET /login

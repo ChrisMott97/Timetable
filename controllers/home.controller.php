@@ -1,11 +1,8 @@
 <?php
-class HomeController
+class HomeController extends Controller
 {
     public function index(){
-        if(isset($_SESSION['loggedin']) && $_SESSION['loggedin']){
-            Flight::render('home.view.php');
-            exit;
-        }
-        Flight::redirect('/login');
+        parent::authCheck();
+        Flight::render('home.view.php');
     }
 }

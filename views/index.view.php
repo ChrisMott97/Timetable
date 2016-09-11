@@ -5,9 +5,7 @@
     <link type="text/css" href="public/css/index.css">
 </head>
 
-<body>
-    <?php require_once('partials/navbar.php');?>
-      
+<body>     
        <div class="container">
 
       <!-- Main component for a primary marketing message or call to action -->

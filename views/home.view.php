@@ -5,8 +5,6 @@
 </head>
 
 <body>
-    <?php require_once('partials/navbar.php');?>
-      
        <div class="container">
 
       <!-- Main component for a primary marketing message or call to action -->

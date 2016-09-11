@@ -6,6 +6,7 @@ class LoginController extends Controller
     GET /login
     */
     public function index(){
+        parent::guestOnly();
         Flight::render('login.view.php');
     }
     

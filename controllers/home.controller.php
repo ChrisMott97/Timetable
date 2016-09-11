@@ -2,7 +2,8 @@
 class HomeController extends Controller
 {
     public function index(){
-        parent::authCheck();
+        parent::routeProtect();
+        Flight::render('navbar.view.php');
         Flight::render('home.view.php');
     }
 }

@@ -1,0 +1,8 @@
+
+body {
+    background-image: url('public/images/404.png');
+    background-position: center;
+    background-size: cover;
+    width: auto;
+    height: auto;
+}

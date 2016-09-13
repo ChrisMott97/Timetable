@@ -15,5 +15,8 @@ require('controllers/logout.controller.php');
 $logout = new LogoutController;
 require('controllers/home.controller.php');
 $home = new HomeController;
+require('controllers/admin.controller.php');
+$admin = new AdminController;
+
 
 

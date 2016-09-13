@@ -10,11 +10,17 @@ class Query
         $this->db = $this->db();
         
     }
-    
+    //host: eu-cdbr-azure-west-d.cloudapp.net
+    //username: bbb1325bbd9a81
+    //password: 6a15ed22
+
+
+
+
     private function db()
     {
         try {
-            return new PDO('mysql:host=eu-cdbr-azure-west-d.cloudapp.net;dbname=schoolplanner', 'bbb1325bbd9a81', '6a15ed22');
+            return new PDO('mysql:host=localhost;dbname=schoolplanner', 'chris', 'denefield');
         } catch (PDOException $e) {
             die($e->getMessage());
         }

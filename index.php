@@ -5,6 +5,4 @@ require('partials/setup.php');
 
 require('routes.php');
 
-
-
 Flight::start();

@@ -7,19 +7,19 @@ $desc = array(
 );
 
 // command to invoke markup engine
-$cmd = "python python_example.py";
+$cmd = "python hello.py";
 
 // spawn the process
 $p = proc_open($cmd, $desc, $pipes);
 
-fclose($pipes[0]);
-
-// read the output from the engine
-$output = stream_get_contents($pipes[1]);
-
-// all done! Clean up
-fclose($pipes[1]);
-fclose($pipes[2]);
-proc_close($p);
-
-echo "<html>$output</html>";
+if(is_resource($p)){
+    print fgets($pipes[1]);
+    
+    fclose($pipes[1]);
+    fclose($pipes[0]);
+    fclose($pipes[2]);
+    $returned = proc_close($p);
+    echo $returned;
+} else {
+    echo 'no resource available';
+}

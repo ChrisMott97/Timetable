@@ -21,7 +21,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Account <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="#">Settings</a></li>
-                        <li><a href="#">Account Info</a></li>
+                        <li><a href="account">Account Info</a></li>
                         <li><a href="logout">Logout</a></li>
                     </ul>
                 </li>

@@ -5,5 +5,6 @@ class AdminController extends Controller
         parent::routeProtect(5);
         Flight::render('navbar.view.php');
         Flight::render('admin/admin.view.php');
+        Flight::render('footer.view.php');
     }
 }

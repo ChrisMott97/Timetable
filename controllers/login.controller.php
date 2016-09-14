@@ -13,6 +13,7 @@ class LoginController extends Controller
     public function index(){
         parent::guestOnly();
         Flight::render('login.view.php');
+        Flight::render('footer.view.php');
     }
     
     /*

@@ -18,8 +18,4 @@
       </div>
 
     </div> <!-- /container -->
-    
-    <?php require_once('partials/footer.php');?>
-</body>
 
-</html>

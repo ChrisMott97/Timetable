@@ -11,5 +11,6 @@ class HomeController extends Controller
         
         Flight::render('navbar.view.php');
         Flight::render('home.view.php', array('user' => $this->user));
+        Flight::render('footer.view.php');
     }
 }

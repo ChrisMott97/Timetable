@@ -5,5 +5,6 @@ class IndexController extends Controller
         parent::guestOnly();
         Flight::render('navbarguest.view.php');
         Flight::render('index.view.php', array('username' => 'Welcome!'));
+        Flight::render('footer.view.php');
     }
 }

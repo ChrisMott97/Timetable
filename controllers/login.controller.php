@@ -2,6 +2,11 @@
 
 class LoginController extends Controller
 {
+    
+    public function __construct(){
+        parent::__construct();
+    }
+    
     /*
     GET /login
     */
@@ -21,6 +26,7 @@ class LoginController extends Controller
         if($username && password_verify($_POST['password'], $hashedpass)){
             $_SESSION['id'] = $id;
             $_SESSION['loggedin'] = true;
+            
             Flight::redirect('/home');
             exit;
         }

@@ -22,7 +22,7 @@
                     <ul class="dropdown-menu">
                         <li><a href="#">Settings</a></li>
                         <li><a href="#">Account Info</a></li>
-                        <li><a href="#">Edit Planner</a></li>
+                        <li><a href="logout">Logout</a></li>
                     </ul>
                 </li>
             </ul>

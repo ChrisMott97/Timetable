@@ -1,9 +1,14 @@
 <?php
 
 class User{
-    private $id;
-    private $username;
-    private $firstname;
-    private $lastname;
-    private $password;
+    public $id;
+    public $username;
+    public $firstname;
+    public $lastname;
+    public $password;
+    public $year;
+    public $permission;
+    
+    
 }
+

@@ -2,6 +2,7 @@
 
 <head>
     <?php require_once('partials/header.php');?>
+    <title>Admin Dashboard</title>
 </head>
 
 <body>

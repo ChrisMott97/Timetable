@@ -3,6 +3,7 @@
 <head>
     <?php require_once('partials/header.php');?>
     <link type="text/css" href="public/css/index.css">
+    <title>School Planner</title>
 </head>
 
 <body>     

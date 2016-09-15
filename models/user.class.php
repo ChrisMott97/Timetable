@@ -9,6 +9,8 @@ class User{
     public $year;
     public $permission;
     
-    
+    public function create(){
+        
+    }
 }
 

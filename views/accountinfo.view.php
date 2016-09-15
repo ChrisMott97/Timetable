@@ -14,6 +14,4 @@
         <p><?= "Username = $user->username" ?></p>
         <p><?= "Year = $user->year"?></p>
       </div>
-
-    </div> <!-- /container -->
     

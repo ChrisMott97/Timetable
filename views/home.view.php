@@ -15,3 +15,4 @@
         <p>To use the built in planner and get the quickest routes to lessons, please login or register!</p>
         
       </div>
+    

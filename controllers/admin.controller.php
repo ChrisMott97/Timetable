@@ -4,7 +4,7 @@ class AdminController extends Controller
     public function index(){
         parent::routeProtect(5);
         Flight::render('navbar.view.php');
-        Flight::render('admin/admin.view.php');
+        Flight::render('admin/admin.view.php', array('user' => $this->user));
         Flight::render('admin/adduser.view.php');
         Flight::render('footer.view.php');
     }

@@ -10,9 +10,4 @@
        <div class="background">
         401 Unauthorized Access!
        </div>
-    </div>
     
-    <?php require_once('partials/footer.php');?>
-</body>
-
-</html>

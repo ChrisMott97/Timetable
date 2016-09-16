@@ -6,6 +6,7 @@ class ErrorController extends Controller
         switch ($ecode){
             case 401: //unauthorized access
                 Flight::render('errors/401.view.php');
+                Flight::render('footer.view.php');
                 break;
             default:
                 Flight::redirect('/');

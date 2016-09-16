@@ -29,11 +29,28 @@ class Graph(object):
 
     def __init__(self, graph_dict):
         self.nodes = {}
-        gnodes = list(graph_dict.keys())
-        for node in gnodes:
-            for connector in node:
-                connectors[connector] = node[connector]
+        for node, connections in graph_dict.items():
+            connectors = {}
+            for connector, distance in connections.items():
+                connectors[connector] = str(distance)
             self.nodes[node] = Node(node, node, False, connectors)
 
+    def listNodes(self):
+        nodelist = []
+        for node in self.nodes:
+            nodelist.append(node)
+        return nodelist
+    
+    def findShortest(self, start, end):
+        for node in self.listNodes():
+            
+
 newgraph = Graph(graph)
-print(newgraph.nodes)
+print("This graph contains nodes "+(str(newgraph.listNodes()).rstrip(']').lstrip('[')))
+print("This graph includes vertex "+newgraph.nodes['A'].identifier)
+print("And is also called "+newgraph.nodes['A'].name+".")
+print("This node is connected to "+(str(newgraph.nodes['A'].connectors).rstrip('}').lstrip('{')))
+if(newgraph.nodes['A'].room):
+    print("and it is a room")
+else:
+    print("and it is not a room")

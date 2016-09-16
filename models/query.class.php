@@ -38,6 +38,20 @@ class Query
         }
     }
     
+    public function insertUser($user){
+        try {
+            $stmt = $this->db->prepare("INSERT INTO users (username, firstname, lastname, password, year) VALUES(:username, :firstname, :lastname, :password, :year)");
+            $stmt->bindParam(':username', $user->username);
+            $stmt->bindParam(':firstname', $user->firstname);
+            $stmt->bindParam(':lastname', $user->lastname);
+            $stmt->bindParam(':password', $user->password);
+            $stmt->bindParam(':year', $user->year);
+            $stmt->execute();
+        } catch (PDOException $e) {
+            die($e->getMessage());
+        }
+    }
+    
     public function selectRow($table, $refprop, $ref){
         try {
             $stmt = $this->db->prepare("SELECT * FROM $table WHERE $refprop = :ref");

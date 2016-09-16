@@ -19,6 +19,7 @@ class AdminController extends Controller
                 $adduser->lastname = $_POST['lastname'];
                 $adduser->password = password_hash($_POST['password'], PASSWORD_DEFAULT);
                 $adduser->year = $_POST['year'];
+                $adduser->create($adduser);
                 Flight::redirect('/admin');
         }
     }

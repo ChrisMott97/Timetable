@@ -1,6 +1,7 @@
 <?php
 
-class User{
+class User
+{
     public $id;
     public $username;
     public $firstname;
@@ -10,7 +11,7 @@ class User{
     public $permission;
     
     public function create(){
-        
+        Flight::get('query')->insertUser($this);
     }
 }
 

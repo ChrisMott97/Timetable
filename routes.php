@@ -6,6 +6,9 @@ Flight::route('GET /logout', [$logout,'index']);
 Flight::route('GET /@ecode:[0-9]{3}', [$error,'index']);
 Flight::route('GET /account', [$account,'index']);
 
+Flight::route('GET /timetable', [$timetable,'index']);
+Flight::route('GET /timetable/edit', [$timetable,'edit']);
+
 Flight::route('GET /admin', [$admin,'index']);
 
 Flight::route('POST /login', array($login,'auth'));

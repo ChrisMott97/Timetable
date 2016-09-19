@@ -1,5 +1,5 @@
 <!-- Fixed navbar -->
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-default">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -12,12 +12,12 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#about">Timetable</a></li>
+                <li><a href="/">Home</a></li>
+                <li><a href="timetable">Timetable</a></li>
                 <li><a href="#contact">Directions</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li class="adminbtn"><a href="/admin"><button type="button" class="btn btn-primary">Admin</button></a></li>
+                <li><a href="admin">Admin</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Account <span class="caret"></span></a>
                     <ul class="dropdown-menu">

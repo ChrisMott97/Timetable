@@ -16,6 +16,61 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `lessons`
+--
+
+DROP TABLE IF EXISTS `lessons`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `lessons` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `subject` varchar(45) NOT NULL,
+  `room` varchar(45) NOT NULL,
+  `teacher` varchar(45) NOT NULL,
+  `year` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `lessons`
+--
+
+LOCK TABLES `lessons` WRITE;
+/*!40000 ALTER TABLE `lessons` DISABLE KEYS */;
+/*!40000 ALTER TABLE `lessons` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `periods`
+--
+
+DROP TABLE IF EXISTS `periods`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `periods` (
+  `code` varchar(45) NOT NULL DEFAULT 'CODE',
+  `day` varchar(45) DEFAULT NULL,
+  `week` varchar(45) DEFAULT NULL,
+  `time_start` int(11) DEFAULT NULL,
+  `time_end` int(11) DEFAULT NULL,
+  `length` int(11) DEFAULT NULL,
+  `period` int(11) DEFAULT NULL,
+  PRIMARY KEY (`code`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `periods`
+--
+
+LOCK TABLES `periods` WRITE;
+/*!40000 ALTER TABLE `periods` DISABLE KEYS */;
+INSERT INTO `periods` VALUES ('FriA1','Friday','A',840,940,60,1),('FriA2','Friday','A',940,1040,60,2),('FriA3','Friday','A',1100,1200,60,3),('FriA4','Friday','A',1200,1300,60,4),('FriA5','Friday','A',1400,1500,60,5),('FriB1','Friday','B',840,940,60,1),('FriB2','Friday','B',940,1040,60,2),('FriB3','Friday','B',1100,1200,60,3),('FriB4','Friday','B',1200,1300,60,4),('FriB5','Friday','B',1400,1500,60,5),('MonA1','Monday','A',840,940,60,1),('MonA2','Monday','A',940,1040,60,2),('MonA3','Monday','A',1100,1200,60,3),('MonA4','Monday','A',1200,1300,60,4),('MonA5','Monday','A',1400,1500,60,5),('MonB1','Monday','B',840,940,60,1),('MonB2','Monday','B',940,1040,60,2),('MonB3','Monday','B',1100,1200,60,3),('MonB4','Monday','B',1200,1300,60,4),('MonB5','Monday','B',1400,1500,60,5),('ThuA1','Thursday','A',840,940,60,1),('ThuA2','Thursday','A',940,1040,60,2),('ThuA3','Thursday','A',1100,1200,60,3),('ThuA4','Thursday','A',1200,1300,60,4),('ThuA5','Thursday','A',1400,1500,60,5),('ThuB1','Thursday','B',840,940,60,1),('ThuB2','Thursday','B',940,1040,60,2),('ThuB3','Thursday','B',1100,1200,60,3),('ThuB4','Thursday','B',1200,1300,60,4),('ThuB5','Thursday','B',1400,1500,60,5),('TueA1','Tuesday','A',840,940,60,1),('TueA2','Tuesday','A',940,1040,60,2),('TueA3','Tuesday','A',1100,1200,60,3),('TueA4','Tuesday','A',1200,1300,60,4),('TueA5','Tuesday','A',1400,1500,60,5),('TueB1','Tuesday','B',840,940,60,1),('TueB2','Tuesday','B',940,1040,60,2),('TueB3','Tuesday','B',1100,1200,60,3),('TueB4','Tuesday','B',1200,1300,60,4),('TueB5','Tuesday','B',1400,1500,60,5),('WedA1','Wednesday','A',840,940,60,1),('WedA2','Wednesday','A',940,1040,60,2),('WedA3','Wednesday','A',1100,1200,60,3),('WedA4','Wednesday','A',1200,1300,60,4),('WedA5','Wednesday','A',1400,1500,60,5),('WedB1','Wednesday','B',840,940,60,1),('WedB2','Wednesday','B',940,1040,60,2),('WedB3','Wednesday','B',1100,1200,60,3),('WedB4','Wednesday','B',1200,1300,60,4),('WedB5','Wednesday','B',1400,1500,60,5);
+/*!40000 ALTER TABLE `periods` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `permissions`
 --
 
@@ -41,6 +96,30 @@ INSERT INTO `permissions` VALUES (1,'student','default user - has access to end-
 UNLOCK TABLES;
 
 --
+-- Table structure for table `sessions`
+--
+
+DROP TABLE IF EXISTS `sessions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `sessions` (
+  `userid` int(11) NOT NULL,
+  `lessonid` int(11) DEFAULT NULL,
+  `period` varchar(45) NOT NULL,
+  PRIMARY KEY (`userid`,`period`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `sessions`
+--
+
+LOCK TABLES `sessions` WRITE;
+/*!40000 ALTER TABLE `sessions` DISABLE KEYS */;
+/*!40000 ALTER TABLE `sessions` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `users`
 --
 
@@ -57,7 +136,7 @@ CREATE TABLE `users` (
   `permission` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
   UNIQUE KEY `username_UNIQUE` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -66,7 +145,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'cmott97','Chris','Mott','$2y$10$rq4yYITEhZfYjEXS3tSxeeFRU5gqP4U1JrdLxKOOc19g5tzC5Zs8y',13,5),(21,'hjones02','Haydn','Jones','$2y$10$1bMHgHeptg918kPaPq/RDOHWb4T/S4vyTHPP0XsMSo4wjS/cwHziy',10,1);
+INSERT INTO `users` VALUES (1,'cmott97','Chris','Mott','$2y$10$rq4yYITEhZfYjEXS3tSxeeFRU5gqP4U1JrdLxKOOc19g5tzC5Zs8y',13,5),(21,'hjones02','Haydn','Jones','$2y$10$1bMHgHeptg918kPaPq/RDOHWb4T/S4vyTHPP0XsMSo4wjS/cwHziy',10,1),(22,'jsmith03','John','Smith','$2y$10$Dl.nsgZgqcY4oW9ESa/TBe6RvCvsk/qTbBVTTDONOTdEuO/B4ExHG',9,1);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -79,4 +158,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-09-14 13:07:23
+-- Dump completed on 2016-09-19 13:33:25

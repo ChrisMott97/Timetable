@@ -23,5 +23,7 @@ require('controllers/admin.controller.php');
 $admin = new AdminController;
 require('controllers/accountinfo.controller.php');
 $account = new AccountinfoController;
+require('controllers/timetable.controller.php');
+$timetable = new TimetableController;
 
 

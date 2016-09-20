@@ -17,8 +17,11 @@ class TimetableController extends Controller
     public function edit(){
         parent::routeProtect();
         
+        $timetable = $this->query->selectTable('lessons');
+        $periods = $this->query->selectCol('periods', 'code');
+        
         Flight::render('navbar.view.php');
-        Flight::render('timetable_edit.view.php', array('user' => $this->user));
+        Flight::render('timetable_edit.view.php', array('user' => $this->user, 'periods' => $periods));
         Flight::render('footer.view.php');
     }
 }

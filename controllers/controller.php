@@ -2,13 +2,15 @@
 class Controller
 {
     public $user;
+    public $query;
     
     public function  __construct(){
+        $this->query = Flight::get('query');
         if($this->authCheck()){
             $id = $_SESSION['id'];
             $this->user = new User;
             
-            $properties = Flight::get('query')->selectRow('users', 'id', $id);
+            $properties = $this->query->selectRow('users', 'id', $id);
             foreach ($properties as $property => $value)
             {
                 $this->user->$property = $value;

@@ -6,11 +6,8 @@
 </head>
 
 <body>
-    <?php $x = '
-    <select class="js-example-basic-single">
-        <option value="HI">History</option>
-        <option value="MA">Maths</option>
-    </select>'
+    <?php
+    $x = 'Free';
     ?>
     <div class="container">
 
@@ -20,7 +17,7 @@
             <div class="panel-body table-responsive">
                 <table class="table table-bordered">
                     <tr class="info">
-                        <th>A</th><th>Monday</th><th>Tuesday</th><th>Wednesday</th><th>Thursday</th><th>Friday</th>
+                        <th>A</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th>
                     </tr>
                     <tr>
                         <th>1</th><td><?= $x ?></td><td><?= $x ?></td><td><?= $x ?></td><td><?= $x ?></td><td><?= $x ?></td>
@@ -59,10 +56,44 @@
                     <div class="col-md-6">
                         <div class="btn-group pull-right" role="group" aria-label="...">
                             <button type="button" class="btn btn-primary">Week A</button>
-                            <button type="button" class="btn btn-primary">Edit Timetable</button>
+                            <button type="button" class="btn btn-success">Save</button>
                             <button type="button" class="btn btn-primary">Week B</button>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h4>Edit Session</h4>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <form>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="email">Session:</label>
+                                <select class='session_edit' style='width: 100%'>;
+                                    <?php foreach($periods as $period):?>
+                                    <option value=<?= $period->code; ?>><?= $period->code; ?></option>);
+                                    <?php endforeach ?>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="email">Lesson:</label>
+                                <select class='session_edit' style='width: 100%'>;
+                                    <?php foreach($periods as $period):?>
+                                    <option value=<?= $period->code; ?>><?= $period->code; ?></option>);
+                                    <?php endforeach ?>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <button type="submit" class="btn btn-default">Set</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

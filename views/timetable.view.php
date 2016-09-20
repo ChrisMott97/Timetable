@@ -15,7 +15,7 @@
             <div class="panel-body table-responsive">
                 <table class="table table-bordered">
                     <tr class="info">
-                        <th>A</th><th>Monday</th><th>Tuesday</th><th>Wednesday</th><th>Thursday</th><th>Friday</th>
+                        <th>A</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th>
                     </tr>
                     <tr>
                         <th>1</th><td><?= $x ?></td><td><?= $x ?></td><td><?= $x ?></td><td><?= $x ?></td><td><?= $x ?></td>

@@ -63,4 +63,24 @@ class Query
         }
     }
     
+    public function selectTable($table){
+        try {
+            $stmt = $this->db->prepare("SELECT * FROM $table");
+            $stmt->execute();
+            return $rowarray = $stmt->fetchAll(PDO::FETCH_CLASS);
+        } catch (PDOException $e) {
+            die($e->getMessage());
+        }
+    }
+    
+    public function selectCol($table, $col){
+        try {
+            $stmt = $this->db->prepare("SELECT $col FROM $table");
+            $stmt->execute();
+            return $colarray = $stmt->fetchAll(PDO::FETCH_CLASS);
+        } catch (PDOException $e) {
+            die($e->getMessage());
+        }
+    }
+    
 }

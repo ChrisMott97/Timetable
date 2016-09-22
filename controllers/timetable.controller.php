@@ -21,7 +21,7 @@ class TimetableController extends Controller
         $periods = $this->query->selectCol('periods', 'code');
         
         Flight::render('navbar.view.php');
-        Flight::render('timetable_edit.view.php', array('user' => $this->user, 'periods' => $periods));
+        Flight::render('timetable_edit.view.php', array('user' => $this->user, 'periods' => $periods, 'timetable' => $timetable));
         Flight::render('footer.view.php');
     }
 }

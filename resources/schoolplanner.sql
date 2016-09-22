@@ -29,7 +29,7 @@ CREATE TABLE `lessons` (
   `teacher` varchar(45) NOT NULL,
   `year` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,6 +38,7 @@ CREATE TABLE `lessons` (
 
 LOCK TABLES `lessons` WRITE;
 /*!40000 ALTER TABLE `lessons` DISABLE KEYS */;
+INSERT INTO `lessons` VALUES (1,'ICT ','M120','RYA',13),(2,'F Maths','A105','DGN',13);
 /*!40000 ALTER TABLE `lessons` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -49,6 +50,7 @@ DROP TABLE IF EXISTS `periods`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `periods` (
+  `order` int(11) DEFAULT NULL,
   `code` varchar(45) NOT NULL DEFAULT 'CODE',
   `day` varchar(45) DEFAULT NULL,
   `week` varchar(45) DEFAULT NULL,
@@ -66,7 +68,7 @@ CREATE TABLE `periods` (
 
 LOCK TABLES `periods` WRITE;
 /*!40000 ALTER TABLE `periods` DISABLE KEYS */;
-INSERT INTO `periods` VALUES ('FriA1','Friday','A',840,940,60,1),('FriA2','Friday','A',940,1040,60,2),('FriA3','Friday','A',1100,1200,60,3),('FriA4','Friday','A',1200,1300,60,4),('FriA5','Friday','A',1400,1500,60,5),('FriB1','Friday','B',840,940,60,1),('FriB2','Friday','B',940,1040,60,2),('FriB3','Friday','B',1100,1200,60,3),('FriB4','Friday','B',1200,1300,60,4),('FriB5','Friday','B',1400,1500,60,5),('MonA1','Monday','A',840,940,60,1),('MonA2','Monday','A',940,1040,60,2),('MonA3','Monday','A',1100,1200,60,3),('MonA4','Monday','A',1200,1300,60,4),('MonA5','Monday','A',1400,1500,60,5),('MonB1','Monday','B',840,940,60,1),('MonB2','Monday','B',940,1040,60,2),('MonB3','Monday','B',1100,1200,60,3),('MonB4','Monday','B',1200,1300,60,4),('MonB5','Monday','B',1400,1500,60,5),('ThuA1','Thursday','A',840,940,60,1),('ThuA2','Thursday','A',940,1040,60,2),('ThuA3','Thursday','A',1100,1200,60,3),('ThuA4','Thursday','A',1200,1300,60,4),('ThuA5','Thursday','A',1400,1500,60,5),('ThuB1','Thursday','B',840,940,60,1),('ThuB2','Thursday','B',940,1040,60,2),('ThuB3','Thursday','B',1100,1200,60,3),('ThuB4','Thursday','B',1200,1300,60,4),('ThuB5','Thursday','B',1400,1500,60,5),('TueA1','Tuesday','A',840,940,60,1),('TueA2','Tuesday','A',940,1040,60,2),('TueA3','Tuesday','A',1100,1200,60,3),('TueA4','Tuesday','A',1200,1300,60,4),('TueA5','Tuesday','A',1400,1500,60,5),('TueB1','Tuesday','B',840,940,60,1),('TueB2','Tuesday','B',940,1040,60,2),('TueB3','Tuesday','B',1100,1200,60,3),('TueB4','Tuesday','B',1200,1300,60,4),('TueB5','Tuesday','B',1400,1500,60,5),('WedA1','Wednesday','A',840,940,60,1),('WedA2','Wednesday','A',940,1040,60,2),('WedA3','Wednesday','A',1100,1200,60,3),('WedA4','Wednesday','A',1200,1300,60,4),('WedA5','Wednesday','A',1400,1500,60,5),('WedB1','Wednesday','B',840,940,60,1),('WedB2','Wednesday','B',940,1040,60,2),('WedB3','Wednesday','B',1100,1200,60,3),('WedB4','Wednesday','B',1200,1300,60,4),('WedB5','Wednesday','B',1400,1500,60,5);
+INSERT INTO `periods` VALUES (21,'FriA1','Friday','A',840,940,60,1),(22,'FriA2','Friday','A',940,1040,60,2),(23,'FriA3','Friday','A',1100,1200,60,3),(24,'FriA4','Friday','A',1200,1300,60,4),(25,'FriA5','Friday','A',1400,1500,60,5),(46,'FriB1','Friday','B',840,940,60,1),(47,'FriB2','Friday','B',940,1040,60,2),(48,'FriB3','Friday','B',1100,1200,60,3),(49,'FriB4','Friday','B',1200,1300,60,4),(50,'FriB5','Friday','B',1400,1500,60,5),(1,'MonA1','Monday','A',840,940,60,1),(2,'MonA2','Monday','A',940,1040,60,2),(3,'MonA3','Monday','A',1100,1200,60,3),(4,'MonA4','Monday','A',1200,1300,60,4),(5,'MonA5','Monday','A',1400,1500,60,5),(26,'MonB1','Monday','B',840,940,60,1),(27,'MonB2','Monday','B',940,1040,60,2),(28,'MonB3','Monday','B',1100,1200,60,3),(29,'MonB4','Monday','B',1200,1300,60,4),(30,'MonB5','Monday','B',1400,1500,60,5),(16,'ThuA1','Thursday','A',840,940,60,1),(17,'ThuA2','Thursday','A',940,1040,60,2),(18,'ThuA3','Thursday','A',1100,1200,60,3),(19,'ThuA4','Thursday','A',1200,1300,60,4),(20,'ThuA5','Thursday','A',1400,1500,60,5),(41,'ThuB1','Thursday','B',840,940,60,1),(42,'ThuB2','Thursday','B',940,1040,60,2),(43,'ThuB3','Thursday','B',1100,1200,60,3),(44,'ThuB4','Thursday','B',1200,1300,60,4),(45,'ThuB5','Thursday','B',1400,1500,60,5),(6,'TueA1','Tuesday','A',840,940,60,1),(7,'TueA2','Tuesday','A',940,1040,60,2),(8,'TueA3','Tuesday','A',1100,1200,60,3),(9,'TueA4','Tuesday','A',1200,1300,60,4),(10,'TueA5','Tuesday','A',1400,1500,60,5),(31,'TueB1','Tuesday','B',840,940,60,1),(32,'TueB2','Tuesday','B',940,1040,60,2),(33,'TueB3','Tuesday','B',1100,1200,60,3),(34,'TueB4','Tuesday','B',1200,1300,60,4),(35,'TueB5','Tuesday','B',1400,1500,60,5),(11,'WedA1','Wednesday','A',840,940,60,1),(12,'WedA2','Wednesday','A',940,1040,60,2),(13,'WedA3','Wednesday','A',1100,1200,60,3),(14,'WedA4','Wednesday','A',1200,1300,60,4),(15,'WedA5','Wednesday','A',1400,1500,60,5),(36,'WedB1','Wednesday','B',840,940,60,1),(37,'WedB2','Wednesday','B',940,1040,60,2),(38,'WedB3','Wednesday','B',1100,1200,60,3),(39,'WedB4','Wednesday','B',1200,1300,60,4),(40,'WedB5','Wednesday','B',1400,1500,60,5);
 /*!40000 ALTER TABLE `periods` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -158,4 +160,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-09-19 13:33:25
+-- Dump completed on 2016-09-20 10:56:24

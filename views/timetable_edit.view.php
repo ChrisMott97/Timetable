@@ -83,9 +83,9 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label for="email">Lesson:</label>
-                                <select class='session_edit' style='width: 100%'>;
-                                    <?php foreach($periods as $period):?>
-                                    <option value=<?= $period->code; ?>><?= $period->code; ?></option>);
+                                <select class='lesson_edit' style='width: 100%'>;
+                                    <?php foreach($timetable as $lesson):?>
+                                    <option value=<?= $lesson->id; ?>><?= $lesson->year." ".$lesson->subject." ".$lesson->room." ".$lesson->teacher; ?></option>);
                                     <?php endforeach ?>
                                 </select>
                             </div>

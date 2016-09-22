@@ -2,7 +2,7 @@
 class LogoutController extends Controller
 {
     /*
-    GET /login
+    GET /logout
     */
     public function index(){
         $_SESSION['loggedin'] = false;

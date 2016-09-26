@@ -5,9 +5,10 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
-    $(".session_edit").select2();
-    $(".lesson_edit").select2();
+    $("#session_edit").select2();
+    $("#lesson_edit").select2();
 });
 </script>
+<script src="/public/js/set.js"></script>
 </body>
 </html>

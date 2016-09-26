@@ -15,27 +15,27 @@
         <div class="panel panel-primary">
             <div class="panel-heading"><h1>Timetable</h1></div>
             <div class="panel-body table-responsive">
-                <table class="table table-bordered">
+                <table class="table table-bordered" style="table-layout: fixed; width: 100%">
                     <tr class="info">
                         <th>A</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th>
                     </tr>
                     <tr>
-                        <th>1</th><td><?= $x ?></td><td><?= $x ?></td><td><?= $x ?></td><td><?= $x ?></td><td><?= $x ?></td>
+                        <th>1</th><td id="MonA1"></td><td id="TueA1"></td><td id="WedA1"></td><td id="ThuA1"></td><td id="FriA1"></td>
                     </tr>
                     <tr>
-                        <th>2</th><td><?= $x ?></td><td><?= $x ?></td><td><?= $x ?></td><td><?= $x ?></td><td><?= $x ?></td>
+                        <th>2</th><td id="MonA2"></td><td id="TueA2"></td><td id="WedA2"></td><td id="ThuA2"></td><td id="FriA2"></td>
                     </tr>
                     <tr>
-                        <th>3</th><td><?= $x ?></td><td><?= $x ?></td><td><?= $x ?></td><td><?= $x ?></td><td><?= $x ?></td>
+                        <th>3</th><td id="MonA3"></td><td id="TueA3"></td><td id="WedA3"></td><td id="ThuA3"></td><td id="FriA3"></td>
                     </tr>
                     <tr>
-                        <th>4</th><td><?= $x ?></td><td><?= $x ?></td><td><?= $x ?></td><td><?= $x ?></td><td><?= $x ?></td>
+                        <th>4</th><td id="MonA4"></td><td id="TueA4"></td><td id="WedA4"></td><td id="ThuA4"></td><td id="FriA4"></td>
                     </tr>
                     <tr>
-                        <th>5</th><td><?= $x ?></td><td><?= $x ?></td><td><?= $x ?></td><td><?= $x ?></td><td><?= $x ?></td>
+                        <th>5</th><td id="MonA5"></td><td id="TueA5"></td><td id="WedA5"></td><td id="ThuA5"></td><td id="FriA5"></td>
                     </tr>
                     <tr>
-                        <th>6</th><td><?= $x ?></td><td><?= $x ?></td><td><?= $x ?></td><td><?= $x ?></td><td><?= $x ?></td>
+                        <th>6</th><td id="MonA6"></td><td id="TueA6"></td><td id="WedA6"></td><td id="ThuA6"></td><td id="FriA6"></td>
                     </tr>
                 </table>
             </div>
@@ -73,7 +73,7 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label for="email">Session:</label>
-                                <select class='session_edit' style='width: 100%'>;
+                                <select id='session_edit' style='width: 100%'>;
                                     <?php foreach($periods as $period):?>
                                     <option value=<?= $period->code; ?>><?= $period->code; ?></option>);
                                     <?php endforeach ?>
@@ -83,17 +83,17 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label for="email">Lesson:</label>
-                                <select class='lesson_edit' style='width: 100%'>;
+                                <select id='lesson_edit' style='width: 100%'>;
                                     <?php foreach($timetable as $lesson):?>
-                                    <option value=<?= $lesson->id; ?>><?= $lesson->year." ".$lesson->subject." ".$lesson->room." ".$lesson->teacher; ?></option>);
+                                    <option value=<?= $lesson->id; ?>><?= $lesson->subject." ".$lesson->room ?></option>);
                                     <?php endforeach ?>
                                 </select>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <button type="submit" class="btn btn-default">Set</button>
-                        </div>
                     </form>
+                    <div class="col-md-6">
+                            <button class="btn btn-default" onclick="setPeriod()">Set</button>
+                    </div>
                 </div>
             </div>
         </div>

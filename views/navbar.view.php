@@ -14,7 +14,7 @@
             <ul class="nav navbar-nav">
                 <li><a href="/">Home</a></li>
                 <li><a href="/timetable">Timetable</a></li>
-                <li><a href="#contact">Directions</a></li>
+                <li><a href="/directions">Directions</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="/admin">Admin</a></li>

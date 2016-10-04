@@ -3,12 +3,14 @@ class Controller
 {
     public $user;
     public $query;
+    public $timetable;
     
     public function  __construct(){
         $this->query = Flight::get('query');
         if($this->authCheck()){
             $id = $_SESSION['id'];
             $this->user = new User;
+            $this->timetable = new Timetable;
             
             $properties = $this->query->selectRow('users', 'id', $id);
             foreach ($properties as $property => $value)

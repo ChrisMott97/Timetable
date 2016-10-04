@@ -38,6 +38,19 @@ class Query
         }
     }
     
+    public function selectCell2Props($property, $table, $refprop, $ref, $refprop2, $ref2){
+        try {
+            $stmt = $this->db->prepare("SELECT $property FROM $table WHERE $refprop = :ref AND $refprop2 = :ref2");
+            $stmt->bindParam(':ref', $ref);
+            $stmt->bindParam(':ref2', $ref2);
+            $stmt->execute();
+            $row = $stmt->fetch();
+            return $row[$property];
+        } catch (PDOException $e) {
+            die($e->getMessage());
+        }
+    }
+    
     public function insertUser($user){
         try {
             $stmt = $this->db->prepare("INSERT INTO users (username, firstname, lastname, password, year) VALUES(:username, :firstname, :lastname, :password, :year)");
@@ -73,11 +86,45 @@ class Query
         }
     }
     
+    public function selectRows($table, $refprop, $ref){
+        try {
+            $stmt = $this->db->prepare("SELECT * FROM $table WHERE $refprop = :ref");
+            $stmt->bindParam(':ref', $ref);
+            $stmt->execute();
+            return $rowarray = $stmt->fetchAll(PDO::FETCH_CLASS);
+        } catch (PDOException $e) {
+            die($e->getMessage());
+        }
+    }
+    
     public function selectCol($table, $col){
         try {
             $stmt = $this->db->prepare("SELECT $col FROM $table");
             $stmt->execute();
             return $colarray = $stmt->fetchAll(PDO::FETCH_CLASS);
+        } catch (PDOException $e) {
+            die($e->getMessage());
+        }
+    }
+    
+    public function insertSession($userid, $lessonid, $period){
+        try {
+            $stmt = $this->db->prepare("INSERT INTO sessions (userid, lessonid, period) VALUES(:userid, :lessonid, :period)");
+            $stmt->bindParam(':userid', $userid);
+            $stmt->bindParam(':lessonid', $lessonid);
+            $stmt->bindParam(':period', $period);
+            $stmt->execute();
+        } catch (PDOException $e) {
+            die($e->getMessage());
+        }
+    }
+    
+    public function updateSession($lessonid, $sessionid){
+        try {
+            $stmt = $this->db->prepare("UPDATE sessions SET lessonid = :lessonid WHERE sessionid = :sessionid");
+            $stmt->bindParam(':lessonid', $lessonid);
+            $stmt->bindParam(':sessionid', $sessionid);
+            $stmt->execute();
         } catch (PDOException $e) {
             die($e->getMessage());
         }

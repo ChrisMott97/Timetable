@@ -29,6 +29,8 @@ require('controllers/accountinfo.controller.php');
 $account = new AccountinfoController;
 require('controllers/timetable.controller.php');
 $timetable = new TimetableController;
+require('controllers/timetable_lessons.controller.php');
+$timetable_lessons = new TimetableLessonsController;
 require('controllers/directions.controller.php');
 $directions = new DirectionsController;
 

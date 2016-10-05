@@ -42,7 +42,7 @@ class Graph(object):
         return nodelist
     
     def findShortest(self, start, end):
-        for node in self.listNodes():
+        for node in self.nodes:
             
 
 newgraph = Graph(graph)

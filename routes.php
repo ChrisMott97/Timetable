@@ -12,6 +12,8 @@ Flight::route('GET /timetable/edit', [$timetable,'edit']);
 Flight::route('POST /timetable/update', [$timetable,'update']);
 
 Flight::route('GET /timetable/lessons', [$timetable_lessons, 'index']);
+Flight::route('POST /timetable/lessons/create', [$timetable_lessons, 'create']);
+Flight::route('POST /timetable/lessons/delete', [$timetable_lessons, 'delete']);
 
 Flight::route('GET /admin', [$admin,'index']);
 Flight::route('POST /admin/@submit', array($admin,'create'));

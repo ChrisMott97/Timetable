@@ -63,37 +63,52 @@
                 </div>
             </div>
         </div>
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <h4>Edit Session</h4>
-            </div>
-            <div class="panel-body">
-                <div class="row">
-                    <form>
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <label for="email">Session:</label>
-                                <select id='session_edit' style='width: 100%'>;
-                                    <?php foreach($periods as $period):?>
-                                    <option value=<?= $period->code; ?>><?= $period->code; ?></option>);
-                                    <?php endforeach ?>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <label for="email">Lesson:</label>
-                                <select id='lesson_edit' style='width: 100%'>;
-                                    <?php foreach($lessons as $lesson):?>
-                                    <option value=<?= $lesson->id; ?>><?= $lesson->subject." ".$lesson->room ?></option>);
-                                    <?php endforeach ?>
-                                </select>
-                            </div>
-                        </div>
-                    </form>
-                    <div class="col-md-6">
-                            <button class="btn btn-default" onclick="setPeriod()">Set</button>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h4>Edit Session</h4>
                     </div>
-                </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <form>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="email">Session:</label>
+                                        <select id='session_edit' style='width: 100%'>;
+                                            <?php foreach($periods as $period):?>
+                                            <option value=<?= $period->code; ?>><?= $period->code; ?></option>);
+                                            <?php endforeach ?>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="email">Lesson:</label>
+                                        <select id='lesson_edit' style='width: 100%'>;
+                                            <?php foreach($lessons as $lesson):?>
+                                            <option value=<?= $lesson->id; ?>><?= $lesson->subject." ".$lesson->room ?></option>);
+                                            <?php endforeach ?>
+                                        </select>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <button class="btn btn-success" onclick="setPeriod()">Set</button>
+                        <a href="/timetable/lessons"><button class="btn btn-default">Manage Lessons</button></a>
+                    </div>
+                </div>    
+            </div>
+            <div class="col-md-4">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h4>Settings</h4>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            
+                        </div>
+                    </div>
+                </div>    
             </div>
         </div>

@@ -13,25 +13,47 @@
                     <h4>Add Lesson</h4>
                 </div>
                 <div class="panel-body">
-                    <form>
-                        <div class="col-md-6">
+                   <div class="alert alert-danger" role="alert"><b>Warning:</b> Ensure the lesson you're about to add <b>does not</b> already exist by using the search utility on the right.</div>
+                    <form method="post" action="/timetable/lessons/create">
+                        <div class="col-md-4">
                             <div class="form-group">
-                                <label for="email">Session:</label>
-                                <select id='session_edit' style='width: 100%'>;
-                                </select>
+                                <label for="subject">Subject</label>
+                                <input type="text" name="subject" class="form-control" id="subject" placeholder="e.g. IT">
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label for="email">Lesson:</label>
-                                <select id='lesson_edit' style='width: 100%'>;
-                                </select>
+                                <label for="room">Room</label>
+                                <input type="text" name="room" class="form-control" id="room" placeholder="e.g. M119">
                             </div>
                         </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="teacher">Teacher</label>
+                                <input type="text" name="teacher" class="form-control" id="teacher" placeholder="e.g. RYA">
+                            </div>
+                        </div>
+                        <button class="btn btn-success center-block" type="submit">Add</button>
                     </form>
-                    <div class="col-md-2">
-                        <button class="btn btn-default" onclick="setPeriod()">Set</button>
-                    </div>
+                </div>
+            </div>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h4>Remove Lesson</h4>
+                </div>
+                <div class="panel-body">
+                   <div class="alert alert-danger" role="alert"><b>Warning:</b> The following action <b>cannot</b> be undone!</div>
+                    <form method="post" action="/timetable/lessons/delete">
+                        <div class="form-group">
+                            <label for="email">Lesson:</label>
+                            <select id='lesson_edit' style='width: 100%'>;
+                                <?php foreach($lessons as $lesson):?>
+                                <option value=<?= $lesson->id; ?>><?= $lesson->subject." ".$lesson->room ?></option>);
+                                <?php endforeach ?>
+                            </select>
+                        </div>
+                        <button class="btn btn-danger center-block" type="submit">Remove</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -47,7 +69,21 @@
                     </div>
                     <br>
                     <ul class="default_list list-group">
-                        <li class="list-group-item">C</li>
+                        <?php foreach($lessons as $lesson):?>
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <?= $lesson->subject;?>
+                                </div>
+                                <div class="col-md-4">
+                                    <?= $lesson->room;?>
+                                </div>
+                                <div class="col-md-4">
+                                    <?= $lesson->teacher;?>
+                                </div>
+                            </div>
+                        </li>
+                        <?php endforeach;?>
                     </ul>
                 </div>
             </div>

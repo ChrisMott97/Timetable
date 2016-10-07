@@ -29,7 +29,7 @@ CREATE TABLE `lessons` (
   `teacher` varchar(45) NOT NULL,
   `year` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,7 +38,7 @@ CREATE TABLE `lessons` (
 
 LOCK TABLES `lessons` WRITE;
 /*!40000 ALTER TABLE `lessons` DISABLE KEYS */;
-INSERT INTO `lessons` VALUES (1,'ICT ','M120','RYA',13),(2,'F Maths','A105','DGN',13);
+INSERT INTO `lessons` VALUES (6,'D2','A105','DGN',13),(7,'FP1','A105','DGN',13),(8,'Free','','',13),(11,'Computing','M119','RYA',10),(12,'ICT','M120','SHS',13),(13,'ICT','M119','RYA',13);
 /*!40000 ALTER TABLE `lessons` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -110,7 +110,7 @@ CREATE TABLE `sessions` (
   `lessonid` int(11) DEFAULT NULL,
   `period` varchar(45) NOT NULL,
   PRIMARY KEY (`sessionid`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -119,7 +119,7 @@ CREATE TABLE `sessions` (
 
 LOCK TABLES `sessions` WRITE;
 /*!40000 ALTER TABLE `sessions` DISABLE KEYS */;
-INSERT INTO `sessions` VALUES (8,1,1,'MonA1'),(9,1,2,'MonA2'),(10,1,1,'MonA3'),(11,1,1,'MonA4');
+INSERT INTO `sessions` VALUES (8,1,6,'MonA1'),(9,1,8,'MonA2'),(10,1,8,'MonA3'),(11,1,8,'MonA4'),(12,1,12,'TueA3'),(13,1,8,'TueA1'),(14,1,8,'WedA1'),(15,1,13,'ThuA1'),(16,1,8,'FriA1'),(17,1,8,'TueA2'),(18,1,8,'WedA2'),(19,1,13,'ThuA2'),(20,1,13,'FriA2'),(21,1,6,'WedA3'),(22,1,8,'ThuA3'),(23,1,8,'FriA3'),(24,1,8,'TueA4'),(25,1,6,'WedA4'),(26,1,7,'FriA4'),(27,1,8,'MonA5'),(28,1,8,'TueA5'),(29,1,7,'WedA5'),(30,1,8,'ThuA5'),(31,1,7,'FriA5'),(32,21,11,'FriA1'),(33,21,11,'WedA2'),(34,1,12,'ThuA4');
 /*!40000 ALTER TABLE `sessions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -162,4 +162,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-10-04 10:40:19
+-- Dump completed on 2016-10-06 11:00:01

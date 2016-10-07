@@ -18,10 +18,18 @@ class TimetableLessonsController extends Controller
     
     public function create(){
         parent::routeProtect();
+        $subject = $_POST['subject'];
+        $room = $_POST['room'];
+        $teacher = $_POST['teacher'];
+        $year = $this->user->year;
+        $this->query->insertLesson($subject, $room, $teacher, $year);
         Flight::redirect('/timetable/lessons');
     }
     public function delete(){
         parent::routeProtect();
+        $lessonid = $_POST['lesson_edit'];
+        $this->query->removeRow('lessons', 'id', $lessonid);
+        //Flight::render('test.view.php', ['lessonid'=>$lessonid]);
         Flight::redirect('/timetable/lessons');
     }
 }

@@ -45,8 +45,8 @@
                    <div class="alert alert-danger" role="alert"><b>Warning:</b> The following action <b>cannot</b> be undone!</div>
                     <form method="post" action="/timetable/lessons/delete">
                         <div class="form-group">
-                            <label for="email">Lesson:</label>
-                            <select id='lesson_edit' style='width: 100%'>;
+                            <label for="lesson_edit">Lesson:</label>
+                            <select name='lesson_edit' id='lesson_edit' style='width: 100%'>;
                                 <?php foreach($lessons as $lesson):?>
                                 <option value=<?= $lesson->id; ?>><?= $lesson->subject." ".$lesson->room ?></option>);
                                 <?php endforeach ?>

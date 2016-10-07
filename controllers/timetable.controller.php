@@ -43,7 +43,7 @@ class TimetableController extends Controller
             $this->timetable->$period = $label;
         }
         
-        $lessons = $this->query->selectTable('lessons');
+        $lessons = $this->query->selectRows("lessons", "year", $this->user->year);
         $periods = $this->query->selectCol('periods', 'code');
         
         Flight::render('navbar.view.php');

@@ -129,5 +129,27 @@ class Query
             die($e->getMessage());
         }
     }
+    public function insertLesson($subject, $room, $teacher, $year){
+        try {
+            $stmt = $this->db->prepare("INSERT INTO lessons (subject, room, teacher, year) VALUES(:subject, :room, :teacher, :year)");
+            $stmt->bindParam(':subject', $subject);
+            $stmt->bindParam(':room', $room);
+            $stmt->bindParam(':teacher', $teacher);
+            $stmt->bindParam(':year', $year);
+            $stmt->execute();
+        } catch (PDOException $e) {
+            die($e->getMessage());
+        }
+    }
+    public function removeRow($table, $refprop, $ref){
+        try {
+            $stmt = $this->db->prepare("DELETE FROM $table WHERE $refprop = $ref");
+//            $stmt->bindParam(':refprop', $refprop);
+//            $stmt->bindParam(':ref', $ref);
+            $stmt->execute();
+        } catch (PDOException $e) {
+            die($e->getMessage());
+        }
+    }
     
 }

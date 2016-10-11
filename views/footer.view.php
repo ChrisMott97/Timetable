@@ -12,6 +12,7 @@ $(document).ready(function() {
 });
 </script>
 <script src="/public/js/set.js"></script>
+<script src="/public/js/periodtimes.js"></script>
 <script src="/public/js/timetable_update.js"></script>
 </body>
 </html>

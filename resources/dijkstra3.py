@@ -2,22 +2,23 @@ graph = {'A':{'B':5,'C':7},
          'B':{'A':5,'D':10},
          'C':{'A':7,'D':8},
          'D':{'B':10,'C':8}}
-
+import math
 class Node(object):
     '''
     A node is a single point on a nodegraph.
     Attributes:
         identifier: a string as a letter or combination of letters to identify the node
-        name: a string used to identify the location of the node
+        visited: a boolean determining if the node has been visisted
+        shortest: an integer that represents the shortest length from start node to the given node
+        previous: a string representing the identifier of the previous node
         connectors: a dictionary (associative array) defining all connectors and their length for a node
-        room: a boolean determining if the node is an endpoint (only one connector)
     '''
 
     def __init__(self, identifier, visited, shortest, previous, connectors = {}):
-        self.identifier = identifier
-        self.visited = visited
-        self.shortest = shortest
-        self.previous = previous
+        self.identifier = str(identifier)
+        self.visited = bool(visited)
+        self.shortest = int(shortest)
+        self.previous = str(previous)
         self.connectors = connectors
     
 class Graph(object):
@@ -45,18 +46,22 @@ class Graph(object):
     
     finalLength = int()
     finalRoute = list()
+
+    shortestnode = str()
+    shortestnodeval = float("inf")
     
     def __init__(self, graph_dict):
-        for node, connections in graph_dict.items():
+        for node, connections in sorted(graph_dict.items()):
             connectors = {}
-            for connector, distance in connections.items():
+            for connector, distance in sorted(connections.items()):
                 connectors[connector] = str(distance)
-            self.nodes[node] = Node(node, False, None, None, connectors)
+            self.nodes[node] = Node(node, False, 0, "", connectors)
         
     def listNodes(self):
         nodelist = []
-        for node in self.nodes:
+        for node in sorted(self.nodes):
             nodelist.append(node)
+            nodelist.sort()
         return nodelist
     
     def findShortest(self, start_node, end_node):
@@ -64,19 +69,30 @@ class Graph(object):
         self.endNode = end_node
         self.currentNode = self.nodes[self.startNode]
         self.unvisited.append(self.currentNode.identifier)
-
-        for connector, length in self.currentNode.connectors.items():
-            connectorObject = self.nodes[connector]
-            if((connectorObject.shortest == None) or (length < connectorObject.shortest)):
-                if(self.currentNode.previous):
-                    connectorObject.shortest = self.nodes[self.currentNode.previous].shortest + length
-                else:
-                    connectorObject.shortest = length
-                connectorObject.previous = self.currentNode.identifier
-                if(connectorObject.visited != True):
-                    self.unvisited.append(connectorObject.identifier)
-        self.unvisited.remove(self.currentNode.identifier)
-        self.currentNode.visited = True
+        
+        while(self.unvisited): ##is unvisited list empty?
+            for connector, length in sorted(self.currentNode.connectors.items()): ##loop round all connectors attached to current node
+                connectorObject = self.nodes[connector]
+                if((connectorObject.shortest == 0) or (int(length) < int(connectorObject.shortest))):
+                    if(self.currentNode.previous):
+                        prevnode = str(self.currentNode.previous)
+                        connectorObject.shortest = int((self.nodes[prevnode]).shortest) + int(length)
+                    else:
+                        connectorObject.shortest = length
+                    connectorObject.previous = self.currentNode.identifier
+                    if(connectorObject.visited != True):
+                        self.unvisited.append(connectorObject.identifier)
+            self.unvisited.remove(self.currentNode.identifier)
+            self.currentNode.visited = True
+            self.shortestnode = str()
+            self.shortestnodeval = float("inf")
+            for node in self.unvisited:
+                nodeobject = self.nodes[node]
+                if(float(nodeobject.shortest) < float(self.shortestnodeval)):
+                    self.shortestnodeval = nodeobject.shortest
+                    self.shortestnode = nodeobject.identifier
+            if(self.shortestnode in self.nodes):
+                self.currentNode = self.nodes[self.shortestnode]
 
 newgraph = Graph(graph)
 print("This graph contains nodes "+(str(newgraph.listNodes())))
@@ -86,6 +102,9 @@ if(newgraph.nodes['A'].visited):
     print("and it has been visited")
 else:
     print("and it has not been visited")
-newgraph.findShortest('A','B')
-print(newgraph.unvisited)
+newgraph.findShortest('A','D')
+print("The shortest length from A to B is "+str(newgraph.nodes['B'].shortest))
+print("The shortest length from A to C is "+str(newgraph.nodes['C'].shortest))
+print("The shortest length from A to D is "+str(newgraph.nodes['D'].shortest))
+
 

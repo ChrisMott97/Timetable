@@ -26,6 +26,26 @@ class Controller
         }
     }
     
+    public function navbar(){
+        switch($this->user->permission){
+            case(1):
+                return Flight::render('navbar/1.view.php');
+                break;
+            case(2):
+                return Flight::render('navbar/1.view.php');
+                break;
+            case(3):
+                return Flight::render('navbar/1.view.php');
+                break;
+            case(4):
+                return Flight::render('navbar/1.view.php');
+                break;
+            case(5):
+                return Flight::render('navbar/1.view.php');
+                break;
+        }
+    }
+    
     public function routeProtect($minPermission = 1){
         if(!$this->authCheck()){
             Flight::redirect('login');

@@ -2,6 +2,22 @@ graph = {'A':{'B':5,'C':7},
          'B':{'A':5,'D':10},
          'C':{'A':7,'D':8},
          'D':{'B':10,'C':8}}
+
+d1graph = {'S':{'A':5, 'B':6, 'C':2},
+           'A':{'S':5, 'D':4},
+           'B':{'S':6, 'C':2, 'D':4, 'T':8},
+           'C':{'S':2, 'B':2, 'T':12},
+           'D':{'A':4, 'B':4, 'T':3},
+           'T':{'B':8, 'C':12, 'D':3}}
+
+owngraph1 = {'A':{'B':5,'C':8,'D':7},
+             'B':{'A':5,'C':2,'E':1},
+             'C':{'A':8,'B':2,'E':5,'F':9},
+             'D':{'A':7,'F':11},
+             'E':{'B':1,'C':5,'G':3},
+             'F':{'C':9,'D':11,'G':10},
+             'G':{'E':3,'F':10}}
+
 import math
 class Node(object):
     '''
@@ -97,15 +113,16 @@ class Graph(object):
                 self.currentNode = self.nodes[self.shortestnode]
         self.finalRoute.append(self.endNode)
         self.currentNode = self.nodes[self.endNode]
-        
+        print(newgraph.nodes['T'].shortest)
         while(self.finished == False):
+##            print(self.currentNode.identifier)
             if(self.currentNode.identifier == self.startNode):
                 self.finished = True
             else:
                 self.finalRoute.append(self.currentNode.previous)
                 self.currentNode = self.nodes[self.currentNode.previous]
 
-newgraph = Graph(graph)
+newgraph = Graph(d1graph)
 print("This graph contains nodes "+(str(newgraph.listNodes())))
 print("This graph includes vertex "+newgraph.nodes['A'].identifier)
 print("This node is connected to "+(str(newgraph.nodes['A'].connectors)))
@@ -113,10 +130,8 @@ if(newgraph.nodes['A'].visited):
     print("and it has been visited")
 else:
     print("and it has not been visited")
-newgraph.findShortest('A','D')
-print("The shortest length from A to B is "+str(newgraph.nodes['B'].shortest))
-print("The shortest length from A to C is "+str(newgraph.nodes['C'].shortest))
-print("The shortest length from A to D is "+str(newgraph.nodes['D'].shortest))
+newgraph.findShortest('S','T')
+print("The shortest length from A to D is "+str(newgraph.nodes['T'].shortest))
 print("The quickest route from A to D is ", newgraph.finalRoute)
 
 

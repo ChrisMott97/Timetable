@@ -9,7 +9,7 @@ class DirectionsController extends Controller
     public function index(){
         parent::routeProtect();
         
-        Flight::render('navbar.view.php');
+        parent::navbar();
         Flight::render('directions.view.php', array('user' => $this->user));
         Flight::render('footer.view.php');
     }

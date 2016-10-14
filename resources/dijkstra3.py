@@ -50,6 +50,8 @@ class Graph(object):
     shortestnode = str()
     shortestnodeval = float("inf")
     
+    finished = False
+    
     def __init__(self, graph_dict):
         for node, connections in sorted(graph_dict.items()):
             connectors = {}
@@ -93,6 +95,15 @@ class Graph(object):
                     self.shortestnode = nodeobject.identifier
             if(self.shortestnode in self.nodes):
                 self.currentNode = self.nodes[self.shortestnode]
+        self.finalRoute.append(self.endNode)
+        self.currentNode = self.nodes[self.endNode]
+        
+        while(self.finished == False):
+            if(self.currentNode.identifier == self.startNode):
+                self.finished = True
+            else:
+                self.finalRoute.append(self.currentNode.previous)
+                self.currentNode = self.nodes[self.currentNode.previous]
 
 newgraph = Graph(graph)
 print("This graph contains nodes "+(str(newgraph.listNodes())))
@@ -106,5 +117,6 @@ newgraph.findShortest('A','D')
 print("The shortest length from A to B is "+str(newgraph.nodes['B'].shortest))
 print("The shortest length from A to C is "+str(newgraph.nodes['C'].shortest))
 print("The shortest length from A to D is "+str(newgraph.nodes['D'].shortest))
+print("The quickest route from A to D is ", newgraph.finalRoute)
 
 

@@ -41,7 +41,7 @@ class Controller
                 return Flight::render('navbar/1.view.php');
                 break;
             case(5):
-                return Flight::render('navbar/1.view.php');
+                return Flight::render('navbar/5.view.php');
                 break;
         }
     }

@@ -11,7 +11,7 @@ class TimetableLessonsController extends Controller
         
         $lessons = $this->query->selectRows("lessons", "year", $this->user->year);
         
-        Flight::render('navbar.view.php');
+        parent::navbar();
         Flight::render('timetable_lessons.view.php', ['user' => $this->user, 'lessons' => $lessons]);
         Flight::render('footer.view.php');
     }

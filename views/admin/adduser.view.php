@@ -7,11 +7,11 @@
             <div class="col-md-6">
             <div class="form-group">
                 <label for="firstname">Firstname</label>
-                <input type="text" name="firstname" class="form-control" id="firstname" placeholder="e.g. John">
+                <input type="text" name="firstname" class="form-control" id="firstname" placeholder="e.g. John" autocomplete="off">
             </div>
             <div class="form-group">
                 <label for="lastname">Lastname</label>
-                <input type="text" name="lastname" class="form-control" id="lastname" placeholder="e.g. Smith">
+                <input type="text" name="lastname" class="form-control" id="lastname" placeholder="e.g. Smith" autocomplete="off">
             </div>
             <div class="form-group">
                 <label for="year">Year Group</label>
@@ -29,11 +29,11 @@
             <div class="col-md-6">
             <div class="form-group">
                 <label for="username">Username</label>
-                <input type="text" name="username" class="form-control" id="username" placeholder="e.g. jsmith03">
+                <input type="text" name="username" class="form-control" id="username" placeholder="e.g. jsmith03" autocomplete="off">
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" name="password" class="form-control" id="password" placeholder="e.g. tw0th0u54nd">
+                <input type="password" name="password" class="form-control" id="password" placeholder="e.g. tw0th0u54nd" autocomplete="off">
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
             </div>

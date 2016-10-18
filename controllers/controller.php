@@ -45,6 +45,32 @@ class Controller
                 break;
         }
     }
+
+    public function header(){
+        switch($_SERVER['REQUEST_URI']){
+            case('/'):
+                return Flight::render('header.view.php', ['title' => 'SchoolPlanner', 'style' => 'index']);
+                break;
+            case('/home'):
+                return Flight::render('header.view.php', ['title' => 'SP - Home', 'style' => 'home']);
+                break;
+            case('/login'):
+                return Flight::render('header.view.php', ['title' => 'SP - Login', 'style' => 'login']);
+                break;
+            case('/timetable'):
+                return Flight::render('header.view.php', ['title' => 'SP - Timetable', 'style' => 'timetable']);
+                break;
+            case('/directions'):
+                return Flight::render('header.view.php', ['title' => 'SP - Directions', 'style' => 'directions']);
+                break;
+            case('/admin'):
+                return Flight::render('header.view.php', ['title' => 'Admin Dashboard', 'style' => 'admin']);
+                break; 
+            default:
+                return Flight::render('header.view.php', ['title' => 'SchoolPlanner', 'style' => 'none']);
+                break;
+        }
+    }
     
     public function routeProtect($minPermission = 1){
         if(!$this->authCheck()){

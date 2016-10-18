@@ -8,8 +8,7 @@ class HomeController extends Controller
     
     public function index(){
         parent::routeProtect();
-        
-        //Flight::render('navbar.view.php');
+        parent::header();
         parent::navbar();
         Flight::render('home.view.php', array('user' => $this->user));
         Flight::render('footer.view.php');

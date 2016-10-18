@@ -3,6 +3,7 @@
 class ErrorController extends Controller
 {
     public function index($ecode){
+        parent::header();
         switch ($ecode){
             case 401: //unauthorized access
                 Flight::render('navbar/0.view.php');

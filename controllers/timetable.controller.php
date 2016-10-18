@@ -22,6 +22,7 @@ class TimetableController extends Controller
             $this->timetable->$period = $label;
         }
         
+        parent::header();
         parent::navbar();
         Flight::render('timetable.view.php', ['user' => $this->user, 'timetable' => $this->timetable]);
         Flight::render('footer.view.php');
@@ -46,6 +47,7 @@ class TimetableController extends Controller
         $lessons = $this->query->selectRows("lessons", "year", $this->user->year);
         $periods = $this->query->selectCol('periods', 'code');
         
+        parent::header();
         parent::navbar();
         Flight::render('timetable_edit.view.php', ['user' => $this->user, 'periods' => $periods, 'lessons' => $lessons,'timetable' => $this->timetable]);
         Flight::render('footer.view.php');

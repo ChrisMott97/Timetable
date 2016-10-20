@@ -10,7 +10,7 @@ class HomeController extends Controller
         parent::routeProtect();
         parent::header();
         parent::navbar();
-        Flight::render('home.view.php', array('user' => $this->user));
+        Flight::render('home.view.php');
         Flight::render('footer.view.php');
     }
 }

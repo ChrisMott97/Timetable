@@ -18,6 +18,7 @@ class Controller
                 $this->user->$property = $value;
             }
         }
+        Flight::view()->set('user', $this->user);
     }
     
     public function authCheck(){

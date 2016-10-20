@@ -33,5 +33,7 @@ require('controllers/timetable_lessons.controller.php');
 $timetable_lessons = new TimetableLessonsController;
 require('controllers/directions.controller.php');
 $directions = new DirectionsController;
+require('controllers/search.controller.php');
+$search = new SearchController;
 
 

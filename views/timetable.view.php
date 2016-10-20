@@ -60,7 +60,6 @@
                             </tr>
                         </table>
                     </div>
-                    
                 </div>
             </div>
         </div>
@@ -82,5 +81,20 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="panel panel-primary">
+                <div class="panel-heading"><h4>Week Overview</h4></div>
+                <div class="panel-body"></div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-primary">
+                <div class="panel-heading"><h4>Settings</h4></div>
+                <div class="panel-body"></div>
+            </div>
+        </div>
+    </div>
     </div>
 </div>

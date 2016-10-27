@@ -11,14 +11,6 @@ require('models/lesson.class.php');
 require('controllers/controller.php');
 Flight::set('app', new Controller);
 
-require('controllers/index.controller.php');
-require('controllers/error.controller.php');
-require('controllers/login.controller.php');
-require('controllers/logout.controller.php');
-require('controllers/home.controller.php');
-require('controllers/admin.controller.php');
-require('controllers/accountinfo.controller.php');
-require('controllers/timetable.controller.php');
-require('controllers/timetable_lessons.controller.php');
-require('controllers/directions.controller.php');
-require('controllers/search.controller.php');
+spl_autoload_register(function ($class_name) {
+    include '/controllers/' . strtolower($class_name) . '.php';
+});

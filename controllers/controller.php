@@ -1,34 +1,34 @@
 <?php
 class Controller
 {
-    public $user;
-    public $query;
-    public $timetable;
+    public static $user;
+    public static $query;
+    public static $timetable;
     
     public function  __construct(){
-        $this->query = Flight::get('query');
+        self::$query = Flight::get('query');
         if($this->authCheck()){
             $id = $_SESSION['id'];
-            $this->user = new User;
-            $this->timetable = new Timetable;
+            self::$user = new User;
+            self::$timetable = new Timetable;
             
-            $properties = $this->query->selectRow('users', 'id', $id);
+            $properties = self::$query->selectRow('users', 'id', $id);
             foreach ($properties as $property => $value)
             {
-                $this->user->$property = $value;
+                self::$user->$property = $value;
             }
         }
-        Flight::view()->set('user', $this->user);
+        Flight::view()->set('user', self::$user);
     }
     
-    public function authCheck(){
+    public static function authCheck(){
         if(isset($_SESSION['loggedin']) && $_SESSION['loggedin']){
             return true;
         }
     }
     
-    public function navbar(){
-        switch($this->user->permission){
+    public static function navbar(){
+        switch(self::$user->permission){
             case(1):
                 return Flight::render('navbar/1.view.php');
                 break;
@@ -47,7 +47,7 @@ class Controller
         }
     }
 
-    public function header(){
+    public static function header(){
         switch($_SERVER['REQUEST_URI']){
             case('/'):
                 return Flight::render('header.view.php', ['title' => 'SchoolPlanner', 'style' => 'index']);
@@ -73,19 +73,19 @@ class Controller
         }
     }
     
-    public function routeProtect($minPermission = 1){
-        if(!$this->authCheck()){
+    public static function routeProtect($minPermission = 1){
+        if(!self::authCheck()){
             Flight::redirect('login');
             exit;
         }
-        if($this->user->permission < $minPermission){
+        if(self::$user->permission < $minPermission){
             Flight::redirect('401');
             exit;
         }
     }
     
-    public function guestOnly(){
-        if($this->authCheck()){
+    public static function guestOnly(){
+        if(self::authCheck()){
             Flight::redirect('home');
             exit;
         }

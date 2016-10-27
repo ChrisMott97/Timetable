@@ -6,12 +6,12 @@ class DirectionsController extends Controller
         parent::__construct();
     }
     
-    public function index(){
+    public static function index(){
         parent::routeProtect();
         
         parent::header();
         parent::navbar();
-        Flight::render('directions.view.php', array('user' => $this->user));
+        Flight::render('directions.view.php', ['user' => self::$user]);
         Flight::render('footer.view.php');
     }
 }

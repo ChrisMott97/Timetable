@@ -6,30 +6,30 @@ class TimetableLessonsController extends Controller
         parent::__construct();
     }
     
-    public function index(){
+    public static function index(){
         parent::routeProtect();
         
-        $lessons = $this->query->selectRows("lessons", "year", $this->user->year);
+        $lessons = self::$query->selectRows("lessons", "year", self::$user->year);
         
         parent::header();
         parent::navbar();
-        Flight::render('timetable_lessons.view.php', ['user' => $this->user, 'lessons' => $lessons]);
+        Flight::render('timetable_lessons.view.php', ['user' => self::$user, 'lessons' => $lessons]);
         Flight::render('footer.view.php');
     }
     
-    public function create(){
+    public static function create(){
         parent::routeProtect();
         $subject = $_POST['subject'];
         $room = $_POST['room'];
         $teacher = $_POST['teacher'];
-        $year = $this->user->year;
-        $this->query->insertLesson($subject, $room, $teacher, $year);
+        $year = self::$user->year;
+        self::$query->insertLesson($subject, $room, $teacher, $year);
         Flight::redirect('/timetable/lessons');
     }
-    public function delete(){
+    public static function delete(){
         parent::routeProtect();
         $lessonid = $_POST['lesson_edit'];
-        $this->query->removeRow('lessons', 'id', $lessonid);
+        self::$query->removeRow('lessons', 'id', $lessonid);
         //Flight::render('test.view.php', ['lessonid'=>$lessonid]);
         Flight::redirect('/timetable/lessons');
     }

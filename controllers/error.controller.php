@@ -2,7 +2,7 @@
 
 class ErrorController extends Controller
 {
-    public function index($ecode){
+    public static function index($ecode){
         parent::header();
         switch ($ecode){
             case 401: //unauthorized access

@@ -10,7 +10,7 @@ class LoginController extends Controller
     /*
     GET /login
     */
-    public function index(){
+    public static function index(){
         parent::guestOnly();
         parent::header();
         Flight::render('login.view.php');
@@ -20,10 +20,10 @@ class LoginController extends Controller
     /*
     POST /login
     */
-    public function auth(){
-        $username = $this->query->selectCell('username','users','username',$_POST['username']);
-        $hashedpass = $this->query->selectCell('password','users','username',$username);
-        $id = $this->query->selectCell('id','users','username',$username);
+    public static function auth(){
+        $username = self::$query->selectCell('username','users','username',$_POST['username']);
+        $hashedpass = self::$query->selectCell('password','users','username',$username);
+        $id = self::$query->selectCell('id','users','username',$username);
         
         if($username && password_verify($_POST['password'], $hashedpass)){
             $_SESSION['id'] = $id;

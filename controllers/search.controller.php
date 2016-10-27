@@ -2,10 +2,10 @@
 
 class SearchController extends Controller
 {
-    public function index(){
+    public static function index(){
         parent::routeProtect();
-        $users = $this->query->selectTable('users');
-        $lessons = $this->query->selectTable('lessons');
+        $users = self::$query->selectTable('users');
+        $lessons = self::$query->selectTable('lessons');
         parent::header();
         parent::navbar();
         Flight::render('search.view.php', ['users' => $users, 'lessons' => $lessons]);

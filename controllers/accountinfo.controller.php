@@ -3,11 +3,11 @@
 class AccountinfoController extends Controller
 {
     
-    public function index(){
+    public static function index(){
         parent::routeProtect();
         parent::header();
         parent::navbar();
-        Flight::render('accountinfo.view.php', ['user' => $this->user]);
+        Flight::render('accountinfo.view.php', ['user' => self::$user]);
         Flight::render('footer.view.php');
     }
 }

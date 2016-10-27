@@ -1,16 +1,16 @@
 <?php
 class AdminController extends Controller
 {
-    public function index(){
+    public static function index(){
         parent::routeProtect(5);
         parent::header();
         parent::navbar();
-        Flight::render('admin/admin.view.php', array('user' => $this->user));
+        Flight::render('admin/admin.view.php', ['user' => self::$user]);
         Flight::render('admin/adduser.view.php');
         Flight::render('footer.view.php');
     }
     
-    public function create($submit){
+    public static function create($submit){
         parent::routeProtect(5);
         switch($submit){
             case 'adduser':

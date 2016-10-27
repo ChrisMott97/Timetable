@@ -6,63 +6,63 @@ class TimetableController extends Controller
         parent::__construct();
     }
     
-    public function index(){
+    public static function index(){
         parent::routeProtect();
         
-        $timetableids = $this->query->selectRows('sessions', 'userid', $this->user->id);
+        $timetableids = self::$query->selectRows('sessions', 'userid', self::$user->id);
         foreach($timetableids as $timetableid){
             $period = $timetableid->period;
             $lessonid = $timetableid->lessonid;
             
-            $subject = $this->query->selectCell('subject','lessons','id',$lessonid);
-            $room = $this->query->selectCell('room','lessons','id',$lessonid);
+            $subject = self::$query->selectCell('subject','lessons','id',$lessonid);
+            $room = self::$query->selectCell('room','lessons','id',$lessonid);
             
             $label = $subject." ".$room;
                 
-            $this->timetable->$period = $label;
+            self::$timetable->$period = $label;
         }
         
         parent::header();
         parent::navbar();
-        Flight::render('timetable.view.php', ['user' => $this->user, 'timetable' => $this->timetable]);
+        Flight::render('timetable.view.php', ['user' => self::$user, 'timetable' => self::$timetable]);
         Flight::render('footer.view.php');
     }
     
-    public function edit(){
+    public static function edit(){
         parent::routeProtect();
         
-        $timetableids = $this->query->selectRows('sessions', 'userid', $this->user->id);
+        $timetableids = self::$query->selectRows('sessions', 'userid', self::$user->id);
         foreach($timetableids as $timetableid){
             $period = $timetableid->period;
             $lessonid = $timetableid->lessonid;
             
-            $subject = $this->query->selectCell('subject','lessons','id',$lessonid);
-            $room = $this->query->selectCell('room','lessons','id',$lessonid);
+            $subject = self::$query->selectCell('subject','lessons','id',$lessonid);
+            $room = self::$query->selectCell('room','lessons','id',$lessonid);
             
             $label = $subject." ".$room;
                 
-            $this->timetable->$period = $label;
+            self::$timetable->$period = $label;
         }
         
-        $lessons = $this->query->selectRows("lessons", "year", $this->user->year);
-        $periods = $this->query->selectCol('periods', 'code');
+        $lessons = self::$query->selectRows("lessons", "year", self::$user->year);
+        $periods = self::$query->selectCol('periods', 'code');
         
         parent::header();
         parent::navbar();
-        Flight::render('timetable_edit.view.php', ['user' => $this->user, 'periods' => $periods, 'lessons' => $lessons,'timetable' => $this->timetable]);
+        Flight::render('timetable_edit.view.php', ['user' => self::$user, 'periods' => $periods, 'lessons' => $lessons,'timetable' => self::$timetable]);
         Flight::render('footer.view.php');
     }
     
-    public function update(){
+    public static function update(){
         parent::routeProtect();
         $sessions = $_POST['sessions'];
         $lessons = [];
         foreach($sessions as $period => $lessonid){
-            if($this->query->selectCell2Props("sessionid", "sessions", "userid", $this->user->id, "period", $period)){
-                $sessionid = $this->query->selectCell2Props("sessionid", "sessions", "userid", $this->user->id, "period", $period);
-                $this->query->updateSession($lessonid, $sessionid);
+            if(self::$query->selectCell2Props("sessionid", "sessions", "userid", self::$user->id, "period", $period)){
+                $sessionid = self::$query->selectCell2Props("sessionid", "sessions", "userid", self::$user->id, "period", $period);
+                self::$query->updateSession($lessonid, $sessionid);
             } else{
-                $this->query->insertSession($this->user->id, $lessonid, $period);
+                self::$query->insertSession(self::$user->id, $lessonid, $period);
             }
         }
     }

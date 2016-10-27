@@ -1,7 +1,7 @@
 <?php
 class IndexController extends Controller
 {
-    public function index(){
+    public static function index(){
         parent::guestOnly();
         parent::header();
         Flight::render('navbar/0.view.php');

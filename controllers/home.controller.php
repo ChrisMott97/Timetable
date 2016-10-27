@@ -6,7 +6,7 @@ class HomeController extends Controller
         parent::__construct();
     }
     
-    public function index(){
+    public static function index(){
         parent::routeProtect();
         parent::header();
         parent::navbar();

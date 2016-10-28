@@ -75,7 +75,6 @@
                 </div>
                 <div class="col-md-6">
                     <div class="btn-group pull-right" role="group" aria-label="...">
-                        <a href="#"><button type="button" class="btn btn-primary">Switch Week</button></a>
                         <a href="/timetable/edit"><button type="button" class="btn btn-success">Edit Timetable</button></a>
                     </div>
                 </div>

@@ -1,6 +1,7 @@
 <?php
 
 // Web
+
 Flight::route('GET /', ['IndexController','index']);
 Flight::route('GET /login', ['LoginController','index']);
 Flight::route('GET /home', ['HomeController','index']);
@@ -24,6 +25,7 @@ Flight::route('POST /admin/@submit', ['AdminController','create']);
 Flight::route('POST /login', ['LoginController','auth']);
 
 // REST API
+
 // Flight::route('GET /api/users', ['apiUserController', 'readAllUsers']);
 // Flight::route('POST /api/users', ['apiUserController', 'createOneUser']);
 // Flight::route('GET /api/users/@userid', ['apiUserController', 'readOneUser']);

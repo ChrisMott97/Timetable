@@ -5,3 +5,4 @@ function setPeriod(){
     document.getElementById(period).innerHTML = lesson;
     document.getElementById(period).setAttribute("lessonid", lessonid)
 } 
+

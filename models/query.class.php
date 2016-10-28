@@ -54,12 +54,13 @@ class Query
     
     public function insertUser($user){
         try {
-            $stmt = $this->db->prepare("INSERT INTO users (username, firstname, lastname, password, year) VALUES(:username, :firstname, :lastname, :password, :year)");
+            $stmt = $this->db->prepare("INSERT INTO users (username, firstname, lastname, password, year, permission) VALUES(:username, :firstname, :lastname, :password, :year, :permission)");
             $stmt->bindParam(':username', $user->username);
             $stmt->bindParam(':firstname', $user->firstname);
             $stmt->bindParam(':lastname', $user->lastname);
             $stmt->bindParam(':password', $user->password);
             $stmt->bindParam(':year', $user->year);
+            $stmt->bindParam(':permission', $user->permission);
             $stmt->execute();
         } catch (PDOException $e) {
             die($e->getMessage());

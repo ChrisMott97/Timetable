@@ -2,7 +2,7 @@
 --
 -- Host: localhost    Database: schoolplanner
 -- ------------------------------------------------------
--- Server version	5.7.9-log
+-- Server version	5.7.10-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -140,7 +140,7 @@ CREATE TABLE `users` (
   `permission` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
   UNIQUE KEY `username_UNIQUE` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -149,7 +149,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'cmott97','Chris','Mott','$2y$10$rq4yYITEhZfYjEXS3tSxeeFRU5gqP4U1JrdLxKOOc19g5tzC5Zs8y',13,5),(21,'hjones02','Haydn','Jones','$2y$10$1bMHgHeptg918kPaPq/RDOHWb4T/S4vyTHPP0XsMSo4wjS/cwHziy',10,1),(22,'jsmith03','John','Smith','$2y$10$Dl.nsgZgqcY4oW9ESa/TBe6RvCvsk/qTbBVTTDONOTdEuO/B4ExHG',9,1),(23,'drenahmeti22','Dren','Ahmeti','$2y$10$FU5DYYQYxgukgnQVbtpwMO/eTiL7fUuyt5sfU8O3jcsG2DaNAeop2',11,1);
+INSERT INTO `users` VALUES (1,'cmott97','Chris','Mott','$2y$10$rq4yYITEhZfYjEXS3tSxeeFRU5gqP4U1JrdLxKOOc19g5tzC5Zs8y',13,5),(21,'hjones02','Haydn','Jones','$2y$10$1bMHgHeptg918kPaPq/RDOHWb4T/S4vyTHPP0XsMSo4wjS/cwHziy',10,1),(22,'jsmith03','John','Smith','$2y$10$Dl.nsgZgqcY4oW9ESa/TBe6RvCvsk/qTbBVTTDONOTdEuO/B4ExHG',9,1),(23,'drenahmeti22','Dren','Ahmeti','$2y$10$FU5DYYQYxgukgnQVbtpwMO/eTiL7fUuyt5sfU8O3jcsG2DaNAeop2',11,1),(25,'rya','R','Yates','$2y$10$KgW2WfZrepGSUVsVnFUQkuF09KL/0jYs9AawR4/XwS.6lzcHeY7nK',0,3);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -162,4 +162,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-10-14 15:00:12
+-- Dump completed on 2016-10-28 16:33:55

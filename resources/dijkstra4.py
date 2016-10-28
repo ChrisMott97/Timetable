@@ -24,8 +24,8 @@ class Node(object):
     A node is a single point on a nodegraph.
     Attributes:
         identifier: a string as a letter or combination of letters to identify the node
-        visited: a boolean determining if the node has been visisted
-        shortest: an integer that represents the shortest length from start node to the given node
+        visited: a boolean determining if the node has been visited/used as the current node
+        shortest: an floating point value that represents the shortest length from start node to the given node
         previous: a string representing the identifier of the previous node
         connectors: a dictionary (associative array) defining all connectors and their length for a node
     '''
@@ -41,7 +41,6 @@ class Graph(object):
     '''
     A graph instantiates and groups Nodes.
     Attributes:
-        name: a string representing the name of the graph
         nodes: a dictionary of node instances
         startNode: a string representing the start point
         endPoint: a string representing the end point
@@ -49,10 +48,9 @@ class Graph(object):
         unvisited: a list of node identifiers as strings representing unvisited nodes
         finalLength: an integer representing the final length of the shortest path
         finalRoute: a list of node identifiers as strings representing the final shortest path route
-    '''
-
-    name = "the graph"
-    
+        shortestnode: a temporary string representing the node closest to the current
+        shortestnodeval: a floating point value represenitng the disdtance to the closest node
+    '''   
     nodes = {}
     startNode = str()
     endNode = str()
@@ -69,6 +67,7 @@ class Graph(object):
     finished = False
     
     def __init__(self, graph_dict):
+        '''Initializes nodes dictionary using the given graph'''
         for node, connections in sorted(graph_dict.items()):
             connectors = {}
             for connector, distance in sorted(connections.items()):
@@ -76,6 +75,7 @@ class Graph(object):
             self.nodes[node] = Node(node, False, "inf", "", connectors)
         
     def listNodes(self):
+        '''Processes the dictionary of node instances into a simple string list of all nodes'''
         nodelist = []
         for node in sorted(self.nodes):
             nodelist.append(node)
@@ -83,14 +83,14 @@ class Graph(object):
         return nodelist
     
     def findShortest(self, start_node, end_node):
+        '''Finds the shortest length from start_node to end_node then works backwards to find the route'''
         self.startNode = start_node
         self.endNode = end_node
         self.currentNode = self.nodes[self.startNode]
         self.unvisited.append(self.currentNode.identifier)
         
-        while(self.unvisited): ##is unvisited list empty?
-            print(self.unvisited)
-            for connector, length in sorted(self.currentNode.connectors.items()): ##loop round all connectors attached to current node
+        while(self.unvisited):
+            for connector, length in sorted(self.currentNode.connectors.items()):
                 connectorObject = self.nodes[connector]
                 if(not connectorObject.visited):
                     if(self.currentNode.previous):
@@ -103,15 +103,6 @@ class Graph(object):
                         connectorObject.previous = self.currentNode.identifier
                     if(not connectorObject.identifier in self.unvisited):
                         self.unvisited.append(connectorObject.identifier)
-##                    if((connectorObject.shortest == 0) or (int(length) < int(connectorObject.shortest))):
-##                        if(self.currentNode.previous):
-##                            prevnode = str(self.currentNode.previous)
-##                            connectorObject.shortest = int((self.nodes[prevnode]).shortest) + int(length)
-##                        else:
-##                            connectorObject.shortest = length
-##                        connectorObject.previous = self.currentNode.identifier
-##                        if(connectorObject.visited != True):
-##                            self.unvisited.append(connectorObject.identifier)
             self.unvisited.remove(self.currentNode.identifier)
             self.currentNode.visited = True
             self.shortestnode = str()
@@ -125,10 +116,8 @@ class Graph(object):
                 self.currentNode = self.nodes[self.shortestnode]
         self.finalRoute.append(self.endNode)
         self.currentNode = self.nodes[self.endNode]
-        print(newgraph.nodes['T'].shortest)
         for node in self.nodes:
             nodeobj = self.nodes[node]
-            print(nodeobj.identifier, nodeobj.shortest)
         while(self.finished == False):
             print(self.currentNode.identifier)
             if(self.currentNode.identifier == self.startNode):
@@ -138,14 +127,7 @@ class Graph(object):
                 self.currentNode = self.nodes[self.currentNode.previous]
         self.finalRoute.reverse()
 
-newgraph = Graph(d1graph)
-print("This graph contains nodes "+(str(newgraph.listNodes())))
-print("This graph includes vertex "+newgraph.nodes['A'].identifier)
-print("This node is connected to "+(str(newgraph.nodes['A'].connectors)))
-if(newgraph.nodes['A'].visited):
-    print("and it has been visited")
-else:
-    print("and it has not been visited")
-newgraph.findShortest('S','T')
-print("The shortest length from S to T is "+str(newgraph.nodes['T'].shortest))
-print("The quickest route from S to T is ", newgraph.finalRoute)
+newgraph = Graph(owngraph1)
+newgraph.findShortest('A','G')
+print("The shortest length from "+str(newgraph.nodes[newgraph.startNode].identifier)+" to "+str(newgraph.nodes[newgraph.endNode].identifier)+" is "+str(newgraph.nodes[newgraph.endNode].shortest))
+print("The quickest route from "+str(newgraph.nodes[newgraph.startNode].identifier)+" to "+str(newgraph.nodes[newgraph.endNode].identifier)+" is "+ str(newgraph.finalRoute))

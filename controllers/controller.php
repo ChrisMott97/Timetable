@@ -36,7 +36,7 @@ class Controller
                 return Flight::render('navbar/1.view.php');
                 break;
             case(3):
-                return Flight::render('navbar/1.view.php');
+                return Flight::render('navbar/3.view.php');
                 break;
             case(4):
                 return Flight::render('navbar/1.view.php');

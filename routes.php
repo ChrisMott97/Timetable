@@ -3,7 +3,6 @@
 // Web
 
 Flight::route('GET /', ['IndexController','index']);
-Flight::route('GET /login', ['LoginController','index']);
 Flight::route('GET /home', ['HomeController','index']);
 Flight::route('GET /logout', ['LogoutController','index']);
 Flight::route('GET /@ecode:[0-9]{3}', ['ErrorController','index']);
@@ -22,6 +21,9 @@ Flight::route('POST /timetable/lessons/delete', ['TimetableLessonsController', '
 Flight::route('GET /admin', ['AdminController','index']);
 Flight::route('POST /admin/@submit', ['AdminController','create']);
 
+Flight::route('GET /teacher', ['TeacherController','index']);
+
+Flight::route('GET /login', ['LoginController','index']);
 Flight::route('POST /login', ['LoginController','auth']);
 
 // REST API

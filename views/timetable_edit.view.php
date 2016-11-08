@@ -114,7 +114,6 @@
                         </form>
                     </div>
                     <button class="btn btn-success" onclick="setPeriod()">Set</button>
-                    <button class="btn btn-danger" onclick="removePeriod()">Remove</button>
                     <a href="/timetable/lessons"><button class="btn btn-default">Manage Lessons</button></a>
                 </div>
             </div>

@@ -2,7 +2,7 @@
 --
 -- Host: localhost    Database: schoolplanner
 -- ------------------------------------------------------
--- Server version	5.7.10-log
+-- Server version	5.7.9-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -98,6 +98,34 @@ INSERT INTO `permissions` VALUES (1,'student','default user - has access to end-
 UNLOCK TABLES;
 
 --
+-- Table structure for table `rooms`
+--
+
+DROP TABLE IF EXISTS `rooms`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `rooms` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `room` varchar(45) NOT NULL,
+  `building` varchar(45) NOT NULL,
+  `level` int(11) NOT NULL,
+  `forLessons` tinyint(1) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `room_UNIQUE` (`room`)
+) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `rooms`
+--
+
+LOCK TABLES `rooms` WRITE;
+/*!40000 ALTER TABLE `rooms` DISABLE KEYS */;
+INSERT INTO `rooms` VALUES (1,'A101','Aristotle',0,1),(2,'A102','Aristotle',0,1),(3,'A103','Aristotle',0,1),(4,'A104','Aristotle',0,1),(5,'A105','Aristotle',0,1),(6,'A106','Aristotle',0,1),(7,'A107','Aristotle',0,1),(8,'A108','Aristotle',0,1),(9,'C101','Comenius',0,1),(10,'C102','Comenius',0,1),(11,'C103','Comenius',0,1),(12,'C104','Comenius',0,1),(13,'C105','Comenius',0,1),(14,'C106','Comenius',0,1),(15,'M101','Montessori',0,1),(16,'M102','Montessori',0,1),(17,'M103','Montessori',0,1),(18,'M104','Montessori',0,1),(19,'M105','Montessori',0,1),(20,'M106','Montessori',0,1),(21,'M107','Montessori',0,1),(22,'M108','Montessori',0,1),(23,'M109','Montessori',0,1),(24,'M110','Montessori',0,1),(25,'M111','Montessori',0,1),(26,'M112','Montessori',0,1),(27,'M113','Montessori',0,1),(28,'M114','Montessori',0,1),(29,'M115','Montessori',0,1),(30,'M116','Montessori',0,1),(31,'M117','Montessori',0,1),(32,'M118','Montessori',0,1),(33,'M119','Montessori',0,1),(34,'M120','Montessori',0,1),(35,'P101','Piaget',0,1),(36,'P102','Piaget',0,1),(37,'P103','Piaget',0,1),(38,'P104','Piaget',0,1),(39,'P105','Piaget',0,1),(40,'SFCR','Montessori',0,0),(41,'SFWR','Montessori',0,0),(42,'SFO','Montessori',0,0),(43,'CR','Montessori',0,0);
+/*!40000 ALTER TABLE `rooms` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `sessions`
 --
 
@@ -162,4 +190,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-10-28 16:33:55
+-- Dump completed on 2016-11-18 10:30:04

@@ -8,6 +8,8 @@
 $(document).ready(function() {
 $("#session_edit").select2();
 $("#lesson_edit").select2();
+$("#from").select2();
+$("#to").select2();
 $('#search').hideseek();
 $('#search').hideseek({
   hidden_mode: true

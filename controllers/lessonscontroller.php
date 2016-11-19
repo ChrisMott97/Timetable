@@ -1,5 +1,5 @@
 <?php
-class TimetableLessonsController extends Controller
+class LessonsController extends Controller
 {
     
     public function __construct(){
@@ -13,7 +13,7 @@ class TimetableLessonsController extends Controller
         
         parent::header();
         parent::navbar();
-        Flight::render('timetable_lessons.view.php', ['user' => self::$user, 'lessons' => $lessons]);
+        Flight::render('lessons.view.php', ['user' => self::$user, 'lessons' => $lessons]);
         Flight::render('footer.view.php');
     }
     
@@ -24,13 +24,13 @@ class TimetableLessonsController extends Controller
         $teacher = $_POST['teacher'];
         $year = self::$user->year;
         self::$query->insertLesson($subject, $room, $teacher, $year);
-        Flight::redirect('/timetable/lessons');
+        Flight::redirect('/lessons');
     }
     public static function delete(){
         parent::routeProtect();
         $lessonid = $_POST['lesson_edit'];
         self::$query->removeRow('lessons', 'id', $lessonid);
         //Flight::render('test.view.php', ['lessonid'=>$lessonid]);
-        Flight::redirect('/timetable/lessons');
+        Flight::redirect('/lessons');
     }
 }

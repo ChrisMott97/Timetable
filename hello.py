@@ -1,4 +1,6 @@
 #!D:\EasyPHP-Devserver-16.1\eds-binaries\python\default\python.exe
 import sys
-print('Hello from Python!')
-sys.stdout.flush();
+start = input()
+end = input()
+print('From '+start+' to '+end)
+sys.stdout.flush()

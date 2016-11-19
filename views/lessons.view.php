@@ -6,7 +6,7 @@
             </div>
             <div class="panel-body">
                 <div class="alert alert-danger" role="alert"><b>Warning:</b> Ensure the lesson you're about to add <b>does not</b> already exist by using the search utility on the right.</div>
-                <form method="post" action="/timetable/lessons/create">
+                <form method="post" action="/lessons/create">
                     <div class="col-md-4">
                         <div class="form-group">
                             <label for="subject">Subject</label>
@@ -35,7 +35,7 @@
             </div>
             <div class="panel-body">
                 <div class="alert alert-danger" role="alert"><b>Warning:</b> The following action <b>cannot</b> be undone!</div>
-                <form method="post" action="/timetable/lessons/delete">
+                <form method="post" action="/lessons/delete">
                     <div class="form-group">
                         <label for="lesson_edit">Lesson:</label>
                         <select name='lesson_edit' id='lesson_edit' style='width: 100%'>;

@@ -7,16 +7,19 @@ Flight::route('GET /home', ['HomeController','index']);
 Flight::route('GET /logout', ['LogoutController','index']);
 Flight::route('GET /@ecode:[0-9]{3}', ['ErrorController','index']);
 Flight::route('GET /account', ['AccountInfoController','index']);
-Flight::route('GET /directions', ['DirectionsController','index']);
 Flight::route('GET /search', ['SearchController','index']);
 
 Flight::route('GET /timetable', ['TimetableController','index']);
 Flight::route('GET /timetable/edit', ['TimetableController','edit']);
 Flight::route('POST /timetable/update', ['TimetableController','update']);
 
-Flight::route('GET /timetable/lessons', ['TimetableLessonsController', 'index']);
-Flight::route('POST /timetable/lessons/create', ['TimetableLessonsController', 'create']);
-Flight::route('POST /timetable/lessons/delete', ['TimetableLessonsController', 'delete']);
+Flight::route('GET /lessons', ['LessonsController', 'index']);
+Flight::route('POST /lessons/create', ['LessonsController', 'create']);
+Flight::route('POST /lessons/delete', ['LessonsController', 'delete']);
+
+Flight::route('GET /directions', ['DirectionsController','index']);
+Flight::route('POST /directions', ['DirectionsController','redirect']);
+Flight::route('GET /directions/@from/@to', ['DirectionsController','calculate']);
 
 Flight::route('GET /admin', ['AdminController','index']);
 Flight::route('POST /admin/@submit', ['AdminController','create']);

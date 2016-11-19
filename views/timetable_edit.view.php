@@ -78,6 +78,9 @@
                     <div class="btn-group pull-right" role="group" aria-label="...">
                         <button type="button" class="btn btn-success" onclick="timetable_update()">Save</button>
                     </div>
+                    <div class="btn-group pull-right" role="group" aria-label="...">
+                        <a href="/timetable"><button type="button" class="btn btn-danger">Return</button></a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -114,7 +117,7 @@
                         </form>
                     </div>
                     <button class="btn btn-success" onclick="setPeriod()">Set</button>
-                    <a href="/timetable/lessons"><button class="btn btn-default">Manage Lessons</button></a>
+                    <a href="/lessons"><button class="btn btn-default">Manage Lessons</button></a>
                 </div>
             </div>
         </div>

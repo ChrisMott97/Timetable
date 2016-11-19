@@ -61,6 +61,9 @@ class Controller
             case('/timetable'):
                 return Flight::render('header.view.php', ['title' => 'SP - Timetable', 'style' => 'timetable']);
                 break;
+            case('/lessons'):
+                return Flight::render('header.view.php', ['title' => 'SP - Lessons', 'style' => 'lessons']);
+                break;
             case('/directions'):
                 return Flight::render('header.view.php', ['title' => 'SP - Directions', 'style' => 'directions']);
                 break;

@@ -14,9 +14,9 @@
                 <li><a href="/">Home</a></li>
                 <li><a href="/timetable">Timetable</a></li>
                 <li><a href="/directions">Directions</a></li>
+                <li><a href="/teacher">Teacher</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="/teacher">Teacher</a></li>
                 <li><a href="/search">Search</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?= $user->firstname." ".$user->lastname ?><span class="caret"></span></a>

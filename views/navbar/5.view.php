@@ -14,10 +14,11 @@
                 <li><a href="/">Home</a></li>
                 <li><a href="/timetable">Timetable</a></li>
                 <li><a href="/directions">Directions</a></li>
+                <li><a href="/admin">Admin</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="/admin">Admin</a></li>
                 <li><a href="/search">Search</a></li>
+                <li><a href="#" data-toggle="modal" data-target="#notifications">Notifications  <span class="badge">42</span></a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?= $user->firstname." ".$user->lastname ?><span class="caret"></span></a>
                     <ul class="dropdown-menu">
@@ -30,3 +31,22 @@
         </div>
     </div>
 </nav>
+
+
+<!-- Modal -->
+<div class="modal fade" id="notifications" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Notifications</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -28,6 +28,10 @@ class Controller
     }
     
     public static function navbar(){
+        $notifications = self::$query->selectRows('notifications','userid',self::$user->id);
+        $count = count($notifications);
+        Flight::view()->set('notifications', $notifications);
+        Flight::view()->set('count', $count);
         switch(self::$user->permission){
             case(1):
                 return Flight::render('navbar/1.view.php');
@@ -39,7 +43,7 @@ class Controller
                 return Flight::render('navbar/3.view.php');
                 break;
             case(4):
-                return Flight::render('navbar/1.view.php');
+                return Flight::render('navbar/3.view.php');
                 break;
             case(5):
                 return Flight::render('navbar/5.view.php');
@@ -91,6 +95,25 @@ class Controller
         if(self::authCheck()){
             Flight::redirect('home');
             exit;
+        }
+    }
+
+    public static function validate($item){
+        $numargs = func_num_args();
+        $listargs = func_get_args();
+        switch ($item) {
+            case 'same':
+                //Uses second argument ([1]) as 'from' and third ([2]) as 'to'
+                if ( $numargs > 1 ){
+                    if($listargs[1] == $listargs[2]){
+                        return 0;
+                    }
+                }
+                break;
+            
+            default:
+                # code...
+                break;
         }
     }
 }

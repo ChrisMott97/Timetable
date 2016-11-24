@@ -18,6 +18,7 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="/search">Search</a></li>
+                <li><a href="#" data-toggle="modal" data-target="#notifications">Notifications  <span class="badge"><?php if($count){echo $count; }; ?></span></a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?= $user->firstname." ".$user->lastname ?><span class="caret"></span></a>
                     <ul class="dropdown-menu">
@@ -30,3 +31,25 @@
         </div>
     </div>
 </nav>
+<!-- Modal -->
+<div class="modal fade" id="notifications" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Notifications</h4>
+            </div>
+            <div class="modal-body">
+                <?php foreach($notifications as $notification):?>
+                <div class="panel panel-primary">
+                    <div class="panel-heading"><?= $notification->title; ?></div>
+                    <div class="panel-body"><?= $notification->description; ?></div>
+                </div>
+                <?php endforeach ?>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

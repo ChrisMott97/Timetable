@@ -39,16 +39,17 @@ class DirectionsController extends Controller
         );
 
         // command to invoke python
-        $cmd = "python hello.py";
+        $cmd = dirname(getcwd()). "\\eds-binaries\python\default\python.exe ".getcwd()."\\hello.py".PHP_EOL;
 
         // spawn the process
         $p = proc_open($cmd, $desc, $pipes);
 
         if(is_resource($p)){
-            fwrite($pipes[0], $from . "\n");
-            fwrite($pipes[0], $to . "\n");
+            fwrite($pipes[0], '"' . $from . '"' . "\n");
+            fwrite($pipes[0], '"' . $to . '"' . "\n");
 
-            print fgets($pipes[1]);
+            $error = fgets($pipes[2]);
+            $output = fgets($pipes[1]);
 
             fclose($pipes[1]);
             fclose($pipes[0]);
@@ -60,7 +61,7 @@ class DirectionsController extends Controller
         }
         parent::header();
         parent::navbar();
-        Flight::render('test.view.php');
+        Flight::render('test.view.php',['output' => $output]);
         Flight::render('footer.view.php');
     }
 }

@@ -22,7 +22,7 @@ class DirectionsController extends Controller
         //$to = htmlspecialchars($_POST['to']);
         $from = $_POST['from'];
         $to = $_POST['to'];
-        $from = htmlspecialchars($from);
+        $from = htmlspecialchars($from); //prevents hacking
         $to = htmlspecialchars($to);
         if($from == $to){
             Flight::redirect('/directions');
@@ -39,17 +39,21 @@ class DirectionsController extends Controller
         );
 
         // command to invoke python
-        $cmd = dirname(getcwd()). "\\eds-binaries\python\default\python.exe ".getcwd()."\\hello.py".PHP_EOL;
+        $cmd = dirname(getcwd()). "\\eds-binaries\python\default\python.exe ".getcwd()."\\public\python\dijkstra_final.py".PHP_EOL;
 
         // spawn the process
         $p = proc_open($cmd, $desc, $pipes);
 
         if(is_resource($p)){
-            fwrite($pipes[0], '"' . $from . '"' . "\n");
-            fwrite($pipes[0], '"' . $to . '"' . "\n");
+            
+            fwrite($pipes[0], "'A'\n");
+            fwrite($pipes[0], "'G'\n");
+
+            //print fgets($pipes[1]);
 
             $error = fgets($pipes[2]);
             $output = fgets($pipes[1]);
+            $output2 = fgets($pipes[1]);
 
             fclose($pipes[1]);
             fclose($pipes[0]);
@@ -61,7 +65,7 @@ class DirectionsController extends Controller
         }
         parent::header();
         parent::navbar();
-        Flight::render('test.view.php',['output' => $output]);
+        Flight::render('result.view.php',['output' => $output, 'output2' => $output2]);
         Flight::render('footer.view.php');
     }
 }

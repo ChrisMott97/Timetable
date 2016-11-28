@@ -102,7 +102,7 @@ class Controller
         $numargs = func_num_args();
         $listargs = func_get_args();
         switch ($item) {
-            case 'same':
+            case 'directions':
                 //Uses second argument ([1]) as 'from' and third ([2]) as 'to'
                 if ( $numargs > 1 ){
                     if($listargs[1] == $listargs[2]){

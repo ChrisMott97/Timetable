@@ -3,11 +3,11 @@ class AdminController extends Controller
 {
     public static function index(){
         parent::routeProtect(5);
+        $users = self::$query->selectTable("users");
+        $allNotifications = self::$query->selectTable("notifications");
         parent::header();
         parent::navbar();
-        Flight::render('admin/admin.view.php', ['user' => self::$user]);
-        Flight::render('admin/adduser.view.php');
-        Flight::render('admin/addteacher.view.php');
+        Flight::render('admin/admin.view.php', ['users' => $users, 'allNotifications' => $allNotifications]);
         Flight::render('footer.view.php');
     }
     
@@ -34,6 +34,15 @@ class AdminController extends Controller
                 $addteacher->year = 0;
                 $addteacher->permission = 3;
                 $addteacher->create();
+                Flight::redirect('/admin');
+                break;
+            case 'createnotify':
+                $notification = new Notification;
+                $notification->userid = $_POST['userids'];
+                $notification->title = $_POST['title'];
+                $notification->description = $_POST['details'];
+                $notification->request = 0;
+                $notification->create();
                 Flight::redirect('/admin');
                 break;
         }

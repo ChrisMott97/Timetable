@@ -66,6 +66,18 @@ class Query
             die($e->getMessage());
         }
     }
+    public function insertNotification($notification){
+        try {
+            $stmt = $this->db->prepare("INSERT INTO notifications (userid, title, description, request) VALUES(:userid, :title, :description, :request)");
+            $stmt->bindParam(':userid', $notification->userid);
+            $stmt->bindParam(':title', $notification->title);
+            $stmt->bindParam(':description', $notification->description);
+            $stmt->bindParam(':request', $notification->request);
+            $stmt->execute();
+        } catch (PDOException $e) {
+            die($e->getMessage());
+        }
+    }
     
     public function selectRow($table, $refprop, $ref){
         try {

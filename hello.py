@@ -2,5 +2,5 @@
 import sys
 start = input()
 end = input()
-print('From '+start+' to '+end)
+print('This is output from a python script for directions from '+start+' to '+end)
 sys.stdout.flush()

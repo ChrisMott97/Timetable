@@ -42,6 +42,35 @@ INSERT INTO `buildings` VALUES (1,'Aristotle','Main'),(2,'Comenius','Humanities'
 UNLOCK TABLES;
 
 --
+-- Table structure for table `destinations`
+--
+
+DROP TABLE IF EXISTS `destinations`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `destinations` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nodeid` int(11) NOT NULL,
+  `room` varchar(45) NOT NULL,
+  `building` varchar(45) NOT NULL,
+  `level` int(11) NOT NULL,
+  `forLessons` tinyint(1) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `room_UNIQUE` (`room`)
+) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `destinations`
+--
+
+LOCK TABLES `destinations` WRITE;
+/*!40000 ALTER TABLE `destinations` DISABLE KEYS */;
+INSERT INTO `destinations` VALUES (1,0,'A101','Aristotle',0,1),(2,0,'A102','Aristotle',0,1),(3,0,'A103','Aristotle',0,1),(4,0,'A104','Aristotle',0,1),(5,0,'A105','Aristotle',0,1),(6,0,'A106','Aristotle',0,1),(7,0,'A107','Aristotle',0,1),(8,0,'A108','Aristotle',0,1),(9,0,'C101','Comenius',0,1),(10,0,'C102','Comenius',0,1),(11,0,'C103','Comenius',0,1),(12,0,'C104','Comenius',0,1),(13,0,'C105','Comenius',0,1),(14,0,'C106','Comenius',0,1),(15,0,'M101','Montessori',0,1),(16,0,'M102','Montessori',0,1),(17,0,'M103','Montessori',0,1),(18,0,'M104','Montessori',0,1),(19,0,'M105','Montessori',0,1),(20,0,'M106','Montessori',0,1),(21,0,'M107','Montessori',0,1),(22,0,'M108','Montessori',0,1),(23,0,'M109','Montessori',0,1),(24,0,'M110','Montessori',0,1),(25,0,'M111','Montessori',0,1),(26,0,'M112','Montessori',0,1),(27,0,'M113','Montessori',0,1),(28,0,'M114','Montessori',0,1),(29,0,'M115','Montessori',0,1),(30,0,'M116','Montessori',0,1),(31,0,'M117','Montessori',0,1),(32,0,'M118','Montessori',0,1),(33,0,'M119','Montessori',0,1),(34,0,'M120','Montessori',0,1),(35,0,'P101','Piaget',0,1),(36,0,'P102','Piaget',0,1),(37,0,'P103','Piaget',0,1),(38,0,'P104','Piaget',0,1),(39,0,'P105','Piaget',0,1),(40,0,'SFCR','Montessori',0,0),(41,0,'SFWR','Montessori',0,0),(42,0,'SFO','Montessori',0,0),(43,0,'CR','Montessori',0,0);
+/*!40000 ALTER TABLE `destinations` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `lessons`
 --
 
@@ -66,6 +95,55 @@ LOCK TABLES `lessons` WRITE;
 /*!40000 ALTER TABLE `lessons` DISABLE KEYS */;
 INSERT INTO `lessons` VALUES (6,'D2','A105','DGN',13),(7,'FP1','A105','DGN',13),(8,'Free','','',13),(11,'Computing','M119','RYA',10),(12,'ICT','M120','SHS',13),(13,'ICT','M119','RYA',13);
 /*!40000 ALTER TABLE `lessons` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `node_connections`
+--
+
+DROP TABLE IF EXISTS `node_connections`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `node_connections` (
+  `connectionid` int(11) NOT NULL AUTO_INCREMENT,
+  `nodeid1` int(11) NOT NULL,
+  `nodeid2` int(11) NOT NULL,
+  `length` int(11) NOT NULL,
+  PRIMARY KEY (`connectionid`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `node_connections`
+--
+
+LOCK TABLES `node_connections` WRITE;
+/*!40000 ALTER TABLE `node_connections` DISABLE KEYS */;
+INSERT INTO `node_connections` VALUES (1,4,5,12),(2,5,4,12),(3,3,4,10),(4,4,3,10),(5,3,6,20),(6,6,3,20);
+/*!40000 ALTER TABLE `node_connections` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `nodes`
+--
+
+DROP TABLE IF EXISTS `nodes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `nodes` (
+  `nodeid` int(11) NOT NULL AUTO_INCREMENT,
+  `identifier` varchar(45) NOT NULL,
+  PRIMARY KEY (`nodeid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `nodes`
+--
+
+LOCK TABLES `nodes` WRITE;
+/*!40000 ALTER TABLE `nodes` DISABLE KEYS */;
+/*!40000 ALTER TABLE `nodes` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -151,34 +229,6 @@ INSERT INTO `permissions` VALUES (1,'student','default user - has access to end-
 UNLOCK TABLES;
 
 --
--- Table structure for table `rooms`
---
-
-DROP TABLE IF EXISTS `rooms`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `rooms` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `room` varchar(45) NOT NULL,
-  `building` varchar(45) NOT NULL,
-  `level` int(11) NOT NULL,
-  `forLessons` tinyint(1) NOT NULL DEFAULT '1',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `room_UNIQUE` (`room`)
-) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `rooms`
---
-
-LOCK TABLES `rooms` WRITE;
-/*!40000 ALTER TABLE `rooms` DISABLE KEYS */;
-INSERT INTO `rooms` VALUES (1,'A101','Aristotle',0,1),(2,'A102','Aristotle',0,1),(3,'A103','Aristotle',0,1),(4,'A104','Aristotle',0,1),(5,'A105','Aristotle',0,1),(6,'A106','Aristotle',0,1),(7,'A107','Aristotle',0,1),(8,'A108','Aristotle',0,1),(9,'C101','Comenius',0,1),(10,'C102','Comenius',0,1),(11,'C103','Comenius',0,1),(12,'C104','Comenius',0,1),(13,'C105','Comenius',0,1),(14,'C106','Comenius',0,1),(15,'M101','Montessori',0,1),(16,'M102','Montessori',0,1),(17,'M103','Montessori',0,1),(18,'M104','Montessori',0,1),(19,'M105','Montessori',0,1),(20,'M106','Montessori',0,1),(21,'M107','Montessori',0,1),(22,'M108','Montessori',0,1),(23,'M109','Montessori',0,1),(24,'M110','Montessori',0,1),(25,'M111','Montessori',0,1),(26,'M112','Montessori',0,1),(27,'M113','Montessori',0,1),(28,'M114','Montessori',0,1),(29,'M115','Montessori',0,1),(30,'M116','Montessori',0,1),(31,'M117','Montessori',0,1),(32,'M118','Montessori',0,1),(33,'M119','Montessori',0,1),(34,'M120','Montessori',0,1),(35,'P101','Piaget',0,1),(36,'P102','Piaget',0,1),(37,'P103','Piaget',0,1),(38,'P104','Piaget',0,1),(39,'P105','Piaget',0,1),(40,'SFCR','Montessori',0,0),(41,'SFWR','Montessori',0,0),(42,'SFO','Montessori',0,0),(43,'CR','Montessori',0,0);
-/*!40000 ALTER TABLE `rooms` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `sessions`
 --
 
@@ -243,4 +293,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-11-24 10:40:09
+-- Dump completed on 2016-11-28  9:39:19

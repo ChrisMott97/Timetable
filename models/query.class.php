@@ -1,13 +1,12 @@
 <?php
-
 class Query 
 {
     
-    private $db;
+    public static $db;
     
     public function __construct(){
         
-        $this->db = $this->db();
+        self::$db = self::db();
         
     }
     //host: eu-cdbr-azure-west-d.cloudapp.net
@@ -17,153 +16,91 @@ class Query
 
 
 
-    private function db()
+    private static function db()
     {
-        try {
-            return new PDO('mysql:host=localhost;dbname=schoolplanner', 'chris', 'denefield');
-//            return new PDO('mysql:host=eu-cdbr-azure-west-d.cloudapp.net;dbname=schoolplanner', 'bbb1325bbd9a81', '6a15ed22');
-        } catch (PDOException $e) {
-            die($e->getMessage());
-        }
+        return new PDO('mysql:host=localhost;dbname=schoolplanner', 'chris', 'denefield', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+//      return new PDO('mysql:host=eu-cdbr-azure-west-d.cloudapp.net;dbname=schoolplanner', 'bbb1325bbd9a81', '6a15ed22');
     }
     
-    public function selectCell($property, $table, $refprop, $ref){
-        try {
-            $stmt = $this->db->prepare("SELECT $property FROM $table WHERE $refprop = :ref");
-            $stmt->bindParam(':ref', $ref);
-            $stmt->execute();
-            $row = $stmt->fetch();
-            return $row[$property];
-        } catch (PDOException $e) {
-            die($e->getMessage());
-        }
+    public static function selectCell($property, $table, $refprop, $ref){
+        $stmt = self::$db->prepare("SELECT $property FROM $table WHERE $refprop = :ref");
+        $stmt->bindParam(':ref', $ref);
+        $stmt->execute();
+        $row = $stmt->fetch();
+        return $row[$property];
     }
     
-    public function selectCell2Props($property, $table, $refprop, $ref, $refprop2, $ref2){
-        try {
-            $stmt = $this->db->prepare("SELECT $property FROM $table WHERE $refprop = :ref AND $refprop2 = :ref2");
-            $stmt->bindParam(':ref', $ref);
-            $stmt->bindParam(':ref2', $ref2);
-            $stmt->execute();
-            $row = $stmt->fetch();
-            return $row[$property];
-        } catch (PDOException $e) {
-            die($e->getMessage());
-        }
+    public static function selectCell2Props($property, $table, $refprop, $ref, $refprop2, $ref2){
+        $stmt = self::$db->prepare("SELECT $property FROM $table WHERE $refprop = :ref AND $refprop2 = :ref2");
+        $stmt->bindParam(':ref', $ref);
+        $stmt->bindParam(':ref2', $ref2);
+        $stmt->execute();
+        $row = $stmt->fetch();
+        return $row[$property];
     }
     
-    public function insertUser($user){
-        try {
-            $stmt = $this->db->prepare("INSERT INTO users (username, firstname, lastname, password, year, permission) VALUES(:username, :firstname, :lastname, :password, :year, :permission)");
-            $stmt->bindParam(':username', $user->username);
-            $stmt->bindParam(':firstname', $user->firstname);
-            $stmt->bindParam(':lastname', $user->lastname);
-            $stmt->bindParam(':password', $user->password);
-            $stmt->bindParam(':year', $user->year);
-            $stmt->bindParam(':permission', $user->permission);
-            $stmt->execute();
-        } catch (PDOException $e) {
-            die($e->getMessage());
-        }
-    }
-    public function insertNotification($notification){
-        try {
-            $stmt = $this->db->prepare("INSERT INTO notifications (userid, title, description, request) VALUES(:userid, :title, :description, :request)");
-            $stmt->bindParam(':userid', $notification->userid);
-            $stmt->bindParam(':title', $notification->title);
-            $stmt->bindParam(':description', $notification->description);
-            $stmt->bindParam(':request', $notification->request);
-            $stmt->execute();
-        } catch (PDOException $e) {
-            die($e->getMessage());
-        }
+    public static function insertNotification($notification){
+        $stmt = self::$db->prepare("INSERT INTO notifications (userid, title, description, request) VALUES(:userid, :title, :description, :request)");
+        $stmt->bindParam(':userid', $notification->userid);
+        $stmt->bindParam(':title', $notification->title);
+        $stmt->bindParam(':description', $notification->description);
+        $stmt->bindParam(':request', $notification->request);
+        $stmt->execute();
     }
     
-    public function selectRow($table, $refprop, $ref){
-        try {
-            $stmt = $this->db->prepare("SELECT * FROM $table WHERE $refprop = :ref");
-            $stmt->bindParam(':ref', $ref);
-            $stmt->execute();
-            return $row = $stmt->fetch();
-        } catch (PDOException $e) {
-            die($e->getMessage());
-        }
+    public static function selectRow($table, $refprop, $ref){
+        $stmt = self::$db->prepare("SELECT * FROM $table WHERE $refprop = :ref");
+        $stmt->bindParam(':ref', $ref);
+        $stmt->execute();
+        return $row = $stmt->fetch();
     }
     
-    public function selectTable($table){
-        try {
-            $stmt = $this->db->prepare("SELECT * FROM $table");
-            $stmt->execute();
-            return $rowarray = $stmt->fetchAll(PDO::FETCH_CLASS);
-        } catch (PDOException $e) {
-            die($e->getMessage());
-        }
+    public static function selectTable($table){
+        $stmt = self::$db->prepare("SELECT * FROM $table");
+        $stmt->execute();
+        return $rowarray = $stmt->fetchAll(PDO::FETCH_CLASS);
     }
     
-    public function selectRows($table, $refprop, $ref){
-        try {
-            $stmt = $this->db->prepare("SELECT * FROM $table WHERE $refprop = :ref");
-            $stmt->bindParam(':ref', $ref);
-            $stmt->execute();
-            return $rowarray = $stmt->fetchAll(PDO::FETCH_CLASS);
-        } catch (PDOException $e) {
-            die($e->getMessage());
-        }
+    public static function selectRows($table, $refprop, $ref){
+        $stmt = self::$db->prepare("SELECT * FROM $table WHERE $refprop = :ref");
+        $stmt->bindParam(':ref', $ref);
+        $stmt->execute();
+        return $rowarray = $stmt->fetchAll(PDO::FETCH_CLASS);
     }
     
-    public function selectCol($table, $col){
-        try {
-            $stmt = $this->db->prepare("SELECT $col FROM $table");
-            $stmt->execute();
-            return $colarray = $stmt->fetchAll(PDO::FETCH_CLASS);
-        } catch (PDOException $e) {
-            die($e->getMessage());
-        }
+    public static function selectCol($table, $col){
+        $stmt = self::$db->prepare("SELECT $col FROM $table");
+        $stmt->execute();
+        return $colarray = $stmt->fetchAll(PDO::FETCH_CLASS);
     }
     
-    public function insertSession($userid, $lessonid, $period){
-        try {
-            $stmt = $this->db->prepare("INSERT INTO sessions (userid, lessonid, period) VALUES(:userid, :lessonid, :period)");
-            $stmt->bindParam(':userid', $userid);
-            $stmt->bindParam(':lessonid', $lessonid);
-            $stmt->bindParam(':period', $period);
-            $stmt->execute();
-        } catch (PDOException $e) {
-            die($e->getMessage());
-        }
+    public static function insertSession($userid, $lessonid, $period){
+        $stmt = self::$db->prepare("INSERT INTO sessions (userid, lessonid, period) VALUES(:userid, :lessonid, :period)");
+        $stmt->bindParam(':userid', $userid);
+        $stmt->bindParam(':lessonid', $lessonid);
+        $stmt->bindParam(':period', $period);
+        $stmt->execute();
     }
     
-    public function updateSession($lessonid, $sessionid){
-        try {
-            $stmt = $this->db->prepare("UPDATE sessions SET lessonid = :lessonid WHERE sessionid = :sessionid");
-            $stmt->bindParam(':lessonid', $lessonid);
-            $stmt->bindParam(':sessionid', $sessionid);
-            $stmt->execute();
-        } catch (PDOException $e) {
-            die($e->getMessage());
-        }
+    public static function updateSession($lessonid, $sessionid){
+        $stmt = self::$db->prepare("UPDATE sessions SET lessonid = :lessonid WHERE sessionid = :sessionid");
+        $stmt->bindParam(':lessonid', $lessonid);
+        $stmt->bindParam(':sessionid', $sessionid);
+        $stmt->execute();
     }
-    public function insertLesson($subject, $room, $teacher, $year){
-        try {
-            $stmt = $this->db->prepare("INSERT INTO lessons (subject, room, teacher, year) VALUES(:subject, :room, :teacher, :year)");
-            $stmt->bindParam(':subject', $subject);
-            $stmt->bindParam(':room', $room);
-            $stmt->bindParam(':teacher', $teacher);
-            $stmt->bindParam(':year', $year);
-            $stmt->execute();
-        } catch (PDOException $e) {
-            die($e->getMessage());
-        }
+    public static function insertLesson($subject, $room, $teacher, $year){
+        $stmt = self::$db->prepare("INSERT INTO lessons (subject, room, teacher, year) VALUES(:subject, :room, :teacher, :year)");
+        $stmt->bindParam(':subject', $subject);
+        $stmt->bindParam(':room', $room);
+        $stmt->bindParam(':teacher', $teacher);
+        $stmt->bindParam(':year', $year);
+        $stmt->execute();
     }
-    public function removeRow($table, $refprop, $ref){
-        try {
-            $stmt = $this->db->prepare("DELETE FROM $table WHERE $refprop = $ref");
+    public static function removeRow($table, $refprop, $ref){
+        $stmt = self::$db->prepare("DELETE FROM $table WHERE $refprop = $ref");
 //            $stmt->bindParam(':refprop', $refprop);
 //            $stmt->bindParam(':ref', $ref);
-            $stmt->execute();
-        } catch (PDOException $e) {
-            die($e->getMessage());
-        }
+        $stmt->execute();
     }
     
 }

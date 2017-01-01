@@ -21,9 +21,12 @@ class LoginController extends Controller
     POST /login
     */
     public static function auth(){
-        $username = self::$query->selectCell('username','users','username',$_POST['username']);
-        $hashedpass = self::$query->selectCell('password','users','username',$username);
-        $id = self::$query->selectCell('id','users','username',$username);
+        //$username = self::$query->selectCell('username','users','username',$_POST['username']);
+        $username = Users::findByUsername($_POST['username'])->username;
+        //$hashedpass = self::$query->selectCell('password','users','username',$username);
+        $hashedpass = Users::findByUsername($username)->password;
+        //$id = self::$query->selectCell('id','users','username',$username);
+        $id = Users::findByUsername($username)->id;
         
         if($username && password_verify($_POST['password'], $hashedpass)){
             $_SESSION['id'] = $id;

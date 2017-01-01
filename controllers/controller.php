@@ -2,17 +2,15 @@
 class Controller
 {
     public static $user;
-    public static $query;
     public static $timetable;
     
     public function  __construct(){
-        self::$query = Flight::get('query');
         if($this->authCheck()){
             $id = $_SESSION['id'];
             self::$user = new User;
             self::$timetable = new Timetable;
             
-            $properties = self::$query->selectRow('users', 'id', $id);
+            $properties = Users::find($id);
             foreach ($properties as $property => $value)
             {
                 self::$user->$property = $value;
@@ -28,7 +26,7 @@ class Controller
     }
     
     public static function navbar(){
-        $notifications = self::$query->selectRows('notifications','userid',self::$user->id);
+        $notifications = Notifications::findByUser(self::$user);
         $count = count($notifications);
         Flight::view()->set('notifications', $notifications);
         Flight::view()->set('count', $count);

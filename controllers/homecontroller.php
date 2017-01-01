@@ -5,7 +5,9 @@ class HomeController extends Controller
     public function __construct(){
         parent::__construct();
     }
-    
+    /**
+     * GET /home
+     */
     public static function index(){
         parent::routeProtect();
         parent::header();

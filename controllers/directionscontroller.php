@@ -5,18 +5,25 @@ class DirectionsController extends Controller
     public function __construct(){
         parent::__construct();
     }
-    
+    /**
+     * GET /directions
+     */
     public static function index(){
         parent::routeProtect();
-        $buildings = self::$query->selectCol('buildings', 'name');
+        //$buildings = Query::selectCol('buildings', 'name');
+        $buildings = Buildings::findAll();
         foreach ($buildings as $building) {
-            $buildingsArray[$building->name] = self::$query->selectRows('rooms', 'building', $building->name);
+            //$buildingsArray[$building->name] = Query::selectRows('destinations', 'building', $building->name);
+            $buildingsArray[$building->name] = Destinations::findByBuilding($building->name);
         }
         parent::header();
         parent::navbar();
         Flight::render('directions.view.php', ['buildings' => $buildingsArray]);
         Flight::render('footer.view.php');
     }
+    /**
+     * POST /directions
+     */
     public static function redirect(){
         //$from = htmlspecialchars($_POST['from']);
         //$to = htmlspecialchars($_POST['to']);
@@ -29,6 +36,9 @@ class DirectionsController extends Controller
         }
         Flight::redirect("/directions/$from/$to");
     }
+    /**
+     * GET /directions/@from/@to
+     */
     public static function calculate($from, $to){
         parent::routeProtect();
         // descriptor array
@@ -61,7 +71,7 @@ class DirectionsController extends Controller
             $returned = proc_close($p);
             //echo $returned;
         } else {
-        echo 'no resource available';
+            echo 'no resource available';
         }
         parent::header();
         parent::navbar();

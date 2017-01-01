@@ -2,7 +2,9 @@
 
 class AccountInfoController extends Controller
 {
-    
+    /**
+     * GET /account
+     */
     public static function index(){
         parent::routeProtect();
         parent::header();

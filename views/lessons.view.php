@@ -38,7 +38,7 @@
                 <form method="post" action="/lessons/delete">
                     <div class="form-group">
                         <label for="lesson_edit">Lesson:</label>
-                        <select name='lesson_edit' id='lesson_edit' style='width: 100%'>;
+                        <select name='lesson_delete' id='lesson_delete' style='width: 100%'>;
                             <?php foreach($lessons as $lesson):?>
                             <option value=<?= $lesson->id; ?>><?= $lesson->subject." ".$lesson->room ?></option>);
                             <?php endforeach ?>

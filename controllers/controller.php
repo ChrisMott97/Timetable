@@ -26,7 +26,7 @@ class Controller
     }
     
     public static function navbar(){
-        $notifications = Notifications::findByUser(self::$user);
+        $notifications = Notifications::findBy('userid', self::$user->id);
         $count = count($notifications);
         Flight::view()->set('notifications', $notifications);
         Flight::view()->set('count', $count);

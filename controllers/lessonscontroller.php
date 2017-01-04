@@ -12,7 +12,7 @@ class LessonsController extends Controller
         parent::routeProtect();
         
         //$lessons = self::$query->selectRows("lessons", "year", self::$user->year);
-        $lessons = Lessons::findByYear(self::$user->year);
+        $lessons = Lessons::findBy('year', self::$user->year);
         
         parent::header();
         parent::navbar();

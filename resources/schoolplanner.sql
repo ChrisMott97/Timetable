@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.7.9, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.12, for Win64 (x86_64)
 --
 -- Host: localhost    Database: schoolplanner
 -- ------------------------------------------------------
--- Server version	5.7.9-log
+-- Server version	5.7.17-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -159,8 +159,9 @@ CREATE TABLE `notifications` (
   `title` varchar(45) NOT NULL,
   `description` varchar(255) DEFAULT NULL,
   `request` tinyint(1) DEFAULT '0',
+  `completed` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -169,7 +170,7 @@ CREATE TABLE `notifications` (
 
 LOCK TABLES `notifications` WRITE;
 /*!40000 ALTER TABLE `notifications` DISABLE KEYS */;
-INSERT INTO `notifications` VALUES (1,1,'New notification','this is the new notification description',0),(2,1,'another notification','More details',0),(3,1,'A 3rd notification','This lesson has been moved due to mainenance in the room, please try M120!',0);
+INSERT INTO `notifications` VALUES (1,1,'New notification','this is the new notification description',0,0),(2,1,'another notification','More details',0,0),(3,1,'A 3rd notification','This lesson has been moved due to mainenance in the room, please try M120!',0,0),(4,21,'Hi, this is a test notification','lol',0,0);
 /*!40000 ALTER TABLE `notifications` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -236,12 +237,12 @@ DROP TABLE IF EXISTS `sessions`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `sessions` (
-  `sessionid` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `userid` int(11) NOT NULL,
   `lessonid` int(11) DEFAULT NULL,
   `period` varchar(45) NOT NULL,
-  PRIMARY KEY (`sessionid`)
-) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -250,7 +251,7 @@ CREATE TABLE `sessions` (
 
 LOCK TABLES `sessions` WRITE;
 /*!40000 ALTER TABLE `sessions` DISABLE KEYS */;
-INSERT INTO `sessions` VALUES (8,1,6,'MonA1'),(9,1,8,'MonA2'),(10,1,8,'MonA3'),(11,1,8,'MonA4'),(12,1,12,'TueA3'),(13,1,8,'TueA1'),(14,1,8,'WedA1'),(15,1,13,'ThuA1'),(16,1,8,'FriA1'),(17,1,8,'TueA2'),(18,1,8,'WedA2'),(19,1,13,'ThuA2'),(20,1,13,'FriA2'),(21,1,6,'WedA3'),(22,1,8,'ThuA3'),(23,1,8,'FriA3'),(24,1,8,'TueA4'),(25,1,6,'WedA4'),(26,1,7,'FriA4'),(27,1,8,'MonA5'),(28,1,8,'TueA5'),(29,1,7,'WedA5'),(30,1,8,'ThuA5'),(31,1,7,'FriA5'),(32,21,11,'FriA1'),(33,21,11,'WedA2'),(34,1,12,'ThuA4');
+INSERT INTO `sessions` VALUES (8,1,7,'MonA1'),(9,1,8,'MonA2'),(10,1,8,'MonA3'),(11,1,8,'MonA4'),(12,1,12,'TueA3'),(13,1,8,'TueA1'),(14,1,8,'WedA1'),(15,1,13,'ThuA1'),(16,1,6,'FriA1'),(17,1,8,'TueA2'),(18,1,8,'WedA2'),(19,1,13,'ThuA2'),(20,1,13,'FriA2'),(21,1,6,'WedA3'),(22,1,8,'ThuA3'),(23,1,8,'FriA3'),(24,1,8,'TueA4'),(25,1,6,'WedA4'),(26,1,7,'FriA4'),(27,1,8,'MonA5'),(28,1,8,'TueA5'),(29,1,7,'WedA5'),(30,1,8,'ThuA5'),(31,1,7,'FriA5'),(32,21,11,'FriA1'),(33,21,11,'WedA2'),(34,1,12,'ThuA4'),(35,1,7,'MonA1'),(36,1,7,'MonA1'),(37,1,7,'MonA1'),(38,1,7,'MonA1'),(39,1,7,'MonA1'),(40,1,6,'MonA1'),(41,1,7,'FriA1'),(42,1,6,'MonA6');
 /*!40000 ALTER TABLE `sessions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -271,7 +272,7 @@ CREATE TABLE `users` (
   `permission` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
   UNIQUE KEY `username_UNIQUE` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -280,7 +281,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'cmott97','Chris','Mott','$2y$10$rq4yYITEhZfYjEXS3tSxeeFRU5gqP4U1JrdLxKOOc19g5tzC5Zs8y',13,5),(21,'hjones02','Haydn','Jones','$2y$10$1bMHgHeptg918kPaPq/RDOHWb4T/S4vyTHPP0XsMSo4wjS/cwHziy',10,1),(22,'jsmith03','John','Smith','$2y$10$Dl.nsgZgqcY4oW9ESa/TBe6RvCvsk/qTbBVTTDONOTdEuO/B4ExHG',9,1),(23,'drenahmeti22','Dren','Ahmeti','$2y$10$FU5DYYQYxgukgnQVbtpwMO/eTiL7fUuyt5sfU8O3jcsG2DaNAeop2',11,1),(25,'rya','R','Yates','$2y$10$KgW2WfZrepGSUVsVnFUQkuF09KL/0jYs9AawR4/XwS.6lzcHeY7nK',0,3);
+INSERT INTO `users` VALUES (1,'cmott97','Chris','Mott','$2y$10$rq4yYITEhZfYjEXS3tSxeeFRU5gqP4U1JrdLxKOOc19g5tzC5Zs8y',13,5),(21,'hjones02','Haydn','Jones','$2y$10$1bMHgHeptg918kPaPq/RDOHWb4T/S4vyTHPP0XsMSo4wjS/cwHziy',10,1),(22,'jsmith03','John','Smith','$2y$10$Dl.nsgZgqcY4oW9ESa/TBe6RvCvsk/qTbBVTTDONOTdEuO/B4ExHG',9,1),(23,'drenahmeti22','Dren','Ahmeti','$2y$10$FU5DYYQYxgukgnQVbtpwMO/eTiL7fUuyt5sfU8O3jcsG2DaNAeop2',11,1),(25,'rya','R','Yates','$2y$10$KgW2WfZrepGSUVsVnFUQkuF09KL/0jYs9AawR4/XwS.6lzcHeY7nK',0,3),(26,'newuser1','New','User','$2y$10$4475ZRkHlwkKGUAFY8cl5eHvgaFihpIvwvTev3bo1QNZkofzQBQCW',7,1);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -293,4 +294,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-11-28  9:39:19
+-- Dump completed on 2017-01-04  7:33:06

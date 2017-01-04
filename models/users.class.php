@@ -22,16 +22,14 @@ class Users
         $stmt->setFetchMode(PDO::FETCH_CLASS, 'User');
         return $stmt->fetchAll();
     }
-    public static function findByYear($year){
-        $stmt = Query::$db->prepare('SELECT * FROM users WHERE year = :year');
-        $stmt->bindParam(':year', $year);
-        $stmt->execute();
-        $stmt->setFetchMode(PDO::FETCH_CLASS, 'User');
-        return $stmt->fetchAll();
-    }
-    public static function findByPermission($year){
-        $stmt = Query::$db->prepare('SELECT * FROM users WHERE permission = :permission');
-        $stmt->bindParam(':permission', $permission);
+    public static function findBy($property, $value){
+        $stmt = Query::$db->prepare('
+            SELECT * 
+            FROM users 
+            WHERE :property = :value
+        ');
+        $stmt->bindParam(':property', $property);
+        $stmt->bindParam(':value', $value);
         $stmt->execute();
         $stmt->setFetchMode(PDO::FETCH_CLASS, 'User');
         return $stmt->fetchAll();

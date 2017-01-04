@@ -1,0 +1,783 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"new",
+				"newSession"
+			],
+			[
+				"notific",
+				"notifications"
+			],
+			[
+				"notifica",
+				"notification"
+			],
+			[
+				"log",
+				"logOut"
+			],
+			[
+				"get",
+				"getToken"
+			],
+			[
+				"slyce",
+				"slyce-token"
+			],
+			[
+				"User",
+				"UserSchema"
+			],
+			[
+				"Comment",
+				"CommentSchema"
+			],
+			[
+				"glyphicon-thumbs",
+				"glyphicon-thumbs-up \tBootstrap 3 Class"
+			],
+			[
+				"stat",
+				"stateParams"
+			],
+			[
+				"url",
+				"urlRouterProvider"
+			],
+			[
+				"div",
+				"nav-divider \tBootstrap 3 Class"
+			],
+			[
+				"func_",
+				"func_get_args"
+			],
+			[
+				"arg",
+				"func_get_args"
+			],
+			[
+				"panel-",
+				"panel-success \tBootstrap 3 Class"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "models/notifications.class.php",
+			"settings":
+			{
+				"buffer_size": 1646,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "models/sessions.class.php",
+			"settings":
+			{
+				"buffer_size": 2685,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "controllers/timetablecontroller.php",
+			"settings":
+			{
+				"buffer_size": 2407,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Windows",
+				"name": "Xdebug Stack",
+				"read_only": true,
+				"scratch": true
+			}
+		},
+		{
+			"contents": "=> D:\\Program Files (x86)\\EasyPHP-Devserver-16.1\\eds-www\\models\\sessions.class.php\n\t|+| 68\n",
+			"settings":
+			{
+				"buffer_size": 91,
+				"line_ending": "Windows",
+				"name": "Xdebug Breakpoint",
+				"read_only": true,
+				"scratch": true
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 368.0,
+		"last_filter": "ins",
+		"selected_items":
+		[
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"i",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"brows",
+				"Preferences: Browse Packages"
+			],
+			[
+				"INST",
+				"Package Control: Install Package"
+			],
+			[
+				"Snippet: php ",
+				"Snippet: <?php … ?>"
+			],
+			[
+				"Package Control: ins",
+				"Package Control: Install Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"packa",
+				"Preferences: Browse Packages"
+			]
+		],
+		"width": 368.0
+	},
+	"console":
+	{
+		"height": 441.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d39e33b79698005270310898eea76'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/D/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www",
+		"/D/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/controllers",
+		"/D/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/models",
+		"/D/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/public",
+		"/D/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/public/js",
+		"/D/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/views"
+	],
+	"file_history":
+	[
+		"/D/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/models/query.class.php",
+		"/D/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/public/js/timetable_update.js",
+		"/D/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/schoolplanner.sublime-project",
+		"/D/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/views/test.view.php",
+		"/D/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/models/users.class.php",
+		"/D/Program Files/Sublime Text 3/Data/Packages/User/Xdebug.sublime-settings",
+		"/D/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/models/lessons.class.php",
+		"/D/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/models/destinations.class.php",
+		"/D/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/models/sessions.class.php",
+		"/D/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/models/buildings.class.php",
+		"/D/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/partials/setup.php",
+		"/D/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/controllers/timetablecontroller.php",
+		"/D/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/controllers/lessonscontroller.php",
+		"/D/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/controllers/directionscontroller.php",
+		"/D/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/controllers/controller.php",
+		"/D/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/models/notifications.class.php",
+		"/D/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/models/session.class.php",
+		"/D/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/models/notification.class.php",
+		"/D/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/controllers/admincontroller.php",
+		"/D/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/models/lesson.class.php",
+		"/D/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/views/lessons.view.php",
+		"/D/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/routes.php",
+		"/D/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/controllers/searchcontroller.php",
+		"/D/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/models/user.class.php",
+		"/D/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/controllers/accountinfocontroller.php",
+		"/D/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/controllers/logoutcontroller.php",
+		"/D/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/controllers/homecontroller.php",
+		"/D/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/controllers/indexcontroller.php",
+		"/D/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/controllers/logincontroller.php",
+		"/D/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/models/destination.class.php",
+		"/D/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/models/building.class.php",
+		"/D/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/views/index.view.php",
+		"/D/Program Files/Sublime Text 3/Data/Packages/User/Package Control.sublime-settings",
+		"/Z/LiveSlyce/views/index.ejs",
+		"/Z/LiveSlyce/routes/index.js",
+		"/Z/LiveSlyce/public/javascripts/angularApp.js",
+		"/Z/nodeslyce/routes/index.js",
+		"/Z/nodeslyce/app.js",
+		"/Z/nodeslyce/config/passport.js",
+		"/Z/nodeslyce/models/Users.js",
+		"/Z/nodeslyce/public/javascripts/angularApp.js",
+		"/Z/nodeslyce/views/index.ejs",
+		"/Z/nodeslyce/bin/www",
+		"/Z/nodeslyce/models/Comments.js",
+		"/Z/nodeslyce/models/Posts.js",
+		"/Z/newslyce/app.js",
+		"/Z/newslyce/index.html",
+		"/D/EasyPHP-Devserver-16.1/eds-www/models/query.class.php",
+		"/D/EasyPHP-Devserver-16.1/eds-www/views/admin/admin.view.php",
+		"/D/EasyPHP-Devserver-16.1/eds-www/controllers/admincontroller.php",
+		"/D/EasyPHP-Devserver-16.1/eds-www/views/result.view.php",
+		"/D/EasyPHP-Devserver-16.1/eds-www/views/admin/shownotify.view.php",
+		"/D/EasyPHP-Devserver-16.1/eds-www/views/admin/createnotify.view.php",
+		"/D/EasyPHP-Devserver-16.1/eds-www/partials/setup.php",
+		"/D/EasyPHP-Devserver-16.1/eds-www/models/notification.class.php",
+		"/D/EasyPHP-Devserver-16.1/eds-www/views/admin/addteacher.view.php",
+		"/D/EasyPHP-Devserver-16.1/eds-www/views/footer.view.php",
+		"/D/EasyPHP-Devserver-16.1/eds-www/views/admin/adduser.view.php",
+		"/D/EasyPHP-Devserver-16.1/eds-www/controllers/directionscontroller.php",
+		"/D/EasyPHP-Devserver-16.1/eds-www/hello.py",
+		"/D/EasyPHP-Devserver-16.1/eds-www/controllers/controller.php",
+		"/D/EasyPHP-Devserver-16.1/eds-www/controllers/indexcontroller.php",
+		"/D/EasyPHP-Devserver-16.1/eds-www/views/test.view.php",
+		"/D/EasyPHP-Devserver-16.1/eds-www/views/directions.view.php",
+		"/D/EasyPHP-Devserver-16.1/eds-www/views/home.view.php",
+		"/D/EasyPHP-Devserver-16.1/eds-www/views/navbar/5.view.php",
+		"/D/EasyPHP-Devserver-16.1/eds-www/views/navbar/3.view.php",
+		"/D/EasyPHP-Devserver-16.1/eds-www/views/navbar/1.view.php",
+		"/D/EasyPHP-Devserver-16.1/eds-www/views/timetable_edit.view.php",
+		"/D/EasyPHP-Devserver-16.1/eds-www/views/search.view.php",
+		"/D/EasyPHP-Devserver-16.1/eds-www/controllers/teachercontroller.php",
+		"/D/EasyPHP-Devserver-16.1/eds-www/views/teacher/index.view.php",
+		"/D/EasyPHP-Devserver-16.1/eds-www/routes.php",
+		"/D/EasyPHP-Devserver-16.1/eds-www/controllers/search.controller.php",
+		"/D/views/search.view.php",
+		"/D/EasyPHP-Devserver-16.1/eds-www/controllers/home.controller.php",
+		"/D/EasyPHP-Devserver-16.1/eds-www/views/timetable.view.php",
+		"/D/EasyPHP-Devserver-16.1/eds-www/controllers/index.controller.php",
+		"/D/EasyPHP-Devserver-16.1/eds-www/controllers/error.controller.php",
+		"/D/EasyPHP-Devserver-16.1/eds-www/controllers/timetable.controller.php",
+		"/D/EasyPHP-Devserver-16.1/eds-www/public/css/global.css",
+		"/D/EasyPHP-Devserver-16.1/eds-www/views/index.view.php",
+		"/D/EasyPHP-Devserver-16.1/eds-www/public/css/login.css",
+		"/D/EasyPHP-Devserver-16.1/eds-www/views/navbar/0.view.php",
+		"/D/EasyPHP-Devserver-16.1/eds-www/controllers/timetable_lessons.controller.php",
+		"/D/EasyPHP-Devserver-16.1/eds-www/views/header.view.php",
+		"/D/EasyPHP-Devserver-16.1/eds-www/controllers/admin.controller.php",
+		"/D/EasyPHP-Devserver-16.1/eds-www/controllers/accountinfo.controller.php",
+		"/D/EasyPHP-Devserver-16.1/eds-www/controllers/login.controller.php",
+		"/D/EasyPHP-Devserver-16.1/eds-www/public/css/index.css",
+		"/D/EasyPHP-Devserver-16.1/eds-www/controllers/directions.controller.php",
+		"/D/EasyPHP-Devserver-16.1/eds-www/views/accountinfo.view.php",
+		"/D/EasyPHP-Devserver-16.1/eds-www/views/login.view.php",
+		"/D/EasyPHP-Devserver-16.1/eds-www/views/timetable_lessons.view.php",
+		"/D/EasyPHP-Devserver-16.1/eds-www/controllers/logout.controller.php",
+		"/D/EasyPHP-Devserver-16.1/eds-www/partials/header.php",
+		"/D/Other/PortableApps/Sublime Text Build 3126/Data/Packages/User/ColorPicker.sublime-settings",
+		"/D/Other/PortableApps/Sublime Text Build 3126/Data/Packages/User/Package Control.sublime-settings",
+		"/D/Other/PortableApps/Sublime Text Build 3126/Data/Packages/Package Control/Package Control.sublime-settings",
+		"/D/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/index.php"
+	],
+	"find":
+	{
+		"height": 55.0
+	},
+	"find_in_files":
+	{
+		"height": 157.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"timetableid",
+			"timetableids",
+			"sessionid",
+			"sessions",
+			"Sessions",
+			"sessions",
+			"Sessions",
+			"sessions",
+			"Sessions",
+			"sessions",
+			"id",
+			"timetableid",
+			"timetableids",
+			"session",
+			"timetableid",
+			"timetableids",
+			"sessionid",
+			"lessonid",
+			"teacher",
+			"room",
+			"subject",
+			"year",
+			"lesson",
+			"Lesson",
+			"lessons",
+			"Lessons",
+			"lessons",
+			"teacher",
+			"room",
+			"subject",
+			"completed",
+			"notification",
+			"Notification",
+			"notification",
+			"Notification",
+			"notification",
+			"newteacher",
+			"newuser",
+			"subject",
+			"user",
+			"destinations",
+			"addteacher",
+			"adduser",
+			"password",
+			"lastname",
+			"firstname",
+			"username",
+			"room",
+			"public $room;",
+			"description",
+			"name",
+			"buildings",
+			"room",
+			"public $room;",
+			"description",
+			"name",
+			"Notification",
+			"notifications",
+			"self::$query->",
+			"title",
+			"userid",
+			"year",
+			"password",
+			"lastname",
+			"firstname",
+			"username",
+			"public",
+			"self",
+			"allNotifications",
+			"id",
+			"public function find($id)){\n        $stmt = self::$db->prepare('SELECT * FROM users WHERE id = :id');\n        $stmt->bindParam(':id', $id);\n        $stmt->execute();\n        $stmt->setFetchMode(PDO::FETCH_CLASS, 'User');\n        return $stmt->fetch();\n    }",
+			"} catch (PDOException $e) {\n            die($e->getMessage());\n        }",
+			"try {",
+			"} catch (PDOException $e) {\n            die($e->getMessage());\n        }",
+			"try {",
+			"} catch (PDOException $e) {\n            die($e->getMessage());\n        }",
+			"year",
+			"password",
+			"lastname",
+			"firstname",
+			"user",
+			"username",
+			"password",
+			"lastname",
+			"'];\n",
+			"year",
+			"public function find($id)){\n        try {\n            $stmt = self::$db->prepare('SELECT * FROM users WHERE id = :id');\n            $stmt->bindParam(':id', $id);\n            $stmt->execute();\n            $stmt->setFetchMode(PDO::FETCH_CLASS, 'User');\n            return $stmt->fetch();\n        } catch (PDOException $e) {\n            die($e->getMessage());\n        }\n    }",
+			"$this->db",
+			"},\n",
+			"userid",
+			"addteacher",
+			"h2",
+			"<div class=\"panel panel-primary\">\n\t\t\t\t<div class=\"panel-heading\"><h4>Add Subject</h4></div>\n\t\t\t</div>",
+			"subjects",
+			"users",
+			"Subjects",
+			"subjects",
+			"profile",
+			"home",
+			" </",
+			"h1",
+			"default",
+			"custom",
+			"navbar"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "models/notifications.class.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1646,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								640,
+								640
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "models/sessions.class.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2685,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2436,
+								2436
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 720.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "controllers/timetablecontroller.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2407,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								459,
+								459
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"sheets":
+			[
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 3,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Xdebug Client/Xdebug.tmLanguage",
+							"word_wrap": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 91,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								91,
+								91
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Xdebug Client/Xdebug.tmLanguage",
+							"word_wrap": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.0
+	},
+	"input":
+	{
+		"height": 55.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				2,
+				1
+			],
+			[
+				0,
+				1,
+				1,
+				2
+			],
+			[
+				1,
+				1,
+				2,
+				2
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.455410225922,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			0.94850669413,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.xdebug":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "schoolplanner.sublime-project",
+	"replace":
+	{
+		"height": 50.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"qury",
+				"models\\query.class.php"
+			],
+			[
+				"searcon",
+				"controllers\\search.controller.php"
+			],
+			[
+				"nav",
+				"views\\navbar\\5.view.php"
+			],
+			[
+				"home",
+				"views\\home.view.php"
+			],
+			[
+				"timet",
+				"controllers\\timetable.controller.php"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+		"xdebug":
+		{
+			"hide_conflict": false,
+			"restore_index":
+			{
+				"15":
+				{
+					"group": 0,
+					"index": 0
+				},
+				"16":
+				{
+					"group": 0,
+					"index": 1
+				},
+				"17":
+				{
+					"group": 0,
+					"index": 3
+				},
+				"18":
+				{
+					"group": 0,
+					"index": 4
+				},
+				"19":
+				{
+					"group": 0,
+					"index": 5
+				},
+				"23":
+				{
+					"group": 0,
+					"index": 2
+				}
+			},
+			"restore_layout":
+			{
+				"cells":
+				[
+					[
+						0,
+						0,
+						1,
+						1
+					]
+				],
+				"cols":
+				[
+					0.0,
+					1.0
+				],
+				"rows":
+				[
+					0.0,
+					1.0
+				]
+			}
+		}
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 238.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

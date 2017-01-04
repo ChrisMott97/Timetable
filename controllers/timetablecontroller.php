@@ -11,14 +11,13 @@ class TimetableController extends Controller
     public static function index(){
         parent::routeProtect();
         
-        $timetableids = Query::selectRows('sessions', 'userid', self::$user->id);
-        foreach($timetableids as $timetableid){
-            $period = $timetableid->period;
-            $lessonid = $timetableid->lessonid;
+        //$sessions = Query::selectRows('sessions', 'userid', self::$user->id);
+        $sessions = Sessions::findBy('userid', self::$user->id);
+        foreach($sessions as $session){
+            $period = $session->period;
+            $lessonid = $session->lessonid;
             
-            // $subject = Query::selectCell('subject','lessons','id',$lessonid);
             $subject = Lessons::find($lessonid)->subject;
-            // $room = Query::selectCell('room','lessons','id',$lessonid);
             $room = Lessons::find($lessonid)->room;
             
             $label = $subject." ".$room;
@@ -37,14 +36,13 @@ class TimetableController extends Controller
     public static function edit(){
         parent::routeProtect();
         
-        $timetableids = Query::selectRows('sessions', 'userid', self::$user->id);
-        foreach($timetableids as $timetableid){
-            $period = $timetableid->period;
-            $lessonid = $timetableid->lessonid;
+        // $sessions = Query::selectRows('sessions', 'userid', self::$user->id);
+        $sessions = Sessions::findBy('userid', self::$user->id);
+        foreach($sessions as $session){
+            $period = $session->period;
+            $lessonid = $session->lessonid;
             
-            // $subject = Query::selectCell('subject','lessons','id',$lessonid);
             $subject = Lessons::find($lessonid)->subject;
-            // $room = Query::selectCell('room','lessons','id',$lessonid);
             $room = Lessons::find($lessonid)->room;
             
             $label = $subject." ".$room;
@@ -52,8 +50,7 @@ class TimetableController extends Controller
             self::$timetable->$period = $label;
         }
         
-        //$lessons = Query::selectRows("lessons", "year", self::$user->year);
-        $lessons = Lessons::findByYear(self::$user->year);
+        $lessons = Lessons::findBy('year', self::$user->year);
         $periods = Query::selectCol('periods', 'code');
         
         parent::header();
@@ -69,11 +66,12 @@ class TimetableController extends Controller
         $sessions = $_POST['sessions'];
         $lessons = [];
         foreach($sessions as $period => $lessonid){
-            if(Query::selectCell2Props("sessionid", "sessions", "userid", self::$user->id, "period", $period)){
-                $sessionid = Query::selectCell2Props("sessionid", "sessions", "userid", self::$user->id, "period", $period);
-                Query::updateSession($lessonid, $sessionid);
-            } else{
-                Query::insertSession(self::$user->id, $lessonid, $period);
+            if($lessonid){
+                $newSession = new Session;
+                $newSession->userid = self::$user->id;
+                $newSession->lessonid = $lessonid;
+                $newSession->period = $period;
+                Sessions::save($newSession);
             }
         }
     }

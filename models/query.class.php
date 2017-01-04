@@ -83,7 +83,7 @@ class Query
     }
     
     public static function updateSession($lessonid, $sessionid){
-        $stmt = self::$db->prepare("UPDATE sessions SET lessonid = :lessonid WHERE sessionid = :sessionid");
+        $stmt = self::$db->prepare("UPDATE sessions SET lessonid = :lessonid WHERE id = :sessionid");
         $stmt->bindParam(':lessonid', $lessonid);
         $stmt->bindParam(':sessionid', $sessionid);
         $stmt->execute();

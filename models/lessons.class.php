@@ -18,19 +18,19 @@ class Lessons
         $stmt->setFetchMode(PDO::FETCH_CLASS, 'Lesson');
         return $stmt->fetchAll();
     }
-    public static function findByYear($year){
-        $stmt = Query::$db->prepare('
+    public static function findBy($property, $value){
+        $stmt = Query::$db->prepare("
             SELECT * 
             FROM lessons 
-            WHERE year = :year
-        ');
-        $stmt->bindParam(':year', $year);
+            WHERE $property = :value
+        ");
+        $stmt->bindParam(':value', $value);
         $stmt->execute();
         $stmt->setFetchMode(PDO::FETCH_CLASS, 'Lesson');
         return $stmt->fetchAll();
     }
     public static function save(Lesson $lesson){
-        if(isset($lesson->id) && Lessons::find($lesson->id)){     
+        if(isset($lesson->id) && self::find($lesson->id)){     
             $stmt = Query::$db->prepare("
                 UPDATE lessons 
                 SET subject = :subject,

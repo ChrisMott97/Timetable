@@ -14,7 +14,7 @@ class DirectionsController extends Controller
         $buildings = Buildings::findAll();
         foreach ($buildings as $building) {
             //$buildingsArray[$building->name] = Query::selectRows('destinations', 'building', $building->name);
-            $buildingsArray[$building->name] = Destinations::findByBuilding($building->name);
+            $buildingsArray[$building->name] = Destinations::findBy('building', $building->name);
         }
         parent::header();
         parent::navbar();

@@ -20,6 +20,9 @@ require('models/destinations.class.php');
 
 require('models/lesson.class.php');
 require('models/lessons.class.php');
+
+ require('models/session.class.php');
+require('models/sessions.class.php');
  
 require('controllers/controller.php');
 Flight::set('app', new Controller);

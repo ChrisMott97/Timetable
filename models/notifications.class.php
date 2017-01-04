@@ -15,9 +15,13 @@ class Notifications
         $stmt->setFetchMode(PDO::FETCH_CLASS, 'Notification');
         return $stmt->fetchAll();
     }
-    public static function findByUser(User $user){
-        $stmt = Query::$db->prepare('SELECT * FROM notifications WHERE userid = :userid');
-        $stmt->bindParam(':userid', $user->id);
+    public static function findBy($property, $value){
+        $stmt = Query::$db->prepare("
+            SELECT * 
+            FROM notifications 
+            WHERE $property = :value
+        ");
+        $stmt->bindParam(':value', $value);
         $stmt->execute();
         $stmt->setFetchMode(PDO::FETCH_CLASS, 'Notification');
         return $stmt->fetchAll();

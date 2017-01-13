@@ -11,12 +11,15 @@ $("#lesson_edit").select2();
 $("#from").select2();
 $("#to").select2();
 $("#userids").select2();
+$("#id").select2();
 $('#search').hideseek();
 $('#search').hideseek({
   hidden_mode: true
 });
 });
 </script>
+<script src="/public/js/users.js"></script>
+<script src="/public/js/notifications.js"></script>
 <script src="/public/js/set.js"></script>
 <script src="/public/js/remove.js"></script>
 <script src="/public/js/periodtimes.js"></script>

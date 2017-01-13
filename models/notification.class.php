@@ -9,17 +9,11 @@ class Notification
     public $request;
     public $completed;
     
+    public $user;
+    
     public function __construct($data = null)
     {
-        if (is_array($data)) {
-            if (isset($data['id'])) $this->id = $data['id'];
-            
-            $this->userid = $data['userid'];
-            $this->title = $data['title'];
-            $this->description = $data['description'];
-            $this->request = $data['request'];
-            $this->completed = $data['completed'];
-        }
+        $this->user = Users::find($this->userid);
     }
 
     // public function create(){

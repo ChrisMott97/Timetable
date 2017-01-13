@@ -21,12 +21,17 @@ require('models/destinations.class.php');
 require('models/lesson.class.php');
 require('models/lessons.class.php');
 
- require('models/session.class.php');
+require('models/session.class.php');
 require('models/sessions.class.php');
+
+require('models/period.class.php');
+require('models/periods.class.php');
  
 require('controllers/controller.php');
 Flight::set('app', new Controller);
 
 spl_autoload_register(function ($class_name) {
-    include '/controllers/' . strtolower($class_name) . '.php';
+	if($class_name){
+		include '/controllers/' . strtolower($class_name) . '.php';
+	}
 });

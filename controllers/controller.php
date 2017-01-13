@@ -80,7 +80,7 @@ class Controller
     
     public static function routeProtect($minPermission = 1){
         if(!self::authCheck()){
-            Flight::redirect('login');
+            Flight::redirect('/login');
             exit;
         }
         if(self::$user->permission < $minPermission){
@@ -91,7 +91,7 @@ class Controller
     
     public static function guestOnly(){
         if(self::authCheck()){
-            Flight::redirect('home');
+            Flight::redirect('/home');
             exit;
         }
     }

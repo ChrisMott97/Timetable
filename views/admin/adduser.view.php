@@ -1,7 +1,7 @@
 <div class="panel panel-primary">
     <div class="panel-heading"><h3 class="panel-title">Add User</h3></div>
     <div class="panel-body row">
-        <form method="post" action="admin/adduser">
+        <form method="post" action="/admin/users/create">
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="firstname">Firstname</label>
@@ -14,6 +14,7 @@
                 <div class="form-group">
                     <label for="year">Year Group</label>
                     <select id="year" name="year" class="form-control">
+                        <option>Teacher</option>
                         <option>7</option>
                         <option>8</option>
                         <option>9</option>

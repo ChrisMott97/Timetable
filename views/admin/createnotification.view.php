@@ -1,7 +1,7 @@
 <div class="panel panel-primary">
     <div class="panel-heading"><h3 class="panel-title">Create Notification</h3></div>
     <div class="panel-body row">
-        <form method="post" action="admin/createnotify">
+        <!-- <form method="post" action="/admin/notifications/create"> -->
             <div class="col-md-12">
                 <div class="form-group">
                     <label for="userids">User:</label>
@@ -19,8 +19,8 @@
                     <label for="title">Details</label>
                     <textarea name="details" style="height:200px;" class="form-control" id="details" placeholder="e.g. The lesson has been moved due to maintenance in our normal room!" autocomplete="off"></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary">Create</button>
+                <button type="submit" onclick="createNotification();" class="btn btn-primary">Create</button>
             </div>
-        </form>
+        <!-- </form> -->
     </div>
 </div>

@@ -11,7 +11,6 @@ class TimetableController extends Controller
     public static function index(){
         parent::routeProtect();
         
-        //$sessions = Query::selectRows('sessions', 'userid', self::$user->id);
         $sessions = Sessions::findBy('userid', self::$user->id);
         foreach($sessions as $session){
             $period = $session->period;
@@ -36,7 +35,6 @@ class TimetableController extends Controller
     public static function edit(){
         parent::routeProtect();
         
-        // $sessions = Query::selectRows('sessions', 'userid', self::$user->id);
         $sessions = Sessions::findBy('userid', self::$user->id);
         foreach($sessions as $session){
             $period = $session->period;
@@ -51,7 +49,7 @@ class TimetableController extends Controller
         }
         
         $lessons = Lessons::findBy('year', self::$user->year);
-        $periods = Query::selectCol('periods', 'code');
+        $periods = Periods::findAll();
         
         parent::header();
         parent::navbar();

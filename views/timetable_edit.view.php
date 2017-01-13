@@ -96,7 +96,7 @@
                         <form>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="email">Session:</label>
+                                    <label for="session_edit">Period:</label>
                                     <select id='session_edit' style='width: 100%'>;
                                         <?php foreach($periods as $period):?>
                                         <option value=<?= $period->code; ?>><?= $period->code; ?></option>);
@@ -106,7 +106,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="email">Lesson:</label>
+                                    <label for="lesson_edit">Lesson:</label>
                                     <select id='lesson_edit' style='width: 100%'>;
                                         <?php foreach($lessons as $lesson):?>
                                         <option value=<?= $lesson->id; ?>><?= $lesson->subject." ".$lesson->room ?></option>);

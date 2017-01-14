@@ -18,8 +18,8 @@ class Query
 
     private static function db()
     {
-        return new PDO('mysql:host=localhost;dbname=schoolplanner', 'chris', 'denefield', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-//      return new PDO('mysql:host=eu-cdbr-azure-west-d.cloudapp.net;dbname=schoolplanner', 'bbb1325bbd9a81', '6a15ed22');
+        // return new PDO('mysql:host=localhost;dbname=schoolplanner', 'chris', 'denefield', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+     return new PDO('mysql:host=eu-cdbr-azure-west-d.cloudapp.net;dbname=schoolplanner', 'bbb1325bbd9a81', '6a15ed22');
     }
     
     public static function selectCell($property, $table, $refprop, $ref){

@@ -15,7 +15,7 @@
                         <?php endforeach ?>
                     </select>
                 </div>
-                <button type="submit" onclick="removeUser()" class="btn btn-primary">Remove</button>
+                <button type="submit" onclick=<?= "removeUser(".$user->id.")"; ?> class="btn btn-primary">Remove</button>
             <!-- </form> -->
         </div>
     </div>

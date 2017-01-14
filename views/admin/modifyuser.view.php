@@ -1,7 +1,20 @@
 <div class="panel panel-primary">
-    <div class="panel-heading"><h3 class="panel-title">Add User</h3></div>
-    <div class="panel-body row">
-        <!-- <form method="post" action="/admin/users/create"> -->
+    <div class="panel-heading"><h3 class="panel-title">Modify User</h3></div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="id">User:</label>
+                    <select id='id' name='id' style='width: 100%'>;
+                        <?php foreach($users as $user):?>
+                        <option value=<?= $user->id; ?>><?= $user->firstname . " " . $user->lastname . " (" . $user->username . ")"; ?></option>);
+                        <?php endforeach ?>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <!-- <form method="post" action="/admin/users/create"> -->
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="firstname">Firstname</label>
@@ -34,8 +47,9 @@
                     <label for="password">Password</label>
                     <input type="password" name="password" class="form-control" id="password" placeholder="e.g. tw0th0u54nd" autocomplete="new-password">
                 </div>
-                <button type="submit" onclick="createUser()" class="btn btn-primary">Create</button>
+                <button type="submit" onclick="modifyUser()" class="btn btn-primary">Create</button>
             </div>
-        <!-- </form> -->
+            <!-- </form> -->
+        </div>
     </div>
 </div>

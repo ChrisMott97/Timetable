@@ -8,7 +8,10 @@
 <br>
 <div class="row">
 	<div class="col-md-5 col-md-offset-1">
-		<?php Flight::render('admin/adduser.view'); ?>
+		<?php 
+			Flight::render('admin/adduser.view');
+			Flight::render('admin/modifyuser.view');
+		?>
 	</div>
 	<div class="col-md-5">
 		<?php Flight::render('admin/removeuser.view'); ?>

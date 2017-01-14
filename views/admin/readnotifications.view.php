@@ -5,7 +5,7 @@
             <div class="table-responsive">
                 <table class="table table-hover" style="table-layout: fixed; width: 100%">
                     <tr class="info">
-                        <th>Title</th><th style="width: 25%">Username</th><th style="width: 15%">Year</th><th class="danger" style="width: 10%"></th>
+                        <th>Title</th><th style="width: 25%">Username</th><th style="width: 15%">Year</th><th style="width: 10%"></th>
                     </tr>
                     <?php foreach($notifications as $notification): ?>
                     <tr>

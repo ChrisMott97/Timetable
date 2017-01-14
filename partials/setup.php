@@ -32,6 +32,6 @@ Flight::set('app', new Controller);
 
 spl_autoload_register(function ($class_name) {
 	if($class_name){
-		include '../controllers/' . strtolower($class_name) . '.php';
+		include APPPATH.'/controllers/' . strtolower($class_name) . '.php';
 	}
 });

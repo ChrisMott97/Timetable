@@ -14,12 +14,20 @@ class Query
     //password: 6a15ed22
 
 
-
-
     private static function db()
     {
-        // return new PDO('mysql:host=localhost;dbname=schoolplanner', 'chris', 'denefield', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-     return new PDO('mysql:host=eu-cdbr-azure-west-d.cloudapp.net;dbname=schoolplanner', 'bbb1325bbd9a81', '6a15ed22');
+        if(getenv("CLEARDB_DATABASE_URL")){
+            $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+
+            $server = $url["host"];
+            $username = $url["user"];
+            $password = $url["pass"];
+            $db = substr($url["path"], 1);
+
+            return new PDO('mysql:host='.$server.';dbname='.$db, $username, $password);
+        }
+    
+        return new PDO('mysql:host=localhost;dbname=schoolplanner', 'chris', 'denefield', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
     }
     
     public static function selectCell($property, $table, $refprop, $ref){

@@ -27,7 +27,7 @@ class Query
             return new PDO('mysql:host='.$server.';dbname='.$db, $username, $password);
         }
     
-        return new PDO('mysql:host=localhost;dbname=schoolplanner', 'chris', 'denefield', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+        //return new PDO('mysql:host=localhost;dbname=schoolplanner', 'chris', 'denefield', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
     }
     
     public static function selectCell($property, $table, $refprop, $ref){

@@ -8,7 +8,14 @@
 <br>
 <div class="row">
 	<div class="col-md-5 col-md-offset-1">
+		<?php 
+			Flight::render('admin/lessons/read.view'); 
+		?>
 	</div>
 	<div class="col-md-5">
+		<?php 
+			Flight::render('admin/lessons/add.view');
+			Flight::render('admin/lessons/modify.view');
+		?>
 	</div>
 </div>

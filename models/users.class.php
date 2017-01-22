@@ -46,7 +46,7 @@ class Users
         return $stmt->fetchAll();
     }
     public static function save(User $user){
-        if(!Users::findByUsername($user->username)){    
+        if(!Users::find($user->id)){    
             $hashpassword = password_hash($user->password, PASSWORD_DEFAULT);
             $user->password = $hashpassword;
             $stmt = Query::$db->prepare("
@@ -110,6 +110,5 @@ class Users
         Flight::redirect('/login');
         // exit;
     }
-
 }
 

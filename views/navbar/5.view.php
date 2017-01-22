@@ -22,8 +22,7 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?= $user->firstname." ".$user->lastname ?><span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Settings</a></li>
-                        <li><a href="/account">Account Info</a></li>
+                        <li><a href="/settings">Settings</a></li>
                         <li><a href="/logout">Logout</a></li>
                     </ul>
                 </li>
@@ -31,6 +30,15 @@
         </div>
     </div>
 </nav>
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <?php 
+        if(isset($error)){
+            echo '<div class="alert alert-danger">Error!</div>';
+        };
+        ?>
+    </div>
+</div>
 <!-- Modal -->
 <div class="modal fade" id="notifications" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
@@ -45,7 +53,7 @@
                     <div class="panel-heading"><?= $notification->title; ?>
                         <button type="button" class="close"
                         data-target=<?= "#n".$notification->id ?>
-                        data-dismiss="alert">
+                        data-dismiss="alert" onclick=<?= "removeNotification(".$notification->id.")";?>>
                         <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
                         </button>
                     </div>

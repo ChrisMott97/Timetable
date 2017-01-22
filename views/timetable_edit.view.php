@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" id="timetable_edit">
     <div class="panel panel-primary">
         <div class="panel-heading"><h1>Timetable</h1></div>
         <div>

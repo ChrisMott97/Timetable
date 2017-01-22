@@ -14,9 +14,12 @@
 	};
 	if(!isset($title)){
 		$title = "School Planner";
-	}; 
+	};
+	if(file_exists('public/css/'.$style.'.css')){
+		echo '<link type="text/css" rel="stylesheet" href="public/css/'.$style.'.css">';
+	}
 	?>
-	<link type="text/css" rel="stylesheet" href="<?= "public/css/".$style.".css"; ?>">
+	<!-- <link type="text/css" rel="stylesheet" href="<?= "public/css/".$style.".css"; ?>"> -->
     <title><?= $title; ?></title>
 </head>
 <body>

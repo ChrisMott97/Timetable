@@ -8,9 +8,9 @@
 <br>
 <div class="row">
 	<div class="col-md-3 col-md-offset-1">
-		<?php Flight::render('admin/createnotification.view'); ?>
+		<?php Flight::render('admin/notifications/create.view'); ?>
 	</div>
 	<div class="col-md-7">
-		<?php Flight::render('admin/readnotifications.view'); ?>
+		<?php Flight::render('admin/notifications/read.view'); ?>
 	</div>
 </div>

@@ -3,18 +3,19 @@ class Controller
 {
     public static $user;
     public static $timetable;
+    public static $error;
     
     public function  __construct(){
         if($this->authCheck()){
             $id = $_SESSION['id'];
-            self::$user = new User;
+            self::$user = Users::find($id);
             self::$timetable = new Timetable;
             
-            $properties = Users::find($id);
-            foreach ($properties as $property => $value)
-            {
-                self::$user->$property = $value;
-            }
+            // $properties = Users::find($id);
+            // foreach ($properties as $property => $value)
+            // {
+            //     self::$user->$property = $value;
+            // }
         }
         Flight::view()->set('user', self::$user);
     }
@@ -24,12 +25,22 @@ class Controller
             return true;
         }
     }
-    
+    public static function getError(){
+
+    }
+    public static function setError(){
+        
+    }
     public static function navbar(){
+        if(!self::authCheck()){
+            return Flight::render('navbar/0.view.php');
+        }
+        $error = true;
         $notifications = Notifications::findBy('userid', self::$user->id);
         $count = count($notifications);
         Flight::view()->set('notifications', $notifications);
         Flight::view()->set('count', $count);
+        Flight::view()->set('error', $error);
         switch(self::$user->permission){
             case(1):
                 return Flight::render('navbar/1.view.php');
@@ -52,30 +63,39 @@ class Controller
     public static function header(){
         switch($_SERVER['REQUEST_URI']){
             case('/'):
-                return Flight::render('header.view.php', ['title' => 'SchoolPlanner', 'style' => 'index']);
+                $title = 'SchoolPlanner';
+                $style = 'index';
                 break;
             case('/home'):
-                return Flight::render('header.view.php', ['title' => 'SP - Home', 'style' => 'home']);
+                $title = 'SP - Home';
+                $style = 'home';
                 break;
             case('/login'):
-                return Flight::render('header.view.php', ['title' => 'SP - Login', 'style' => 'login']);
+                $title = 'SP - Login';
+                $style = 'login';
                 break;
             case('/timetable'):
-                return Flight::render('header.view.php', ['title' => 'SP - Timetable', 'style' => 'timetable']);
+                $title = 'SP - Timetable';
+                $style = 'timetable';
                 break;
             case('/lessons'):
-                return Flight::render('header.view.php', ['title' => 'SP - Lessons', 'style' => 'lessons']);
+                $title = 'SP - Lessons';
+                $style = 'lessons';
                 break;
             case('/directions'):
-                return Flight::render('header.view.php', ['title' => 'SP - Directions', 'style' => 'directions']);
+                $title = 'SP - Directions';
+                $style = 'directions';
                 break;
             case('/admin'):
-                return Flight::render('header.view.php', ['title' => 'Admin Dashboard', 'style' => 'admin']);
+                $title = 'Admin Dashboard';
+                $style = 'admin';
                 break; 
             default:
-                return Flight::render('header.view.php', ['title' => 'SchoolPlanner', 'style' => 'none']);
+                $title = 'SchoolPlanner';
+                $style = 'none';
                 break;
         }
+        return Flight::render('header.view.php', ['title' => $title, 'style' => $style]);
     }
     
     public static function routeProtect($minPermission = 1){
@@ -84,7 +104,7 @@ class Controller
             exit;
         }
         if(self::$user->permission < $minPermission){
-            Flight::redirect('401');
+            Flight::redirect('/401');
             exit;
         }
     }

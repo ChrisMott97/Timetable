@@ -9,11 +9,13 @@
 <div class="row">
 	<div class="col-md-5 col-md-offset-1">
 		<?php 
-			Flight::render('admin/adduser.view');
-			Flight::render('admin/modifyuser.view');
+			Flight::render('admin/users/read.view'); 
 		?>
 	</div>
 	<div class="col-md-5">
-		<?php Flight::render('admin/removeuser.view'); ?>
+		<?php 
+			Flight::render('admin/users/add.view');
+			Flight::render('admin/users/modify.view');
+		?>
 	</div>
 </div>

@@ -6,7 +6,7 @@ Flight::route('GET /', ['IndexController','index']);
 Flight::route('GET /home', ['HomeController','index']);
 Flight::route('GET /logout', ['LogoutController','index']);
 Flight::route('GET /@ecode:[0-9]{3}', ['ErrorController','index']);
-Flight::route('GET /account', ['AccountInfoController','index']);
+Flight::route('GET /settings', ['SettingsController','index']);
 Flight::route('GET /search', ['SearchController','index']);
 
 Flight::route('GET /timetable', ['TimetableController','index']);
@@ -28,7 +28,7 @@ Flight::route('GET /admin', function(){
 
 Flight::route('GET /admin/users', ['UsersController','index']);						//User management page
 Flight::route('POST /admin/users', ['UsersController','create']); 					//Create new user
-Flight::route('PUT /admin/users/@id', ['UsersController','update']); 					//Update existing user
+Flight::route('POST /admin/users/@id', ['UsersController','update']); 					//Update existing user
 Flight::route('DELETE /admin/users/@id', ['UsersController','remove']); 				//Delete existing user
 
 Flight::route('GET /admin/notifications', ['NotificationsController','index']);		//Notification management page
@@ -37,13 +37,14 @@ Flight::route('DELETE /admin/notifications/@id', ['NotificationsController','rem
 
 Flight::route('GET /admin/lessons', ['LessonsController','index']);					//Lessons management page
 Flight::route('POST /admin/lessons', ['LessonsController','create']);				//Create new lesson
-Flight::route('PUT /admin/lessons/@id', ['LessonsController','update']);				//Update existing lesson
+Flight::route('POST /admin/lessons/@id', ['LessonsController','update']);				//Update existing lesson
 Flight::route('DELETE /admin/lessons/@id', ['LessonsController','remove']);				//Delete existing lesson
 
 
 Flight::route('GET /teacher', ['TeacherController','index']);
 
 Flight::route('GET /login', ['LoginController','index']);
+Flight::route('GET /register', ['RegisterController','index']);
 Flight::route('POST /login', ['LoginController','auth']);
 
 // REST API

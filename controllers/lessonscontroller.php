@@ -9,7 +9,7 @@ class LessonsController extends Controller
         $lessons = Lessons::findAll();
         parent::header();
         parent::navbar();
-        Flight::render('admin/lessons.view.php', ['lessons' => $lessons]);
+        Flight::render('admin/lessons/lessons.view.php', ['lessons' => $lessons]);
         Flight::render('footer.view.php');
     }
     public static function create(){
@@ -20,17 +20,16 @@ class LessonsController extends Controller
         $newLesson->year = $_POST['year'];
         Lessons::save($newLesson);
     }
-    public static function remove(){
-        $id = $_POST['id'];
+    public static function remove($id){
         Lessons::remove($id);
     }
-    public static function update(){
-        $id = $_POST['id'];
+    public static function update($id){
         $existingLesson = Lessons::find($id);
         $existingLesson->subject = $_POST['subject'];
         $existingLesson->room = $_POST['room'];
         $existingLesson->teacher = $_POST['teacher'];
         $existingLesson->year = $_POST['year'];
+        $existingLesson->validate();
         Lessons::save($existingLesson);
     }
 }

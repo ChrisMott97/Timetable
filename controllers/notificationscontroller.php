@@ -10,7 +10,7 @@ class NotificationsController extends Controller
         $notifications = Notifications::findAll();
         parent::header();
         parent::navbar();
-        Flight::render('admin/notifications.view.php', ['notifications' => $notifications, 'users' => $users]);
+        Flight::render('admin/notifications/notifications.view.php', ['notifications' => $notifications, 'users' => $users]);
         Flight::render('footer.view.php');
     }
     public static function create(){

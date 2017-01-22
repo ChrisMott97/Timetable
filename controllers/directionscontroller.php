@@ -41,6 +41,11 @@ class DirectionsController extends Controller
      */
     public static function calculate($from, $to){
         parent::routeProtect();
+        $buildings = Buildings::findAll();
+        foreach ($buildings as $building) {
+            //$buildingsArray[$building->name] = Query::selectRows('destinations', 'building', $building->name);
+            $buildingsArray[$building->name] = Destinations::findBy('building', $building->name);
+        }
         // descriptor array
         $desc = array(
             0 => array('pipe', 'r'), // 0 is STDIN for process
@@ -75,7 +80,7 @@ class DirectionsController extends Controller
         }
         parent::header();
         parent::navbar();
-        Flight::render('result.view.php',['output' => $output, 'output2' => $output2]);
+        Flight::render('result.view.php',['output' => $output, 'output2' => $output2, 'buildings' => $buildingsArray]);
         Flight::render('footer.view.php');
     }
 }

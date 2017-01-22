@@ -23,5 +23,38 @@ class User
             $this->permissions = $data['permissions'];
         }
     }
+    public function validate(){
+        if($this->id){
+            if(!$this->username){
+                $this->username = Users::find($this->id)->username;
+            }
+            if(!$this->firstname){
+                $this->firstname = Users::find($this->id)->firstname;
+            }
+            if(!$this->lastname){
+                $this->lastname = Users::find($this->id)->lastname;
+            }
+            if(!$this->password){
+                $this->password = Users::find($this->id)->password;
+            }
+            if(!$this->year){
+                $this->year = Users::find($this->id)->year;
+            }
+            if(!$this->permission){
+                $this->permission = Users::find($this->id)->permission;
+            }
+        }else{
+            $valid = true;
+            if(Users::findByUsername($this->username)){
+                $valid = false;
+            }
+            if($valid){
+                return true;
+            }else{
+                return false;
+            }
+        }
+
+    }
 }
 

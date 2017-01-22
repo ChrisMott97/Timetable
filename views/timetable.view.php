@@ -68,10 +68,7 @@
         <div class="panel-heading">
             <div class="row">
                 <div class="col-md-6">
-                    <div class="btn-group" role="group">
-                        <button type="button" id="periodsbutton" class="btn btn-primary">Periods</button>
-                        <button type="button" id="timesbutton" class="btn btn-primary">Times</button>
-                    </div>
+                    
                 </div>
                 <div class="col-md-6">
                     <div class="btn-group pull-right" role="group" aria-label="...">
@@ -91,7 +88,12 @@
         <div class="col-md-4">
             <div class="panel panel-primary">
                 <div class="panel-heading"><h4>Settings</h4></div>
-                <div class="panel-body"></div>
+                <div class="panel-body">
+                    <div class="btn-group" role="group">
+                        <button type="button" id="periodsbutton" class="btn btn-primary">Periods</button>
+                        <button type="button" id="timesbutton" class="btn btn-primary">Times</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

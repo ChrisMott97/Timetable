@@ -5,8 +5,8 @@ function removeNotification(id){
     url:'/admin/notifications/'+id
     })
     .done(function(){
-    	// alert(id);
-    	$(location).attr('href', '/admin/notifications');
+    	//alert(window.location.href);
+    	$(location).attr('href', window.location.href);
     })
 }
 function createNotification(){

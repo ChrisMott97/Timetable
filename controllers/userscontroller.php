@@ -9,7 +9,7 @@ class UsersController extends Controller
         $users = Users::findAll();
         parent::header();
         parent::navbar();
-        Flight::render('admin/users.view.php', ['users' => $users]);
+        Flight::render('admin/users/users.view.php', ['users' => $users]);
         Flight::render('footer.view.php');
     }
     public static function create(){
@@ -20,13 +20,14 @@ class UsersController extends Controller
         $newUser->password = $_POST['password'];
         $newUser->year = $_POST['year'];
         $newUser->permission = 1;
-        Users::save($newUser);
+        if($newUser->validate()){
+            Users::save($newUser);
+        }
     }
     public static function remove($id){
         Users::remove($id);
     }
-    public static function update(){
-        $id = $_POST['id'];
+    public static function update($id){
         $existingUser = Users::find($id);
         $existingUser->username = $_POST['username'];
         $existingUser->firstname = $_POST['firstname'];
@@ -34,6 +35,7 @@ class UsersController extends Controller
         $existingUser->password = $_POST['password'];
         $existingUser->year = $_POST['year'];
         $existingUser->permission = $_POST['permission'];
+        $existingUser->validate();
         Users::save($existingUser);
     }
 }

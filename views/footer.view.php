@@ -13,7 +13,6 @@ $("#modify_id").select2();
 $('#search').hideseek();
 });
 </script>
-<script src="/public/js/error.js"></script>
 <script src="/public/js/users.js"></script>
 <script src="/public/js/notifications.js"></script>
 <script src="/public/js/lessons.js"></script>

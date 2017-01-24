@@ -18,6 +18,7 @@ class LessonsController extends Controller
         $newLesson->room = $_POST['room'];
         $newLesson->teacher = $_POST['teacher'];
         $newLesson->year = $_POST['year'];
+        $newLesson->validate();
         Lessons::save($newLesson);
     }
     public static function remove($id){

@@ -20,6 +20,10 @@ class Lesson
     }
     public function validate(){
         if($this->id){
+            if(!$this->subject && !$this->room && !$this->teacher && !$this->year){
+                $_SESSION['warning'] = 'No lesson properties were modified.';
+                exit;
+            }
             if(!$this->subject){
                 $this->subject = Lessons::find($this->id)->subject;
             }
@@ -33,11 +37,21 @@ class Lesson
                 $this->year = Lessons::find($this->id)->year;
             }
         }else{
-            $valid = true;
-            if($valid){
-                return true;
-            }else{
-                return false;
+            if(!$this->subject){
+                $_SESSION['error'] = 'Please enter a subject!';
+                exit;
+            }
+            if(!$this->room){
+                $_SESSION['error'] = 'Please enter a room!';
+                exit;
+            }
+            if(!$this->teacher){
+                $_SESSION['error'] = 'Please enter a teacher!';
+                exit;
+            }
+            if(!$this->year){
+                $_SESSION['error'] = 'Please enter a year!';
+                exit;
             }
         }
     }

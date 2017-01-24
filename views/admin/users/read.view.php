@@ -6,6 +6,21 @@
             <input id="search" name="search" type="text" class="form-control" data-list=".search_list" placeholder="Search..." autocomplete="off">
         </div>
         <br>
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-md-4">
+                    <h4>Name</h4>
+                </div>
+                <div class="col-md-4">
+                    <h4>Username</h4>
+                </div>
+                <div class="col-md-3">
+                    <h4>Year</h4>
+                </div>
+                <div class="col-md-1">
+                </div>
+            </div>
+        </li>
         <ul class="search_list list-group">
             <?php foreach($users as $user): ?>
             <li class="list-group-item">

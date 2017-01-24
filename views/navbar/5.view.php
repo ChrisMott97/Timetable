@@ -34,8 +34,10 @@
     <div class="col-md-6 col-md-offset-3">
         <?php 
         if(isset($error)){
-            echo '<div class="alert alert-danger">Error!</div>';
-        };
+            echo '<div class="alert alert-danger">'.$error.'</div>';
+        }elseif(isset($warning)){
+            echo '<div class="alert alert-warning">'.$warning.'</div>';
+        }
         ?>
     </div>
 </div>

@@ -20,6 +20,7 @@ class NotificationsController extends Controller
         $newNotification->description = $_POST['description'];
         $newNotification->request = 0;
         $newNotification->completed = 0;
+        $newNotification->validate();
         Notifications::save($newNotification);
     }
     public static function remove($id){

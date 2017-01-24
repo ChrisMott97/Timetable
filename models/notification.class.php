@@ -26,5 +26,16 @@ class Notification
     public function uncomplete(){
         $this->completed = 0;
     }
+    public function validate(){
+        if(!$this->title){
+            $_SESSION['error'] = 'Please enter a title!';
+            exit;
+        }
+        if(!$this->description){
+            $_SESSION['error'] = 'Please enter a description!';
+            exit;
+        }
+        return true;
+    }
 }
 

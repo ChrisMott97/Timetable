@@ -3,7 +3,6 @@ class Controller
 {
     public static $user;
     public static $timetable;
-    public static $error;
     
     public function  __construct(){
         if($this->authCheck()){
@@ -25,22 +24,22 @@ class Controller
             return true;
         }
     }
-    public static function getError(){
-
-    }
-    public static function setError(){
-        
-    }
     public static function navbar(){
         if(!self::authCheck()){
             return Flight::render('navbar/0.view.php');
         }
-        $error = true;
         $notifications = Notifications::findBy('userid', self::$user->id);
         $count = count($notifications);
         Flight::view()->set('notifications', $notifications);
         Flight::view()->set('count', $count);
-        Flight::view()->set('error', $error);
+        if(isset($_SESSION['error'])){
+            Flight::view()->set('error', $_SESSION['error']);
+            unset($_SESSION['error']);
+        }
+        if(isset($_SESSION['warning'])){
+            Flight::view()->set('warning', $_SESSION['warning']);
+            unset($_SESSION['warning']);
+        }
         switch(self::$user->permission){
             case(1):
                 return Flight::render('navbar/1.view.php');

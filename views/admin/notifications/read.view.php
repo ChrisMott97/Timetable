@@ -6,22 +6,22 @@
             <input id="search" name="search" type="text" class="form-control" data-list=".search_list" placeholder="Search..." autocomplete="off">
         </div>
         <br>
-        <ul class="search_list list-group">
-            <li class="list-group-item">
-                <div class="row">
-                    <div class="col-md-6">
-                        <h4>Title</h4>
-                    </div>
-                    <div class="col-md-3">
-                        <h4>Username</h4>
-                    </div>
-                    <div class="col-md-2">
-                        <h4>Year</h4>
-                    </div>
-                    <div class="col-md-1">
-                    </div>
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>Title</h4>
                 </div>
-            </li>
+                <div class="col-md-3">
+                    <h4>Username</h4>
+                </div>
+                <div class="col-md-2">
+                    <h4>Year</h4>
+                </div>
+                <div class="col-md-1">
+                </div>
+            </div>
+        </li>
+        <ul class="search_list list-group">
             <?php foreach($notifications as $notification): ?>
             <li class="list-group-item">
                 <div class="row">

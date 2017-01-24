@@ -18,18 +18,17 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="subject">Subject</label>
-                    <input type="text" name="subject" class="form-control" id="modify_subject" placeholder="e.g. John" autocomplete="new-password">
+                    <input type="text" name="subject" class="form-control" id="modify_subject" placeholder="e.g. Maths" autocomplete="new-password">
                 </div>
                 <div class="form-group">
                     <label for="room">Room</label>
-                    <input type="text" name="room" class="form-control" id="modify_room" placeholder="e.g. Smith" autocomplete="new-password">
+                    <input type="text" name="room" class="form-control" id="modify_room" placeholder="e.g. A101" autocomplete="new-password">
                 </div>
-                <button type="submit" onclick="modifyLesson()" class="btn btn-primary">Update</button>
             </div>
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="username">Teacher</label>
-                    <input type="text" name="Teacher" class="form-control" id="modify_teacher" placeholder="e.g. jsmith03" autocomplete="new-password">
+                    <input type="text" name="Teacher" class="form-control" id="modify_teacher" placeholder="e.g. DGN" autocomplete="new-password">
                 </div>
                 <div class="form-group">
                     <label for="year">Year Group</label>
@@ -45,6 +44,7 @@
                         <option value=0>Teacher</option>
                     </select>
                 </div>
+                <button type="submit" onclick="modifyLesson()" class="btn btn-primary">Update</button>
             </div>
             <!-- </form> -->
         </div>

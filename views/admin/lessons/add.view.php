@@ -11,7 +11,6 @@
                     <label for="room">Room</label>
                     <input type="text" name="room" class="form-control" id="create_room" placeholder="e.g. Smith" autocomplete="new-password">
                 </div>
-                <button type="submit" onclick="createLesson()" class="btn btn-primary">Create</button>
             </div>
             <div class="col-md-6">
                 <div class="form-group">
@@ -31,6 +30,7 @@
                         <option>Teacher</option>
                     </select>
                 </div>
+                <button type="submit" onclick="createLesson()" class="btn btn-primary">Create</button>
             </div>
         <!-- </form> -->
     </div>

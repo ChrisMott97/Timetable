@@ -25,6 +25,10 @@ class User
     }
     public function validate(){
         if($this->id){
+            if(!$this->username && !$this->firstname && !$this->lastname && !$this->password && !$this->year && !$this->permission){
+                $_SESSION['warning'] = 'No user properties were modified.';
+                exit;
+            }
             if(!$this->username){
                 $this->username = Users::find($this->id)->username;
             }
@@ -44,14 +48,33 @@ class User
                 $this->permission = Users::find($this->id)->permission;
             }
         }else{
-            $valid = true;
-            if(Users::findByUsername($this->username)){
-                $valid = false;
+            if(!$this->firstname){
+                $_SESSION['error'] = 'Please enter a firstname!';
+                exit;
             }
-            if($valid){
-                return true;
-            }else{
-                return false;
+            if(!$this->lastname){
+                $_SESSION['error'] = 'Please enter a lastname!';
+                exit;
+            }
+            if(!$this->username){
+                $_SESSION['error'] = 'Please enter a username!';
+                exit;
+            }
+            if(Users::findByUsername($this->username)){
+                $_SESSION['error'] = 'Username already exists!';
+                exit;
+            }
+            if(strlen($this->username)<4){
+                $_SESSION['error'] = 'Please enter a username of at least 4 characters!';
+                exit;
+            }
+            if(!$this->password){
+                $_SESSION['error'] = 'Please enter a password!';
+                exit;
+            }
+            if(strlen($this->password)<7){
+                $_SESSION['error'] = 'Please enter a password of at least 7 characters!';
+                exit;
             }
         }
 

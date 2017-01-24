@@ -20,9 +20,8 @@ class UsersController extends Controller
         $newUser->password = $_POST['password'];
         $newUser->year = $_POST['year'];
         $newUser->permission = 1;
-        if($newUser->validate()){
-            Users::save($newUser);
-        }
+        $newUser->validate();
+        Users::save($newUser);
     }
     public static function remove($id){
         Users::remove($id);

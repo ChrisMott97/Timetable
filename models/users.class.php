@@ -96,6 +96,7 @@ class Users
     public static function login($username, $password){
         $user = self::findByUsername($username);
         if(!$user){
+            Controller::$error = 'Wrong username!';
             Flight::redirect('/login');
             exit;
         }
@@ -107,6 +108,7 @@ class Users
             $_SESSION['loggedin'] = true;
             return true;
         }
+        Controller::$error = 'Wrong password!';
         Flight::redirect('/login');
         // exit;
     }

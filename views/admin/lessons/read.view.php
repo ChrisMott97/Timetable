@@ -6,6 +6,24 @@
             <input id="search" name="search" type="text" class="form-control" data-list=".search_list" placeholder="Search..." autocomplete="off">
         </div>
         <br>
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-md-3">
+                    <h4>Subject</h4>
+                </div>
+                <div class="col-md-3">
+                    <h4>Teacher</h4>
+                </div>
+                <div class="col-md-3">
+                    <h4>Year</h4>
+                </div>
+                <div class="col-md-2">
+                    <h4>Room</h4>
+                </div>
+                <div class="col-md-1">
+                </div>
+            </div>
+        </li>
         <ul class="search_list list-group">
             <?php foreach($lessons as $lesson): ?>
             <li class="list-group-item">

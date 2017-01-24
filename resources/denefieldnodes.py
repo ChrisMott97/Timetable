@@ -39,4 +39,28 @@ denefield = {'Reception':{'ReceptionE':12},
 			'Sci2':{'Drama2':24, 'Music1':25, 'SciS2':14, 'SciE2':14},
 			'Music1':{'Sci2':25, 'Music2':25},
 			'Music2':{'Music1':25, 'Arts':13},
-			'Arts':{'Music2':13}
+			'Arts':{'Music2':13, 'Art3':10, 'SFCRE2':13, 'MusicE':21},
+			'Art3':{'Arts':10},
+			'SFCRE2':{'Arts':13, 'IT':14},
+			'IT':{'SFCRE2':14},
+			'MusicE':{'Arts':21, 'Outside1':5, 'SFCR1':23},
+			'SFCR1':{'MusicE':23, 'SFCRE1': 13},
+			'SFCRE1':{'SFCR1':13, 'CR':36},
+			'CR':{'SFCRE1':36, 'SciE2':20},
+			'SciE2':{'CR':20, 'SciS2':14, 'Sci2':14},
+			'SciS2':{'Sci2':14, 'SciE2':14},
+			'Outside1':{'MusicE':5, 'ReceptionE':41, 'MathE':20},
+			'MathE':{'Outside1':20, 'Art2':15, 'MathS1':14, 'Math5':23},
+			'Art2':{'MathE':20, 'Math5':13},
+			'Math5':{'MathE':23, 'Art2':13, 'MathS3':7, 'TechE':27},
+			'MathS3':{'Math5':7},
+			'MathS1':{'MathE':14, 'Math1':11},
+			'Math1':{'MathS1':11, 'Math2':10, 'Math3':4},
+			'Math2':{'Math1':10},
+			'Math3':{'Math1':4, 'Math4':10},
+			'Math4':{'Math3':10, 'MathS2':10},
+			'MathS2':{'Math4':10}
+			}
+
+for x in denefield:
+	print(x)

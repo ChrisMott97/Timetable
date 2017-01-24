@@ -61,8 +61,8 @@ class DirectionsController extends Controller
 
         if(is_resource($p)){
             
-            fwrite($pipes[0], "'A'\n");
-            fwrite($pipes[0], "'G'\n");
+            fwrite($pipes[0], "'ReceptionE'\n");
+            fwrite($pipes[0], "'Arts'\n");
 
             //print fgets($pipes[1]);
 

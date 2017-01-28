@@ -20,6 +20,9 @@ require('models/buildings.class.php');
 require('models/destination.class.php');
 require('models/destinations.class.php');
 
+require('models/node.class.php');
+require('models/nodes.class.php');
+
 require('models/lesson.class.php');
 require('models/lessons.class.php');
 

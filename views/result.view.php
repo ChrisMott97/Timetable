@@ -1,4 +1,5 @@
-<div class="container">
+
+<div class="container" >
     <!-- <div class="jumbotron">
         <h1><?= "Directions" ?></h1>
         <p>Below is a basic map of the school.</p>
@@ -63,3 +64,6 @@
         </div>
     </div>
 </div>
+<canvas id="myCanvas" width="1600" height="800" style="position: absolute;">
+    Sorry, your browser doesn't support canvas technology
+</canvas>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>HTML5 Experiment</title>
+        <script type="text/javascript">
+            function drawShape() {
+                var myCanvas = document.getElementById("myCanvas");
+                var ctx = myCanvas.getContext("2d");
+                var img = new Image();
+                img.onload = function() {
+                    ctx.drawImage(img, 0, 0);
+                    var ReceptionE = new circle(ctx,644,594);
+                    var Reception = new circle(ctx,644,531);
+                    var Outside1 = new circle(ctx,911,594);
+                    connect(ctx, ReceptionE, Reception);
+                    connect(ctx, ReceptionE, Outside1);
+                    highlight(ctx, ReceptionE, Outside1);
+                };
+                img.src = './public/images/denefield.png';
+            }
+            function circle(ctx, x, y){
+                this.x = x;
+                this.y = y;
+                ctx.beginPath();
+                ctx.arc(x, y, 6, 0, 2 * Math.PI);
+                ctx.stroke();
+                ctx.beginPath();
+                ctx.arc(x, y, 3, 0, 2 * Math.PI);
+                ctx.fill();
+            }
+            function connect(ctx, first, second){
+                ctx.beginPath();
+                ctx.moveTo(first.x, first.y);
+                ctx.lineTo(second.x, second.y);
+                // ctx.strokeStyle = '#ff0000';
+                ctx.stroke();
+            }
+            function highlight(ctx, first, second){
+                ctx.beginPath();
+                ctx.moveTo(first.x, first.y);
+                ctx.lineTo(second.x, second.y);
+                ctx.strokeStyle = '#ff0000';
+                ctx.stroke();
+            }
+        </script>
+    </head>
+    
+    <body onload="drawShape()">
+        <canvas id="myCanvas" width="1600" height="800" style="position: absolute;">
+            Sorry, your browser doesn't support canvas technology
+        </canvas>
+    </body>
+</html>

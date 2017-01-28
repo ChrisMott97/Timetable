@@ -8,9 +8,12 @@ class Destination
     public $building;
     public $level;
     public $forLessons;
+
+    public $node;
     
     public function __construct($data = null)
     {
+        $this->node = Destinations::find($this->nodeid);
         if (is_array($data)) {
             if (isset($data['id'])) $this->id = $data['id'];
             

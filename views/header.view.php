@@ -27,7 +27,7 @@
             }
             ?>
             // connect(ctx, ReceptionE, Reception);
-            // highlight(ctx, ReceptionE, Reception);
+            highlight(ctx, ReceptionE, Reception);
             // highlight(ctx, Arts, Music2);
         };
         img.src = '/public/images/denefield.png';

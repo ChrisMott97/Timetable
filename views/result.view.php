@@ -48,7 +48,8 @@
             </div>
             <div class="panel panel-primary">
                 <div class="panel-body">
-                    <?= "$output <br> $output2" ?>
+                    <?= $output; ?>
+                    <?php foreach($output2 as $node => $connector){echo $node.'<br>';}?>
                 </div>
             </div>
         </div>

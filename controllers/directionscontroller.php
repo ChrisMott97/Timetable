@@ -45,6 +45,31 @@ class DirectionsController extends Controller
         foreach ($buildings as $building) {
             //$buildingsArray[$building->name] = Query::selectRows('destinations', 'building', $building->name);
             $buildingsArray[$building->name] = Destinations::findBy('building', $building->name);
+        };
+
+        $fromNode = Destinations::findBy('room', $from)[0]->nodeid;
+        $fromNodeId = Nodes::find($fromNode)->identifier;
+
+        $toNode = Destinations::findBy('room', $to)[0]->nodeid;
+        $toNodeId = Nodes::find($toNode)->identifier;
+
+        $route = Nodes::route();
+        $graph = new DGraph($route);
+
+        $output = 0;
+        $output2 = $graph->findShortest('ReceptionE', 'Arts');
+
+        parent::header();
+        parent::navbar();
+        Flight::render('result.view.php',['output' => $output, 'output2' => $route, 'buildings' => $buildingsArray]);
+        Flight::render('footer.view.php');
+    }
+    public static function calculatePython($from, $to){
+        parent::routeProtect();
+        $buildings = Buildings::findAll();
+        foreach ($buildings as $building) {
+            //$buildingsArray[$building->name] = Query::selectRows('destinations', 'building', $building->name);
+            $buildingsArray[$building->name] = Destinations::findBy('building', $building->name);
         }
 
         $fromNode = Destinations::findBy('room', $from)[0]->nodeid;
@@ -68,8 +93,10 @@ class DirectionsController extends Controller
 
         if(is_resource($p)){
             
-            fwrite($pipes[0], "'$fromNodeId'\n");
-            fwrite($pipes[0], "'$toNodeId'\n");
+            //fwrite($pipes[0], "'$fromNodeId'\n");
+            //fwrite($pipes[0], "'$toNodeId'\n");
+            fwrite($pipes[0], "'ReceptionE'\n");
+            fwrite($pipes[0], "'Arts'\n");
 
             //print fgets($pipes[1]);
 
@@ -83,11 +110,12 @@ class DirectionsController extends Controller
             $returned = proc_close($p);
             //echo $returned;
         } else {
-            echo 'no resource available';
+            $output = 'no resource available';
+            $output2 = 'no resource available';
         }
         parent::header();
         parent::navbar();
-        Flight::render('result.view.php',['output' => $output, 'output2' => explode('\',\'',$output2), 'buildings' => $buildingsArray]);
+        Flight::render('result.view.php',['output' => $output, 'output2' => $output2, 'buildings' => $buildingsArray]);
         Flight::render('footer.view.php');
     }
 }

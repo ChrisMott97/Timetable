@@ -46,7 +46,7 @@ class Users
         return $stmt->fetchAll();
     }
     public static function save(User $user){
-        if(!Users::find($user->id)){    
+        if(!Users::find($user->id)){    //create
             $hashpassword = password_hash($user->password, PASSWORD_DEFAULT);
             $user->password = $hashpassword;
             $stmt = Query::$db->prepare("
@@ -62,7 +62,9 @@ class Users
             $stmt->bindParam(':year', $user->year);
             $stmt->bindParam(':permission', $user->permission);
             return $stmt->execute();
-        } elseif (Users::find($user->id)) {
+        } elseif (Users::find($user->id)) {     //update
+            $hashpassword = password_hash($user->password, PASSWORD_DEFAULT);
+            $user->password = $hashpassword;
             $stmt = Query::$db->prepare("
                 UPDATE users
                 SET username = :username,
@@ -96,7 +98,7 @@ class Users
     public static function login($username, $password){
         $user = self::findByUsername($username);
         if(!$user){
-            Controller::$error = 'Wrong username!';
+            $_SESSION['error'] = 'Wrong username or password!';
             Flight::redirect('/login');
             exit;
         }
@@ -108,7 +110,7 @@ class Users
             $_SESSION['loggedin'] = true;
             return true;
         }
-        Controller::$error = 'Wrong password!';
+        $_SESSION['error'] = 'Wrong username or password!';
         Flight::redirect('/login');
         // exit;
     }

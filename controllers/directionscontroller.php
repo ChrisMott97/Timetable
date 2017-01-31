@@ -39,7 +39,7 @@ class DirectionsController extends Controller
     /**
      * GET /directions/@from/@to
      */
-    public static function calculate($from, $to){
+    public static function calculatePHP($from, $to){
         parent::routeProtect();
         $buildings = Buildings::findAll();
         foreach ($buildings as $building) {
@@ -64,7 +64,7 @@ class DirectionsController extends Controller
         Flight::render('result.view.php',['output' => $output, 'output2' => $route, 'buildings' => $buildingsArray]);
         Flight::render('footer.view.php');
     }
-    public static function calculatePython($from, $to){
+    public static function calculate($from, $to){
         parent::routeProtect();
         $buildings = Buildings::findAll();
         foreach ($buildings as $building) {
@@ -93,10 +93,10 @@ class DirectionsController extends Controller
 
         if(is_resource($p)){
             
-            //fwrite($pipes[0], "'$fromNodeId'\n");
-            //fwrite($pipes[0], "'$toNodeId'\n");
-            fwrite($pipes[0], "'ReceptionE'\n");
-            fwrite($pipes[0], "'Arts'\n");
+            fwrite($pipes[0], "'$fromNodeId'\n");
+            fwrite($pipes[0], "'$toNodeId'\n");
+            // fwrite($pipes[0], "'ReceptionE'\n");
+            // fwrite($pipes[0], "'Arts'\n");
 
             //print fgets($pipes[1]);
 

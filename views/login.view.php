@@ -1,10 +1,11 @@
 <div class="login-page">
 <div class="row">
-    <div class="col-md-6 col-md-offset-3">
+    <div class="col-md-12">
         <?php 
-        if(isset(Controller::$error)){
-            echo '<div class="alert alert-danger">'.Controller::$error.'</div>';
-        };
+        if(isset($_SESSION['error'])){
+            echo '<div class="alert alert-danger">'.$_SESSION['error'].'</div>';
+            unset($_SESSION['error']);
+        }
         ?>
     </div>
 </div>
@@ -14,5 +15,6 @@
       <input type="password" id="password" name="password" class="form-control" placeholder="password" required/>
       <button type="submit" name="submit">login</button>
     </form>
+    <a class="btn" href="/">return</a>
   </div>
 </div>

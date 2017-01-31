@@ -189,12 +189,13 @@ class Graph(object):
                 self.finalRoute.append(self.currentNode.previous)
                 self.currentNode = self.nodes[self.currentNode.previous]
         self.finalRoute.reverse()
+        self.finalLength = self.nodes[self.endNode].shortest
 
 newgraph = Graph(denefield)
 startpoint = input()
 endpoint = input()
 newgraph.findShortest(startpoint,endpoint)
-print("The shortest length from "+str(newgraph.nodes[newgraph.startNode].identifier)+" to "+str(newgraph.nodes[newgraph.endNode].identifier)+" is "+str(newgraph.nodes[newgraph.endNode].shortest))
+print(newgraph.finalLength)
 sys.stdout.flush()
 # print("The quickest route from "+str(newgraph.nodes[newgraph.startNode].identifier)+" to "+str(newgraph.nodes[newgraph.endNode].identifier)+" is "+ str(newgraph.finalRoute))
 print(str(newgraph.finalRoute).rstrip('\']').lstrip('[\''))

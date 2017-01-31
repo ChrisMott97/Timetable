@@ -117,7 +117,7 @@
                         </form>
                     </div>
                     <button class="btn btn-success" onclick="setPeriod()">Set</button>
-                    <a href="/lessons"><button class="btn btn-default">Manage Lessons</button></a>
+                    <!-- <a href="/lessons"><button class="btn btn-default">Manage Lessons</button></a> -->
                 </div>
             </div>
         </div>

@@ -16,7 +16,7 @@ function createNotification(){
 	$.post("/admin/notifications", { userid : userid, title : title, description : description})
     .done(function(){
         // alert(id);
-        $(location).attr('href', '/admin/notifications');
+        $(location).attr('href', window.location.href);
     });
 }
 

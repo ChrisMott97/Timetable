@@ -25,7 +25,7 @@
                             <input type="text" name="teacher" class="form-control" id="teacher" placeholder="e.g. RYA">
                         </div>
                     </div>
-                    <button class="btn btn-success center-block" type="submit">Add</button>
+                    <button class="btn btn-success center-block" type="submit">Request</button>
                 </form>
             </div>
         </div>

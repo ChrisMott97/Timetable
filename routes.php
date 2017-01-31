@@ -9,6 +9,8 @@ Flight::route('GET /@ecode:[0-9]{3}', ['ErrorController','index']);
 Flight::route('GET /settings', ['SettingsController','index']);
 Flight::route('GET /search', ['SearchController','index']);
 
+Flight::route('GET /notifications', ['NotificationsController','index']);
+
 Flight::route('GET /timetable', ['TimetableController','index']);
 Flight::route('GET /timetable/edit', ['TimetableController','edit']);
 Flight::route('POST /timetable/update', ['TimetableController','update']);
@@ -31,7 +33,7 @@ Flight::route('POST /admin/users', ['UsersController','create']); 					//Create 
 Flight::route('POST /admin/users/@id', ['UsersController','update']); 					//Update existing user
 Flight::route('DELETE /admin/users/@id', ['UsersController','remove']); 				//Delete existing user
 
-Flight::route('GET /admin/notifications', ['NotificationsController','index']);		//Notification management page
+Flight::route('GET /admin/notifications', ['NotificationsController','admin']);		//Notification management page
 Flight::route('POST /admin/notifications', ['NotificationsController','create']);	//Create new notification
 Flight::route('DELETE /admin/notifications/@id', ['NotificationsController','remove']);	//Delete existing notification
 

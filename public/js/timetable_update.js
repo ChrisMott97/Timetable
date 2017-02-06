@@ -18,7 +18,7 @@ function timetable_update(){
     $.post( "/timetable/update", { sessions : sessions})
         .done(function(data) {
         //alert(data);
-        $(location).attr('href', '/timetable')
+        // $(location).attr('href', '/timetable')
     });
     
 }

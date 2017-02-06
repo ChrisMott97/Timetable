@@ -16,8 +16,7 @@ $('#search').hideseek();
 <script src="/public/js/users.js"></script>
 <script src="/public/js/notifications.js"></script>
 <script src="/public/js/lessons.js"></script>
-<script src="/public/js/set.js"></script>
-<script src="/public/js/remove.js"></script>
+<script src="/public/js/timetable.js"></script>
 <script src="/public/js/periodtimes.js"></script>
 <script src="/public/js/timetable_update.js"></script>
 </body>

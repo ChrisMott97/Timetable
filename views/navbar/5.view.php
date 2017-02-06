@@ -64,6 +64,7 @@
                 <?php endforeach ?>
             </div>
             <div class="modal-footer">
+                <a class="btn btn-primary" href="/notifications">Create Notification</a>
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
         </div>

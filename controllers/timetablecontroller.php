@@ -15,6 +15,11 @@ class TimetableController extends Controller
         foreach($sessions as $session){
             $period = $session->period;
             $lessonid = $session->lessonid;
+
+            if(!Lessons::find($lessonid)){
+                Sessions::remove($session->id);
+                continue;
+            } //if any lessons have been deleted, remove dead sessions and don't attempt to load
             
             $subject = Lessons::find($lessonid)->subject;
             $room = Lessons::find($lessonid)->room;
@@ -40,6 +45,11 @@ class TimetableController extends Controller
             $period = $session->period;
             $lessonid = $session->lessonid;
             
+            if(!Lessons::find($lessonid)){
+                Sessions::remove($session->id);
+                continue;
+            } //if any lessons have been deleted, don't try to load them
+
             $subject = Lessons::find($lessonid)->subject;
             $room = Lessons::find($lessonid)->room;
             

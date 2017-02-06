@@ -52,6 +52,7 @@
                 <?php foreach($notifications as $notification):?>
                 <div id=<?= "n".$notification->id ?> class="panel panel-primary">
                     <div class="panel-heading"><?= $notification->title; ?>
+                        
                         <button type="button" class="close"
                         data-target=<?= "#n".$notification->id ?>
                         data-dismiss="alert" onclick=<?= "removeNotification(".$notification->id.")";?>>

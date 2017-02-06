@@ -6,3 +6,9 @@ function setPeriod(){
     document.getElementById(period).setAttribute("lessonid", lessonid)
 } 
 
+function removePeriod(){
+	var period = $("#session_edit :selected").text();
+	document.getElementById(period).innerhtml = "";
+	$('#'+period).empty();
+	$('#'+period).removeAttr('lessonid');
+}

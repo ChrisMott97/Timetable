@@ -4,7 +4,6 @@ session_start();
 require('models/query.class.php');
 Flight::set('query', new Query);
 
-require('models/error.class.php');
 
 require('models/user.class.php');
 require('models/users.class.php');

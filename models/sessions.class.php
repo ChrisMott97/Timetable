@@ -12,6 +12,7 @@ class Sessions
         $stmt->bindParam(':period', $period);
         $stmt->execute();
         $stmt->setFetchMode(PDO::FETCH_CLASS, 'Session');
+        return $stmt->fetch();
     }
     public static function findById($id){
         $stmt = Query::$db->prepare('SELECT * FROM sessions WHERE id = :id');
@@ -41,8 +42,8 @@ class Sessions
         return $stmt->fetchAll();
     }
     public static function save(Session $session){
-        $fullSession = self::find($session->userid, $session->period);
-        if($fullSession){     
+        $fullSession = Sessions::find($session->userid, $session->period);
+        if($fullSession){
             $stmt = Query::$db->prepare("
                 UPDATE sessions 
                 SET userid = :userid,
@@ -50,9 +51,9 @@ class Sessions
                     period = :period,
                 WHERE id = :id
             ");
-            $stmt->bindParam(':userid', $fullSession->userid);
-            $stmt->bindParam(':lessonid', $fullSession->lessonid);
-            $stmt->bindParam(':period', $fullSession->period);
+            $stmt->bindParam(':userid', $session->userid);
+            $stmt->bindParam(':lessonid', $session->lessonid);
+            $stmt->bindParam(':period', $session->period);
             $stmt->bindParam(':id', $fullSession->id);
             return $stmt->execute(); 
         } else{

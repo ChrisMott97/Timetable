@@ -75,6 +75,11 @@ class TimetableController extends Controller
         $lessons = [];
         foreach($sessions as $period => $lessonid){
             if($lessonid){
+                // if($lessonid = '-1'){
+                //     $session = Sessions::find(self::$user->id, $period);
+                //     Sessions::remove($session);
+                //     continue;
+                // }
                 $newSession = new Session;
                 $newSession->userid = self::$user->id;
                 $newSession->lessonid = $lessonid;

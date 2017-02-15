@@ -10,5 +10,5 @@ function removePeriod(){
 	var period = $("#session_edit :selected").text();
 	document.getElementById(period).innerhtml = "";
 	$('#'+period).empty();
-	$('#'+period).removeAttr('lessonid');
+	document.getElementById(period).setAttribute("lessonid", '-1')
 }

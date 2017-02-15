@@ -13,7 +13,7 @@ class Destination
     
     public function __construct($data = null)
     {
-        $this->node = Destinations::find($this->nodeid);
+        $this->node = Nodes::find($this->nodeid);
         if (is_array($data)) {
             if (isset($data['id'])) $this->id = $data['id'];
             

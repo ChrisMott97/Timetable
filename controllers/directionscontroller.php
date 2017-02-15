@@ -86,7 +86,7 @@ class DirectionsController extends Controller
         );
 
         // command to invoke python
-        $cmd = dirname(getcwd()). "\\eds-binaries\python\default\python.exe ".getcwd()."\\public\python\dijkstra_final.py".PHP_EOL;
+        $cmd = getcwd(). "\\vendor\python\default\python.exe ".getcwd()."\\public\python\dijkstra_final.py".PHP_EOL;
 
         // spawn the process
         $p = proc_open($cmd, $desc, $pipes);

@@ -61,7 +61,8 @@ denefield = {'Reception':{'ReceptionE':12},
             'Math2':{'Math1':10},
             'Math3':{'Math1':4, 'Math4':10},
             'Math4':{'Math3':10, 'MathS2':10},
-            'MathS2':{'Math4':10}}
+            'MathS2':{'Math4':10}
+        }
 graph = {'A':{'B':5,'C':7},
          'B':{'A':5,'D':10},
          'C':{'A':7,'D':8},

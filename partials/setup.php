@@ -22,9 +22,6 @@ require('models/destinations.class.php');
 require('models/node.class.php');
 require('models/nodes.class.php');
 
-require('models/dnode.class.php');
-require('models/dgraph.class.php');
-
 require('models/lesson.class.php');
 require('models/lessons.class.php');
 

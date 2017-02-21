@@ -91,12 +91,12 @@
                         function circle(ctx, x=0, y=0){
                             this.x = x;
                             this.y = y;
-                            ctx.beginPath();
-                            ctx.arc(x, y, 6, 0, 2 * Math.PI);
-                            ctx.stroke();
-                            ctx.beginPath();
-                            ctx.arc(x, y, 3, 0, 2 * Math.PI);
-                            ctx.fill();
+                            // ctx.beginPath();
+                            // ctx.arc(x, y, 6, 0, 2 * Math.PI);
+                            // ctx.stroke();
+                            // ctx.beginPath();
+                            // ctx.arc(x, y, 3, 0, 2 * Math.PI);
+                            // ctx.fill();
                         }
                         function connect(ctx, first, second){
                             ctx.beginPath();

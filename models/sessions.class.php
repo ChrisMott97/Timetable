@@ -80,11 +80,14 @@ class Sessions
     public static function save(Session $session){
         $fullSession = Sessions::find($session->userid, $session->period);
         if($fullSession){
+            var_dump($fullSession);
+            var_dump($session);
+            // exit;
             $stmt = Query::$db->prepare("
                 UPDATE sessions 
                 SET userid = :userid,
                     lessonid = :lessonid,
-                    period = :period,
+                    period = :period
                 WHERE id = :id
             ");
             $stmt->bindParam(':userid', $session->userid);

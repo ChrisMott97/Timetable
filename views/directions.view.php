@@ -1,8 +1,4 @@
 <div class="container">
-    <!-- <div class="jumbotron">
-        <h1><?= "Directions" ?></h1>
-        <p>Below is a basic map of the school.</p>
-    </div> -->
     <div class="row">
         <div class="col-md-8">
             <div class="panel panel-primary">
@@ -15,6 +11,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="email">From:</label>
+
                                     <select id='from' name="from" style='width: 100%'>;
                                         <?php foreach($buildings as $building => $rooms):?>
                                         <optgroup label=<?= $building?>>
@@ -24,11 +21,13 @@
                                         </optgroup>
                                         <?php endforeach ?>
                                     </select>
+
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="email">To:</label>
+
                                     <select id='to' name="to" style='width: 100%'>;
                                         <?php foreach($buildings as $building => $rooms):?>
                                         <optgroup label=<?= $building?>>
@@ -38,6 +37,7 @@
                                         </optgroup>
                                         <?php endforeach ?>
                                     </select>
+                                    
                                 </div>
                             </div>
                         </div>

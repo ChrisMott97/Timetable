@@ -1,5 +1,5 @@
 <?php
-
+/** Holds a single record from the Users table. */
 class User
 {
     public $id;
@@ -23,6 +23,11 @@ class User
             $this->permissions = $data['permissions'];
         }
     }
+
+    /**
+     * Puts all properties through validation
+     * @return void 
+     */
     public function validate(){
         if($this->id){
             if(!$this->username && !$this->firstname && !$this->lastname && !$this->password && !$this->year && !$this->permission){

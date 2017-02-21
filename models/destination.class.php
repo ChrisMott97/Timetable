@@ -1,5 +1,5 @@
 <?php
-
+/** Holds a single record from the Destinations table. */
 class Destination
 {
     public $id;

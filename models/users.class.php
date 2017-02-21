@@ -1,7 +1,14 @@
 <?php
-
+/** Factory for Users table. */
 class Users
 {
+
+    /**
+     * Queries the Users table in the database for a single User.
+     * 
+     * @param  Integer $id 
+     * @return User     
+     */
     public static function find($id){
         $stmt = Query::$db->prepare('
             SELECT * 
@@ -13,6 +20,13 @@ class Users
         $stmt->setFetchMode(PDO::FETCH_CLASS, 'User');
         return $stmt->fetch();
     }
+
+    /**
+     * Queries the Users table in the database for a single User by username.
+     * 
+     * @param  String $username 
+     * @return User           
+     */
     public static function findByUsername($username){
         $stmt = Query::$db->prepare('
             SELECT * 
@@ -24,6 +38,12 @@ class Users
         $stmt->setFetchMode(PDO::FETCH_CLASS, 'User');
         return $stmt->fetch();
     }
+
+    /**
+     * Queries the Users table in the database for all Users.
+     * 
+     * @return Array which contains User objects
+     */
     public static function findAll(){
         $stmt = Query::$db->prepare('
             SELECT * 
@@ -33,6 +53,14 @@ class Users
         $stmt->setFetchMode(PDO::FETCH_CLASS, 'User');
         return $stmt->fetchAll();
     }
+
+    /**
+     * Queries the Users table in the database for all Users where $property = $value.
+     * 
+     * @param  String $property must be a column in the table
+     * @param  Mixed $value     usually Integer or String
+     * @return Array            which contains User objects
+     */
     public static function findBy($property, $value){
         $stmt = Query::$db->prepare('
             SELECT * 
@@ -45,6 +73,13 @@ class Users
         $stmt->setFetchMode(PDO::FETCH_CLASS, 'User');
         return $stmt->fetchAll();
     }
+
+    /**
+     * Queries the Users table in the database to insert or update a given User.
+     * 
+     * @param  User   $user     if the $id field is present then update instead of insert
+     * @return Boolean          was the operation successful
+     */
     public static function save(User $user){
         if(!Users::find($user->id)){    //create
             $hashpassword = password_hash($user->password, PASSWORD_DEFAULT);
@@ -85,6 +120,13 @@ class Users
             return $stmt->execute();
         }
     }
+
+    /**
+     * Queries the Users table in the database and removes a given user.
+     * 
+     * @param  Integer $id 
+     * @return Boolean     was the operation successful
+     */
     public static function remove($id){
         if(Users::find($id)){    
             $stmt = Query::$db->prepare("
@@ -95,6 +137,14 @@ class Users
             return $stmt->execute();
         }
     }
+
+    /**
+     * Queries the Users table in the database and checks if the given $username exists verifies if the hashed $password corrisponds correctly.
+     * 
+     * @param  String $username from form inserted upon login
+     * @param  String $password from form inserted upon login (non-hashed)
+     * @return Boolean           
+     */
     public static function login($username, $password){
         $user = self::findByUsername($username);
         if(!$user){

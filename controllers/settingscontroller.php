@@ -3,7 +3,11 @@
 class SettingsController extends Controller
 {
     /**
-     * GET /account
+     * GET /account.
+     *
+     * Allows logged in users to view their account page.
+     * 
+     * @return View 
      */
     public static function index(){
         parent::routeProtect();

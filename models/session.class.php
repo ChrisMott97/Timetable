@@ -1,5 +1,5 @@
 <?php
-
+/** Holds a single record from the Sessions table. */
 class Session
 {
     public $id;

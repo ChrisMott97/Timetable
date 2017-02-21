@@ -1,5 +1,5 @@
 <?php
-
+/** Holds a single record from the Periods table. */
 class Period
 {
     public $order;

@@ -5,8 +5,13 @@ class TimetableController extends Controller
     public function __construct(){
         parent::__construct();
     }
+    
     /**
-     * GET /timetable
+     * GET /timetable.
+     *
+     * Retrieves all sessions and loads to timetable view.
+     * 
+     * @return View 
      */
     public static function index(){
         parent::routeProtect();
@@ -34,8 +39,13 @@ class TimetableController extends Controller
         Flight::render('timetable.view.php', ['user' => self::$user, 'timetable' => self::$timetable]);
         Flight::render('footer.view.php');
     }
+    
     /**
-     * GET /timetable/edit
+     * GET /timetable/edit.
+     *
+     * Loads all sessions then renders timetable edit view.
+     * 
+     * @return View 
      */
     public static function edit(){
         parent::routeProtect();
@@ -66,8 +76,13 @@ class TimetableController extends Controller
         Flight::render('timetable_edit.view.php', ['user' => self::$user, 'periods' => $periods, 'lessons' => $lessons,'timetable' => self::$timetable]);
         Flight::render('footer.view.php');
     }
+    
     /**
-     * POST /timetable/update
+     * POST /timetable/update.
+     *
+     * Retrieves sessions then saves to Sessions table using Sessions factory model.
+     * 
+     * @return Void 
      */
     public static function update(){
         parent::routeProtect();

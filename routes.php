@@ -15,10 +15,6 @@ Flight::route('GET /timetable', ['TimetableController','index']);
 Flight::route('GET /timetable/edit', ['TimetableController','edit']);
 Flight::route('POST /timetable/update', ['TimetableController','update']);
 
-Flight::route('GET /lessons', ['RequestsController', 'index']);
-Flight::route('POST /lessons/create', ['RequestsController', 'create']);
-Flight::route('POST /lessons/delete', ['RequestsController', 'delete']);
-
 Flight::route('GET /directions', ['DirectionsController','index']);
 Flight::route('POST /directions', ['DirectionsController','redirect']);
 Flight::route('GET /directions/@from/@to', ['DirectionsController','calculate']);
@@ -48,24 +44,3 @@ Flight::route('GET /teacher', ['TeacherController','index']);
 Flight::route('GET /login', ['LoginController','index']);
 Flight::route('GET /register', ['RegisterController','index']);
 Flight::route('POST /login', ['LoginController','auth']);
-
-// REST API
-
-// Flight::route('GET /api/users', ['apiUserController', 'readAllUsers']);
-// Flight::route('POST /api/users', ['apiUserController', 'createOneUser']);
-// Flight::route('GET /api/users/@userid', ['apiUserController', 'readOneUser']);
-// Flight::route('PUT /api/users/@userid', ['apiUserController', 'updateOneUser']);
-// Flight::route('DELETE /api/users/@userid', ['apiUserController', 'deleteOneUser']);
-
-// Flight::route('GET /api/users/@userid/timetable', ['apiTimetableController', 'readAllPeriods']);
-// Flight::route('POST /api/users/@userid/timetable', ['apiTimetableController', 'createOnePeriod']);
-// Flight::route('GET /api/users/@userid/timetable/@period', ['apiTimetableController', 'readOnePeriod']);
-// Flight::route('PUT /api/users/@userid/timetable/@period', ['apiTimetableController', 'updateOnePeriod']);
-// Flight::route('DELETE /api/users/@userid/timetable/@period', ['apiTimetableController', 'deleteOnePeriod']);
-
-// Flight::route('GET /api/lessons', ['apiLessonController', 'readAllLessons']);
-// Flight::route('GET /api/lessons/years/@year', ['apiLessonController', 'readYearLessons']);
-// Flight::route('POST /api/lessons', ['apiLessonController', 'createOneLesson']);
-// Flight::route('GET /api/lessons/ids/@lessonid', ['apiLessonController', 'readOneLesson']);
-// Flight::route('PUT /api/lessons/ids/@lessonid', ['apiLessonController', 'updateOneLesson']);
-// Flight::route('DELETE /api/lessons/ids/@lessonid', ['apiLessonController', 'deleteOneLesson']);

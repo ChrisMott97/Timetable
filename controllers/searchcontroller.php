@@ -2,9 +2,14 @@
 
 class SearchController extends Controller
 {
-	/**
-	 * GET /search
-	 */
+	
+    /**
+     * GET /search.
+     *
+     * Retrieves all Users and Lessons and allows them to be searched.
+     * 
+     * @return View
+     */
     public static function index(){
         parent::routeProtect();
         $users = Users::findAll();

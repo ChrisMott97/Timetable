@@ -7,9 +7,13 @@ class LoginController extends Controller
         parent::__construct();
     }
     
-    /*
-    GET /login
-    */
+    /**
+     * GET /login
+     * 
+     * Renders the login page but only if the user is a guest.
+     * 
+     * @return View 
+     */
     public static function index(){
         parent::guestOnly();
         parent::header();
@@ -17,9 +21,13 @@ class LoginController extends Controller
         Flight::render('footer.view.php');
     }
     
-    /*
-    POST /login
-    */
+    /**
+     * POST /login.
+     *
+     * Takes form input and sends it to the Users factory model for authentication.
+     * 
+     * @return Void 
+     */
     public static function auth(){
         Users::login($_POST['username'], $_POST['password']);
         Flight::redirect('/home');

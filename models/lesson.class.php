@@ -1,5 +1,5 @@
 <?php
-
+/** Holds a single record from the Lesson table. */
 class Lesson
 {
     public $id;
@@ -18,6 +18,12 @@ class Lesson
             $this->year = $data['year'];
         }
     }
+
+    /**
+     * Puts the Lesson object through validation criteria.
+     * 
+     * @return void     actions are taken automatically to fix validation or to warn the user
+     */
     public function validate(){
         if($this->id){
             if(!$this->subject && !$this->room && !$this->teacher && !$this->year){

@@ -1,5 +1,5 @@
 <?php
-
+/** Holds a single record from Buildings table. */
 class Building
 {
     public $id;

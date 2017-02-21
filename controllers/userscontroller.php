@@ -1,8 +1,13 @@
 <?php
 class UsersController extends Controller
 {
+    
     /**
-     * GET /admin/users
+     * GET /admin/users.
+     *
+     * Retrieves all users and renders them in the admin interface.
+     *
+     * @return View 
      */
     public static function index(){
         parent::routeProtect(5);
@@ -12,6 +17,14 @@ class UsersController extends Controller
         Flight::render('admin/users/users.view.php', ['users' => $users]);
         Flight::render('footer.view.php');
     }
+
+    /**
+     * POST /admin/users.
+     *
+     * Creates a User object with form data, validates, then saves with Users factory model.
+     * 
+     * @return Void 
+     */
     public static function create(){
         $newUser = new User;
         $newUser->username = $_POST['username'];
@@ -23,6 +36,15 @@ class UsersController extends Controller
         $newUser->validate();
         Users::save($newUser);
     }
+
+    /**
+     * DELETE /admin/users/@id.
+     *
+     * Uses Users factory model to remove a given user.
+     * 
+     * @param  Integer $id 
+     * @return Void     
+     */
     public static function remove($id){
         Users::remove($id);
     }

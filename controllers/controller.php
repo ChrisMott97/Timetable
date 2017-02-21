@@ -19,19 +19,23 @@ class Controller
         Flight::view()->set('user', self::$user);
     }
     
+    /**
+     * Checks if the user is logged in.
+     * 
+     * @return Boolean 
+     */
     public static function authCheck(){
         if(isset($_SESSION['loggedin']) && $_SESSION['loggedin']){
             return true;
         }
     }
-    public static function navbar(){
-        if(!self::authCheck()){
-            return Flight::render('navbar/0.view.php');
-        }
-        $notifications = Notifications::findBy('userid', self::$user->id);
-        $count = count($notifications);
-        Flight::view()->set('notifications', $notifications);
-        Flight::view()->set('count', $count);
+
+    /**
+     * If error values have been set, cue the warning and errors to render.
+     * 
+     * @return Void 
+     */
+    private static function errorCheck(){
         if(isset($_SESSION['error'])){
             Flight::view()->set('error', $_SESSION['error']);
             unset($_SESSION['error']);
@@ -40,6 +44,22 @@ class Controller
             Flight::view()->set('warning', $_SESSION['warning']);
             unset($_SESSION['warning']);
         }
+    }
+
+    /**
+     * Decides which navbar to render based on permissions and gets notifications.
+     * 
+     * @return View 
+     */
+    public static function navbar(){
+        if(!self::authCheck()){
+            return Flight::render('navbar/0.view.php');
+        }
+        $notifications = Notifications::findBy('userid', self::$user->id);
+        $count = count($notifications);
+        Flight::view()->set('notifications', $notifications);
+        Flight::view()->set('count', $count);
+        self::errorCheck();
         switch(self::$user->permission){
             case(1):
                 return Flight::render('navbar/1.view.php');
@@ -56,9 +76,16 @@ class Controller
             case(5):
                 return Flight::render('navbar/5.view.php');
                 break;
+            default:
+                return Flight::render('navbar/5.view.php');
         }
     }
 
+    /**
+     * Uses the request URI to decide the title of the page and the css document it will use.
+     * 
+     * @return View 
+     */
     public static function header(){
         switch($_SERVER['REQUEST_URI']){
             case('/'):
@@ -97,6 +124,12 @@ class Controller
         return Flight::render('header.view.php', ['title' => $title, 'style' => $style]);
     }
     
+    /**
+     * Protects a given Controller method by setting a permission level requirement.
+     * 
+     * @param  Integer $minPermission minimum permission level required to allow access
+     * @return Void                 
+     */
     public static function routeProtect($minPermission = 1){
         if(!self::authCheck()){
             Flight::redirect('/login');
@@ -108,29 +141,15 @@ class Controller
         }
     }
     
+    /**
+     * To ensure guest pages can't be accessed by a logged in user (such as index, login and register).
+     * 
+     * @return Void 
+     */
     public static function guestOnly(){
         if(self::authCheck()){
             Flight::redirect('/home');
             exit;
-        }
-    }
-
-    public static function validate($item){
-        $numargs = func_num_args();
-        $listargs = func_get_args();
-        switch ($item) {
-            case 'directions':
-                //Uses second argument ([1]) as 'from' and third ([2]) as 'to'
-                if ( $numargs > 1 ){
-                    if($listargs[1] == $listargs[2]){
-                        return 0;
-                    }
-                }
-                break;
-            
-            default:
-                # code...
-                break;
         }
     }
 }

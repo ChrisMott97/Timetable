@@ -15,10 +15,6 @@ Flight::route('GET /timetable', ['TimetableController','index']);
 Flight::route('GET /timetable/edit', ['TimetableController','edit']);
 Flight::route('POST /timetable/update', ['TimetableController','update']);
 
-Flight::route('GET /lessons', ['RequestsController', 'index']);
-Flight::route('POST /lessons/create', ['RequestsController', 'create']);
-Flight::route('POST /lessons/delete', ['RequestsController', 'delete']);
-
 Flight::route('GET /directions', ['DirectionsController','index']);
 Flight::route('POST /directions', ['DirectionsController','redirect']);
 Flight::route('GET /directions/@from/@to', ['DirectionsController','calculate']);
@@ -48,4 +44,3 @@ Flight::route('GET /teacher', ['TeacherController','index']);
 Flight::route('GET /login', ['LoginController','index']);
 Flight::route('POST /login', ['LoginController','auth']);
 Flight::route('GET /register', ['RegisterController','index']);
-

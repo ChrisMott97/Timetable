@@ -1,5 +1,5 @@
 <?php
-
+/** Holds a single record from the Nodes table. */
 class Node
 {
     public $nodeid;

@@ -2,7 +2,11 @@
 class LogoutController extends Controller
 {
     /**
-     * GET /logout
+     * GET /logout.
+     *
+     * Clears all session data.
+     * 
+     * @return Void 
      */
     public static function index(){
         $_SESSION['loggedin'] = false;

@@ -62,5 +62,15 @@ class Timetable
     public $WedB4;
     public $WedB5;
     public $WedB6;
+
+    public function validate($user){
+        $periods = Periods::findAll();
+        foreach($periods as $period){
+            $code = $period->code;
+            if(!$this->$code){
+                $this->$code = Sessions::blank($user, $code);
+            }
+        }
+    }
 }
 

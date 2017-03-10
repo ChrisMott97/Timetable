@@ -2,3 +2,15 @@ canvas {
   width: 100%;
   height: auto;
 }
+body {
+	background-color: aliceblue;
+}
+.nav-tabs  {
+	background-color: white;
+	padding-top: 10px;
+	padding-right: 10px;
+	padding-left: 10px;
+	padding-bottom: 1px;
+	border-radius: 5px;
+}
+

@@ -26,14 +26,16 @@ class TimetableController extends Controller
                 continue;
             } //if any lessons have been deleted, remove dead sessions and don't attempt to load
             
-            $subject = Lessons::find($lessonid)->subject;
-            $room = Lessons::find($lessonid)->room;
+            // $subject = Lessons::find($lessonid)->subject;
+            // $room = Lessons::find($lessonid)->room;
             
-            $label = $subject." ".$room;
-                
-            self::$timetable->$period = $label;
+            // $label = $subject." ".$room;
+            
+            self::$timetable->$period = $session;
         }
-        
+        self::$timetable->validate(self::$user);
+
+       
         parent::header();
         parent::navbar();
         Flight::render('timetable.view.php', ['user' => self::$user, 'timetable' => self::$timetable]);
@@ -60,13 +62,15 @@ class TimetableController extends Controller
                 continue;
             } //if any lessons have been deleted, don't try to load them
 
-            $subject = Lessons::find($lessonid)->subject;
-            $room = Lessons::find($lessonid)->room;
+            // $subject = Lessons::find($lessonid)->subject;
+            // $room = Lessons::find($lessonid)->room;
             
-            $label = $subject." ".$room;
+            // $label = $subject." ".$room;
                 
-            self::$timetable->$period = $label;
+            // self::$timetable->$period = $label;
+            self::$timetable->$period = $session;
         }
+        self::$timetable->validate(self::$user);
         
         $lessons = Lessons::findBy('year', self::$user->year);
         $periods = Periods::findAll();

@@ -109,6 +109,14 @@ class Sessions
         }
     }
 
+    public static function blank(User $user, $code){
+        $session = new Session;
+        $session->lessonName = "";
+        $session->lessonTeacher = "";
+        $session->lessonRoom = "";
+        return $session;
+    }
+
     /**
      * Queries the Sessions table in the database and removes a given Session.
      * 

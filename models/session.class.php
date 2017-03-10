@@ -6,16 +6,22 @@ class Session
     public $userid;
     public $lessonid;
     public $period;
+
+    public $lessonName;
+    public $lessonRoom;
+    public $lessonTeacher;
     
     public function __construct($data = null)
     {
-        if (is_array($data)) {
-            if (isset($data['id'])) $this->id = $data['id'];
-            
-            $this->userid = $data['userid'];
-            $this->lessonid = $data['lessonid'];
-            $this->period = $data['period'];
+        if($this->lessonid){
+            $this->findSubject();
         }
+    }
+    public function findSubject(){
+        $lesson = Lessons::find($this->lessonid);
+        $this->lessonName = $lesson->subject;
+        $this->lessonRoom = $lesson->room;
+        $this->lessonTeacher = $lesson->teacher;
     }
 }
 

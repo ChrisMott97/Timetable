@@ -1,19 +1,19 @@
 $(document).ready(function(){
     $("#timesbutton").click(function(){
-        $("[id=p1]").html('8:40 - 9:40');
-        $("[id=p2]").html('9:40 - 10:40');
-        $("[id=p3]").html('11:00 - 12:00');
-        $("[id=p4]").html('12:00 - 13:00');
-        $("[id=p5]").html('14:00 - 15:00');
-        $("[id=p6]").html('15:00 - 16:00');
+        $("[id=p1]").html('8:40 <br> 9:40');
+        $("[id=p2]").html('9:40 <br> 10:40');
+        $("[id=p3]").html('11:00 <br> 12:00');
+        $("[id=p4]").html('12:00 <br> 13:00');
+        $("[id=p5]").html('14:00 <br> 15:00');
+        $("[id=p6]").html('15:00 <br> 16:00');
     });
     $("#periodsbutton").click(function(){
-        $("[id=p1]").html('1');
-        $("[id=p2]").html('2');
-        $("[id=p3]").html('3');
-        $("[id=p4]").html('4');
-        $("[id=p5]").html('5');
-        $("[id=p6]").html('6');
+        $("[id=p1]").html('1 <br>');
+        $("[id=p2]").html('2 <br>');
+        $("[id=p3]").html('3 <br>');
+        $("[id=p4]").html('4 <br>');
+        $("[id=p5]").html('5 <br>');
+        $("[id=p6]").html('6 <br>');
     });
 });
 //function showTimes(){

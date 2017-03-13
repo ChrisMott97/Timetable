@@ -61,6 +61,10 @@ class User
                 $_SESSION['error'] = 'Please enter a lastname!';
                 exit;
             }
+            if(!$this->year){
+                $_SESSION['error'] = 'Please enter a year!';
+                exit;
+            }
             if(!$this->username){
                 $_SESSION['error'] = 'Please enter a username!';
                 exit;

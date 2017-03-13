@@ -1,3 +1,4 @@
+
 <nav class="navbar navbar-default">
     <div class="container">
         <div class="navbar-header">
@@ -31,11 +32,11 @@
 </nav>
 <div class="row">
     <div class="col-md-6 col-md-offset-3">
-        <?php 
+        <?php
         if(isset($error)){
-            echo '<div class="alert alert-danger">'.$error.'</div>';
+        echo '<div class="alert alert-danger">'.$error.'</div>';
         }elseif(isset($warning)){
-            echo '<div class="alert alert-warning">'.$warning.'</div>';
+        echo '<div class="alert alert-warning">'.$warning.'</div>';
         }
         ?>
     </div>

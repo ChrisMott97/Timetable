@@ -71,8 +71,12 @@ class TimetableController extends Controller
             self::$timetable->$period = $session;
         }
         self::$timetable->validate(self::$user);
-        
-        $lessons = Lessons::findBy('year', self::$user->year);
+        if(self::$user->year == 0){
+            $lessons = Lessons::findBy('teacher', self::$user->username);
+        }
+        else{
+            $lessons = Lessons::findBy('year', self::$user->year);
+        }
         $periods = Periods::findAll();
         
         parent::header();

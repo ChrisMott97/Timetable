@@ -5,5 +5,5 @@
 	</div>
 </div>
 <div class="card-panel">
-	<img class="img-responsive" src="../public/images/denefield.png">
+	<img class="responsive-img" src="../public/images/denefield.png">
 </div>

@@ -3,17 +3,20 @@
 class Notification
 {
     public $id;
-    public $userid;
+    public $toid;
+    public $fromid;
     public $title;
     public $description;
     public $request;
     public $completed;
     
-    public $user;
+    public $toUser;
+    public $fromUser;
     
     public function __construct($data = null)
     {
-        $this->user = Users::find($this->userid);
+        $this->toUser = Users::find($this->toid);
+        $this->fromUser = Users::find($this->fromid);
     }
 
     /**

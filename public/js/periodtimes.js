@@ -16,6 +16,23 @@ $(document).ready(function(){
         $("[id=p6]").html('6 <br>');
     });
 });
+function switchState(){
+    if($('#timetableSwitch').prop('checked')){
+        $("[id=p1]").html('8:40 <br> 9:40');
+        $("[id=p2]").html('9:40 <br> 10:40');
+        $("[id=p3]").html('11:00 <br> 12:00');
+        $("[id=p4]").html('12:00 <br> 13:00');
+        $("[id=p5]").html('14:00 <br> 15:00');
+        $("[id=p6]").html('15:00 <br> 16:00');
+    } else{
+        $("[id=p1]").html('1 <br>');
+        $("[id=p2]").html('2 <br>');
+        $("[id=p3]").html('3 <br>');
+        $("[id=p4]").html('4 <br>');
+        $("[id=p5]").html('5 <br>');
+        $("[id=p6]").html('6 <br>');
+    }
+}
 //function showTimes(){
 //    document.getElementById('p1').innerHTML = '8:40 - 9:40';
 //    document.getElementById('p2').innerHTML = '9:40 - 10:40';

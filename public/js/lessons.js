@@ -1,11 +1,12 @@
 'use strict';
-function removeLesson(id){
+function removeLesson(){
+    var id = $("#modify_id").val();
 	$.ajax({
     type:'delete',
-    url:'/admin/lessons/'+id
+    url:'/services/lessons/'+id
     })
     .done(function(){
-    	$(location).attr('href', '/admin/lessons');
+    	location.reload();
     })
 }
 function createLesson(){
@@ -13,9 +14,9 @@ function createLesson(){
 	var room = $("#create_room").val();
 	var teacher = $("#create_teacher").val();
 	var year = $("#create_year").val();
-	$.post("/admin/lessons", { subject : subject, room : room, teacher : teacher, year : year})
+	$.post("/services/lessons", { subject : subject, room : room, teacher : teacher, year : year})
     .done(function(){
-        $(location).attr('href', '/admin/lessons');
+        location.reload();
     });
 }
 function modifyLesson(){
@@ -26,10 +27,14 @@ function modifyLesson(){
     var year = $("#modify_year").val();
     $.ajax({
       type: "post",
-      url: "/admin/lessons/"+id,
+      url: "/services/lessons/"+id,
       data: { subject : subject, room : room, teacher : teacher, year : year}
     })
     .done(function() {
-      $(location).attr('href', '/admin/lessons');
+      location.reload();
     });
+}
+function selectLesson(identity, id){
+    $("#lesson").val(identity);
+    $("#modify_id").val(id);
 }

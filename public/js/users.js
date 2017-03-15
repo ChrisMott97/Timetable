@@ -1,12 +1,13 @@
 'use strict';
-function removeUser(id){
+function removeUser(){
+    var id = $("#userid").val();
 	$.ajax({
     type:'delete',
-    url:'/admin/users/'+id
+    url:'/services/users/'+id
     })
     .done(function(){
     	// alert(id);
-    	$(location).attr('href', '/admin/users');
+    	location.reload();
     })
 }
 function createUser(){
@@ -15,14 +16,14 @@ function createUser(){
 	var username = $("#create_username").val();
 	var password = $("#create_password").val();
 	var year = $("#create_year").val();
-	$.post("/admin/users", { firstname : firstname, lastname : lastname, username : username, password : password, year : year})
+	$.post("/services/users", { firstname : firstname, lastname : lastname, username : username, password : password, year : year})
     .done(function(){
         // alert(id);
-        $(location).attr('href', '/admin/users');
+        location.reload();
     });
 }
 function modifyUser(){
-    var id = $("#modify_id").val();
+    var id = $("#userid").val();
     var firstname = $("#modify_firstname").val();
     var lastname = $("#modify_lastname").val();
     var username = $("#modify_username").val();
@@ -31,10 +32,30 @@ function modifyUser(){
     var permission = $("#modify_permission").val();
     $.ajax({
       type: "post",
-      url: "/admin/users/"+id,
+      url: "/services/users/"+id,
       data: { firstname : firstname, lastname : lastname, username : username, password : password, year : year, permission : permission}
     })
     .done(function() {
-      $(location).attr('href', '/admin/users');
+      location.reload();
+    });
+}
+function selectUser(username, id){
+    $("#username").val(username);
+    $("#userid").val(id);
+}
+function selectTeacher(username){
+    var initials = username.toUpperCase();
+    $("#modify_teacher").val(initials);
+    $("#create_teacher").val(initials);
+}
+function selectTeacherLimitted(username){
+    var initials = username.toUpperCase();
+    $("#modify_teacher").val(initials);
+}
+function changePassword(){
+    var pass = $("#password").val();
+    $.post("/settings/password", { pass : pass })
+    .done(function(){
+        location.reload();
     });
 }

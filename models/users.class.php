@@ -62,12 +62,11 @@ class Users
      * @return Array            which contains User objects
      */
     public static function findBy($property, $value){
-        $stmt = Query::$db->prepare('
+        $stmt = Query::$db->prepare("
             SELECT * 
             FROM users 
-            WHERE :property = :value
-        ');
-        $stmt->bindParam(':property', $property);
+            WHERE $property = :value
+        ");
         $stmt->bindParam(':value', $value);
         $stmt->execute();
         $stmt->setFetchMode(PDO::FETCH_CLASS, 'User');

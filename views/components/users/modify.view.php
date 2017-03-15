@@ -1,13 +1,14 @@
 <div class="card-panel">
-    <h3>Modify User</h3>
+    <h3 class="center">Modify</h3>
     <div class="row">
-        <div class="input-field col s6">
-            <select id='modify_id' name='id' style='width: 100%'>;
-                <?php foreach($users as $user):?>
-                <option value=<?= $user->id; ?>><?= $user->firstname . " " . $user->lastname . " (" . $user->username . ")"; ?></option>);
-                <?php endforeach ?>
-            </select>
-            <label for="id">User:</label>
+        <div class="col s6">
+            <div class="input-field">
+                <input disabled type="text" name="username" class="validate" placeholder="Select on left" id="username" autocomplete="off">
+                <label for="username">Username</label>
+            </div>
+            <div class="input-field">
+                <input type="hidden" name="userid" class="validate" id="userid" autocomplete="off">
+            </div>
         </div>
     </div>
     <div class="row">
@@ -54,6 +55,7 @@
             </select>
             <label for="permission">Permission</label>
         </div>
-        <button type="submit" onclick="modifyUser()" class="btn btn-primary right">Update</button>
+        <button type="submit" onclick="modifyUser()" class="btn">Update</button>
+        <button type="submit" onclick="removeUser()" class="btn red right">Remove</button>
     </div>
 </div>

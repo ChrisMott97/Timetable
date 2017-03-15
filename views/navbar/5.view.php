@@ -1,54 +1,74 @@
 <ul id="navdrop" class="dropdown-content">
-  <li><a href="/settings">Settings</a></li>
-  <li><a href="/logout">Logout</a></li>
+    <li><a href="/settings">Settings</a></li>
+    <li><a href="/logout">Logout</a></li>
 </ul>
 <ul id="admindrop" class="dropdown-content">
-  <li><a href="/admin/users">Users</a></li>
-  <li><a href="/admin/lessons">Lessons</a></li>
-  <li><a href="/admin/notifications">Notifications</a></li>
+    <li><a href="/admin/users">Users</a></li>
+    <li><a href="/admin/lessons">Lessons</a></li>
+    <li><a href="/admin/notifications">Notifications</a></li>
+</ul>
+<ul id="navdrop_mobile" class="dropdown-content">
+    <li><a href="/settings">Settings</a></li>
+    <li><a href="/logout">Logout</a></li>
+</ul>
+<ul id="admindrop_mobile" class="dropdown-content">
+    <li><a href="/admin/users">Users</a></li>
+    <li><a href="/admin/lessons">Lessons</a></li>
+    <li><a href="/admin/notifications">Notifications</a></li>
 </ul>
 <nav>
     <div class="nav-wrapper">
         <a href="#" class="brand-logo center">School Planner</a>
-        <ul id="nav-mobile" class="left hide-on-med-and-down">
+        <a href="#" data-activates="mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+        <ul class="left hide-on-med-and-down">
             <li><a href="/">Home</a></li>
             <li><a href="/timetable">Timetable</a></li>
             <li><a href="/directions">Directions</a></li>
-            <li><a class="dropdown-button" href="#!" data-activates="admindrop">Admin<i class="material-icons right">arrow_drop_down</i></a></li>
+            <li><a class="dropdown-button" href="#!" data-activates="admindrop">Admin Services<i class="material-icons right">arrow_drop_down</i></a></li>
         </ul>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <ul class="right hide-on-med-and-down">
             <li><a href="/search">Search</a></li>
             <li><a href="#notification">Notifications  <span class="new badge"><?php if($count){echo $count; }; ?></span></a></li>
             <li><a class="dropdown-button" href="#!" data-activates="navdrop"><?= $user->firstname." ".$user->lastname ?><i class="material-icons right">arrow_drop_down</i></a></li>
         </ul>
+        <ul class="side-nav" id="mobile">
+            <li><a href="/">Home</a></li>
+            <li><a href="/timetable">Timetable</a></li>
+            <li><a href="/directions">Directions</a></li>
+            <li><a class="dropdown-button" href="#!" data-activates="admindrop_mobile">Admin Services<i class="material-icons right">arrow_drop_down</i></a></li>
+            <li><a href="/search">Search</a></li>
+            <li><a href="#notification">Notifications  <span class="new badge"><?php if($count){echo $count; }; ?></span></a></li>
+            <li><a class="dropdown-button" href="#!" data-activates="navdrop_mobile"><?= $user->firstname." ".$user->lastname ?><i class="material-icons right">arrow_drop_down</i></a></li>
+        </ul>
     </div>
 </nav>
 <div class="row">
-    <div class="col-md-6 col-md-offset-3">
+    <div class="col s6 offset-s3">
         <?php
         if(isset($error)){
-        echo '<div class="alert alert-danger">'.$error.'</div>';
+        echo '<div class="card-panel red lighten-1">'.$error.'</div>';
         }elseif(isset($warning)){
-        echo '<div class="alert alert-warning">'.$warning.'</div>';
+        echo '<div class="card-panel yellow lighten-1"">'.$warning.'</div>';
         }
         ?>
     </div>
 </div>
 <!-- Modal -->
-<div class="modal" id="notification">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <?php foreach($notifications as $notification):?>
-            <div id=<?= "n".$notification->id ?> class="card-panel">
-                <h5><?= $notification->title; ?>
-                <a class="right" href="#!" onclick=<?= "removeNotification(".$notification->id.")";?>><i class="material-icons">close</i></a></h5>
-                <div class="panel-body"><?= $notification->description; ?></div>
-            </div>
-            <?php endforeach ?>
+<div class="modal modal-fixed-footer" id="notification">
+    <div class="modal-content">
+        <?php foreach($notifications as $notification):?>
+        <div id=<?= "n".$notification->id ?> class="card-panel">
+            <blockquote>
+            <h5><?= $notification->title; ?>
+            <a class="right" onclick=<?= "removeNotificationUser(".$notification->id.")";?>><i class="material-icons">close</i></a></h5>
+            <div><?= $notification->description; ?></div>
+            </blockquote>
+            <div class="right"><?= $notification->fromUser->firstname ," ", $notification->fromUser->lastname; ?></div>
         </div>
-        <div class="modal-footer">
-            <a class="modal-action waves-effect waves-green btn-flat" href="/notifications">Create Notification</a>
-            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Close</a>
-        </div>
+        <?php endforeach ?>
+    </div>
+    <div class="modal-footer">
+        <a class="modal-action waves-effect waves-green btn-flat" href="/notifications">Create</a>
+        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Close</a>
     </div>
 </div>

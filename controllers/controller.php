@@ -55,7 +55,7 @@ class Controller
         if(!self::authCheck()){
             return Flight::render('navbar/0.view.php');
         }
-        $notifications = Notifications::findBy('userid', self::$user->id);
+        $notifications = Notifications::findBy('toid', self::$user->id);
         $count = count($notifications);
         Flight::view()->set('notifications', $notifications);
         Flight::view()->set('count', $count);
@@ -136,7 +136,10 @@ class Controller
             exit;
         }
         if(self::$user->permission < $minPermission){
-            Flight::redirect('/401');
+            self::header();
+            self::navbar();
+            Flight::render('errors/401.view.php');
+            Flight::render('footer.view.php');
             exit;
         }
     }

@@ -9,12 +9,28 @@ class UsersController extends Controller
      *
      * @return View 
      */
-    public static function index(){
+    public static function admin(){
         parent::routeProtect(5);
         $users = Users::findAll();
         parent::header();
         parent::navbar();
-        Flight::render('admin/users/users.view.php', ['users' => $users]);
+        Flight::render('admin/users.view.php', ['users' => $users]);
+        Flight::render('footer.view.php');
+    }
+
+    /**
+     * GET /teacher/users.
+     *
+     * Retrieves all users and renders them in the teacher interface.
+     *
+     * @return View 
+     */
+    public static function teacher(){
+        parent::routeProtect(3);
+        $users = Users::findAll();
+        parent::header();
+        parent::navbar();
+        Flight::render('teacher/users.view.php', ['users' => $users]);
         Flight::render('footer.view.php');
     }
 

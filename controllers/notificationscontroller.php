@@ -32,7 +32,24 @@ class NotificationsController extends Controller
         $notifications = Notifications::findAll();
         parent::header();
         parent::navbar();
-        Flight::render('admin/notifications/notifications.view.php', ['notifications' => $notifications, 'users' => $users]);
+        Flight::render('admin/notifications.view.php', ['notifications' => $notifications, 'users' => $users]);
+        Flight::render('footer.view.php');
+    }
+
+    /**
+     * GET /teacher/notifications.
+     *
+     * Gathers all user data and notifications data then renders notification view for teacher users only.
+     * 
+     * @return View 
+     */
+    public static function teacher(){
+        parent::routeProtect(3);
+        $users = Users::findAll();
+        $notifications = Notifications::findAll();
+        parent::header();
+        parent::navbar();
+        Flight::render('teacher/notifications.view.php', ['notifications' => $notifications, 'users' => $users]);
         Flight::render('footer.view.php');
     }
     
@@ -45,7 +62,8 @@ class NotificationsController extends Controller
      */
     public static function create(){
         $newNotification = new Notification;
-        $newNotification->userid = $_POST['userid'];
+        $newNotification->toid = $_POST['userid'];
+        $newNotification->fromid = self::$user->id;
         $newNotification->title = $_POST['title'];
         $newNotification->description = $_POST['description'];
         $newNotification->request = 0;

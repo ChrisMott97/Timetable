@@ -8,19 +8,15 @@
 				// $("#lesson_edit").select2();
 				$("#from").select2();
 				$("#to").select2();
-				$("#userids").select2();
+				// $("#userids").select2();
 				// $("#modify_id").select2();
 				$('#search').hideseek();
-				$(document).ready(function(){
-    				// the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-    				$('.modal').modal();
-  				});
-			  	$(document).ready(function(){
-			    	$('ul.tabs').tabs();
-			  	});
-			  	$(document).ready(function() {
-    $('select').material_select();
-  });
+    			$('.modal').modal();
+			    $('ul.tabs').tabs();
+    			$('select').material_select();
+  				$(".button-collapse").sideNav();
+  				// $('.collapsible').collapsible();
+  				$(".dropdown-button").dropdown();
         
 			});
 		</script>

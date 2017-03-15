@@ -84,7 +84,7 @@ CREATE TABLE `lessons` (
   `teacher` varchar(45) NOT NULL,
   `year` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -93,34 +93,8 @@ CREATE TABLE `lessons` (
 
 LOCK TABLES `lessons` WRITE;
 /*!40000 ALTER TABLE `lessons` DISABLE KEYS */;
-INSERT INTO `lessons` VALUES (6,'D2','A105','DGN',13),(7,'FP1','A105','DGN',13),(8,'Free','','',13),(11,'Computing','M119','RYA',10),(12,'ICT','M120','SHS',13),(13,'ICT','M119','RYA',13);
+INSERT INTO `lessons` VALUES (6,'D2','A105','DGN',13),(7,'FP2','A105','DGN',13),(11,'Computing','M119','RYA',10),(13,'ICT','M119','RYA',13);
 /*!40000 ALTER TABLE `lessons` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `node_connections`
---
-
-DROP TABLE IF EXISTS `node_connections`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `node_connections` (
-  `connectionid` int(11) NOT NULL AUTO_INCREMENT,
-  `nodeid1` int(11) NOT NULL,
-  `nodeid2` int(11) NOT NULL,
-  `length` int(11) NOT NULL,
-  PRIMARY KEY (`connectionid`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `node_connections`
---
-
-LOCK TABLES `node_connections` WRITE;
-/*!40000 ALTER TABLE `node_connections` DISABLE KEYS */;
-INSERT INTO `node_connections` VALUES (1,4,5,12),(2,5,4,12),(3,3,4,10),(4,4,3,10),(5,3,6,20),(6,6,3,20);
-/*!40000 ALTER TABLE `node_connections` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -158,13 +132,14 @@ DROP TABLE IF EXISTS `notifications`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `notifications` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `userid` int(11) NOT NULL,
+  `toid` int(11) NOT NULL,
+  `fromid` int(11) NOT NULL,
   `title` varchar(45) NOT NULL,
   `description` varchar(255) DEFAULT NULL,
   `request` tinyint(1) DEFAULT '0',
   `completed` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -173,7 +148,6 @@ CREATE TABLE `notifications` (
 
 LOCK TABLES `notifications` WRITE;
 /*!40000 ALTER TABLE `notifications` DISABLE KEYS */;
-INSERT INTO `notifications` VALUES (1,1,'New notification','this is the new notification description',0,0),(2,1,'another notification','More details',0,0),(3,1,'A 3rd notification','This lesson has been moved due to mainenance in the room, please try M120!',0,0),(4,21,'Hi, this is a test notification','lol',0,0);
 /*!40000 ALTER TABLE `notifications` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -245,7 +219,7 @@ CREATE TABLE `sessions` (
   `lessonid` int(11) DEFAULT NULL,
   `period` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -254,7 +228,7 @@ CREATE TABLE `sessions` (
 
 LOCK TABLES `sessions` WRITE;
 /*!40000 ALTER TABLE `sessions` DISABLE KEYS */;
-INSERT INTO `sessions` VALUES (8,1,7,'MonA1'),(9,1,8,'MonA2'),(10,1,8,'MonA3'),(11,1,8,'MonA4'),(12,1,12,'TueA3'),(13,1,8,'TueA1'),(14,1,8,'WedA1'),(15,1,13,'ThuA1'),(16,1,6,'FriA1'),(17,1,8,'TueA2'),(18,1,8,'WedA2'),(19,1,13,'ThuA2'),(20,1,13,'FriA2'),(21,1,6,'WedA3'),(22,1,8,'ThuA3'),(23,1,8,'FriA3'),(24,1,8,'TueA4'),(25,1,6,'WedA4'),(26,1,7,'FriA4'),(27,1,8,'MonA5'),(28,1,8,'TueA5'),(29,1,7,'WedA5'),(30,1,8,'ThuA5'),(31,1,7,'FriA5'),(32,21,11,'FriA1'),(33,21,11,'WedA2'),(34,1,12,'ThuA4'),(35,1,7,'MonA1'),(36,1,7,'MonA1'),(37,1,7,'MonA1'),(38,1,7,'MonA1'),(39,1,7,'MonA1'),(40,1,6,'MonA1'),(41,1,7,'FriA1'),(42,1,6,'MonA6');
+INSERT INTO `sessions` VALUES (46,1,6,'MonA1'),(47,1,7,'MonA2'),(48,1,6,'FriA1');
 /*!40000 ALTER TABLE `sessions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -275,7 +249,7 @@ CREATE TABLE `users` (
   `permission` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
   UNIQUE KEY `username_UNIQUE` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -284,7 +258,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'cmott97','Chris','Mott','$2y$10$rq4yYITEhZfYjEXS3tSxeeFRU5gqP4U1JrdLxKOOc19g5tzC5Zs8y',13,5),(21,'hjones02','Haydn','Jones','$2y$10$1bMHgHeptg918kPaPq/RDOHWb4T/S4vyTHPP0XsMSo4wjS/cwHziy',10,1),(22,'jsmith03','John','Smith','$2y$10$Dl.nsgZgqcY4oW9ESa/TBe6RvCvsk/qTbBVTTDONOTdEuO/B4ExHG',9,1),(23,'drenahmeti22','Dren','Ahmeti','qwertyuiop',11,1),(25,'rya','R','Yates','$2y$10$KgW2WfZrepGSUVsVnFUQkuF09KL/0jYs9AawR4/XwS.6lzcHeY7nK',0,3),(26,'newuser1','New','User','$2y$10$4475ZRkHlwkKGUAFY8cl5eHvgaFihpIvwvTev3bo1QNZkofzQBQCW',7,1);
+INSERT INTO `users` VALUES (1,'cmott97','Chris','Mott','$2y$10$UOyq3jv.u1B0LF.pSpJHPO8YJdVeicdvpZKuq0oNux6YeD87SuEVK',13,5),(21,'hjones02','Haydn','Jones','$2y$10$1bMHgHeptg918kPaPq/RDOHWb4T/S4vyTHPP0XsMSo4wjS/cwHziy',10,1),(23,'drenahmeti22','Dren','Ahmeti','qwertyuiop',11,1),(25,'RYA','R','Yates','$2y$10$7mkdBAfTfGnuWIawKpR6le0gBcuNj12DRcyJgAamxgRvvxlVyjo2y',0,3),(29,'DGN','D','Gibson','$2y$10$XCHJggkaPhUUgINyArEe4OHlwSRIAEvd34/EqoL3uqSsO28vNS9GW',0,3),(30,'jsmith03','Joe','Smith','$2y$10$WZb2tLehMMf1fZhLPoKObOWM0Hdy2ECfZgqMgHr9ooL4x3BvfZcK6',7,1);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -297,4 +271,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-01-27 15:06:51
+-- Dump completed on 2017-03-14 15:00:57

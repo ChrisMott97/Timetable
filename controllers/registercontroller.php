@@ -16,9 +16,10 @@ class RegisterController extends Controller
      */
     public static function index(){
         parent::guestOnly();
+        $admins = Users::findBy('permission', 5);
         parent::header();
         parent::navbar();
-        Flight::render('register.view.php');
+        Flight::render('register.view.php', ['admins' => $admins]);
         Flight::render('footer.view.php');
     }
 }

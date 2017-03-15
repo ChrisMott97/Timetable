@@ -1,5 +1,5 @@
 <div class="card-panel">
-    <h3>Add User</h3>
+    <h3 class="center">Add</h3>
     <div class="row">
         <div class="input-field col s6">
             <input type="text" name="firstname" class="validate" id="create_firstname" placeholder="e.g. John" autocomplete="new-password">

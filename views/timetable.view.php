@@ -7,7 +7,7 @@
         </ul>
         <div id="weeka">
             <div class="card-panel">
-                <table class="striped responsive-table">
+                <table class="responsive-table">
                     <thead>
                         <tr>
                             <th>A</th>
@@ -137,10 +137,10 @@
                 </table>
             </div>
         </div>
-            <div class="switch center">
+            <div onclick="switchState()" class="switch center">
                 <label>
                     Periods
-                    <input type="checkbox">
+                    <input id="timetableSwitch" type="checkbox">
                     <span class="lever"></span>
                     Times
                 </label>

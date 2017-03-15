@@ -14,7 +14,9 @@ class Session
     public function __construct($data = null)
     {
         if($this->lessonid){
-            $this->findSubject();
+            if (Lessons::find($this->lessonid)) {
+                $this->findSubject();
+            }
         }
     }
     public function findSubject(){

@@ -56,9 +56,10 @@ class Notifications
      */
     public static function save(Notification $notification){
         $stmt = Query::$db->prepare("INSERT INTO notifications 
-            (userid, title, description, request) 
-            VALUES(:userid, :title, :description, :request)");
-        $stmt->bindParam(':userid', $notification->userid);
+            (toid, fromid, title, description, request) 
+            VALUES(:toid, :fromid, :title, :description, :request)");
+        $stmt->bindParam(':toid', $notification->toid);
+        $stmt->bindParam(':fromid', $notification->fromid);
         $stmt->bindParam(':title', $notification->title);
         $stmt->bindParam(':description', $notification->description);
         $stmt->bindParam(':request', $notification->request);

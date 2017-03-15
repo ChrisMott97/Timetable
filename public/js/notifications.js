@@ -2,21 +2,31 @@
 function removeNotification(id){
 	$.ajax({
     type:'delete',
-    url:'/admin/notifications/'+id
+    url:'/services/notifications/'+id
     })
     .done(function(){
     	//alert(window.location.href);
-    	$(location).attr('href', window.location.href);
+    	location.reload();
     })
 }
 function createNotification(){
-	var userid = $("#userids").val();
+	var userid = $("#userid").val();
 	var title = $("#title").val();
 	var description = $("#details").val();
-	$.post("/admin/notifications", { userid : userid, title : title, description : description})
+	$.post("/services/notifications", { userid : userid, title : title, description : description})
     .done(function(){
         // alert(id);
-        $(location).attr('href', window.location.href);
+        location.reload();
     });
 }
-
+function removeNotificationUser(id){
+    $.ajax({
+    type:'delete',
+    url:'/services/notifications/'+id
+    })
+    .done(function(){
+        //alert(window.location.href);
+        location.reload();
+        $('#notification').modal('open');
+    })
+}

@@ -8,12 +8,30 @@ class LessonsController extends Controller
      * 
      * @return View 
      */
-    public static function index(){
+    public static function admin(){
         parent::routeProtect(5);
         $lessons = Lessons::findAll();
+        $users = Users::findBy('year', 0);
         parent::header();
         parent::navbar();
-        Flight::render('admin/lessons/lessons.view.php', ['lessons' => $lessons]);
+        Flight::render('admin/lessons.view.php', ['lessons' => $lessons , 'users' => $users]);
+        Flight::render('footer.view.php');
+    }
+
+    /**
+     * GET /teacher/lessons.
+     *
+     * Renders lesson management for teachers only.
+     * 
+     * @return View 
+     */
+    public static function teacher(){
+        parent::routeProtect(3);
+        $lessons = Lessons::findBy('teacher', self::$user->username);
+        $users = Users::findBy('year', 0);
+        parent::header();
+        parent::navbar();
+        Flight::render('teacher/lessons.view.php', ['lessons' => $lessons , 'users' => $users, 'teacher' => self::$user->username]);
         Flight::render('footer.view.php');
     }
     

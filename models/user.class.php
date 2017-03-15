@@ -61,7 +61,7 @@ class User
                 $_SESSION['error'] = 'Please enter a lastname!';
                 exit;
             }
-            if(!$this->year){
+            if(!$this->year && (!$this->year == 0)){
                 $_SESSION['error'] = 'Please enter a year!';
                 exit;
             }
@@ -73,7 +73,7 @@ class User
                 $_SESSION['error'] = 'Username already exists!';
                 exit;
             }
-            if(strlen($this->username)<4){
+            if(strlen($this->username)<3){
                 $_SESSION['error'] = 'Please enter a username of at least 4 characters!';
                 exit;
             }
@@ -84,6 +84,9 @@ class User
             if(strlen($this->password)<7){
                 $_SESSION['error'] = 'Please enter a password of at least 7 characters!';
                 exit;
+            }
+            if($this->year == 0){
+                $this->permission = 3;
             }
         }
 

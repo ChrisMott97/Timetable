@@ -1,5 +1,7 @@
 <div class="container">
     <div class="card-panel">
+        <?= $error; ?>
+        <br>
         From <?= $from ?> to <?= $to ?> <br>
         <?php if($output > 60){
         $minutes = floor($output/60);

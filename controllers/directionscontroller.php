@@ -73,8 +73,8 @@ class DirectionsController extends Controller
         );
 
         // command to invoke python
-        // $cmd = "\"\"".dirname(getcwd()). "\\eds-binaries\python\default\python.exe\" \"".getcwd()."\\public\python\dijkstra_final.py\"\"".PHP_EOL;
-        $cmd = "python \"".getcwd()."/public/python/dijkstra_final. py\"".PHP_EOL;
+        // $cmd = "\"\"".dirname(getcwd()). "\\eds-binaries\python\python.exe\" \"".getcwd()."\\public\python\dijkstra_final.py\"\"".PHP_EOL;
+        $cmd = "python \"".getcwd()."/public/python/dijkstra_final.py\"".PHP_EOL;
 
         // spawn the process
         $p = proc_open($cmd, $desc, $pipes);
@@ -99,7 +99,7 @@ class DirectionsController extends Controller
         // echo $output;
         parent::header();
         parent::navbar();
-        Flight::render('result.view.php',['output' => $output, 'output2' => $output2, 'buildings' => $buildingsArray, 'from' => $from, 'to' => $to]);
+        Flight::render('result.view.php',['output' => $output, 'output2' => $output2, 'error' => $error, 'buildings' => $buildingsArray, 'from' => $from, 'to' => $to]);
         Flight::render('footer.view.php');
     }
 }

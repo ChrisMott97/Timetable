@@ -13,4 +13,7 @@ body {
 	padding-bottom: 1px;
 	border-radius: 5px;
 }
+input:disabled {
+	color: black !important;
+}
 

@@ -24,7 +24,7 @@
     <div class="row">
         <div class="col s12">
             <div class="card-panel">
-                <form method="post">
+                <form method="post" action="/directions">
                     <div class="row">
                         <div class="col s6">
                             <div class="form-group">

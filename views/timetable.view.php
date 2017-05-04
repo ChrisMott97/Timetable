@@ -73,7 +73,7 @@
         </div>
         <div id="weekb">
             <div class="card-panel">
-                <table class="striped responsive-table">
+                <table class="responsive-table">
                     <thead>
                         <tr>
                             <th>B</th>

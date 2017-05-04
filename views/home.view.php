@@ -4,7 +4,12 @@
 		<p>Below is a basic map of the school.</p>
 	</div>
 	<div class="card-panel">
-		<h3 id="time" class="center-align"></h3>
+		<h3 id="time" class="center-align">
+		<?php
+			echo "Today is " . date("l") . "<br>";
+			echo date("d-m-Y");
+		?>
+		</h3>
 	</div>
 </div>
 <div class="card-panel">

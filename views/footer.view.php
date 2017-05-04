@@ -26,6 +26,6 @@
 		<script src="/public/js/timetable.js"></script>
 		<script src="/public/js/periodtimes.js"></script>
 		<script src="/public/js/timetable_update.js"></script>
-		<script src="/public/js/clock.js"></script>
+		<script src="/public/js/time.js"></script>
 	</body>
 </html>
